@@ -1,5 +1,9 @@
 package edu.wpi.first.wpilibj.templates;
 
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Solenoid;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -16,4 +20,13 @@ public class RobotMap {
     // number and the module. For example you with a rangefinder:
     // public static final int rangefinderPort = 1;
     // public static final int rangefinderModule = 1;
+    
+    /*
+    Digital Sidecar
+    */
+    
+    public static final int frontLeftMotor = 1;
+    public static final int rearLeftMotor = 2;
+    public static final int frontRightMotor = 3;
+    public static final int rearRightMotor = 4;
 }
