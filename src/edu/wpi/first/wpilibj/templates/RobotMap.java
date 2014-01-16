@@ -22,7 +22,7 @@ public class RobotMap {
     // public static final int rangefinderModule = 1;
     
     /*
-    Digital Sidecar
+    * DIGITAL SIDECAR
     */
     
     public static final int frontLeftMotor = 1;

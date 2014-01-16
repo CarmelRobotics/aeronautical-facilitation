@@ -30,6 +30,15 @@ public class DriveTrain extends Subsystem {
         RearRightTalon = new Talon(RobotMap.rearRightMotor);
     }
     
+    public static void arcadeDrive(Joystick j) {
+        //powerDriveTrain();
+        drive.arcadeDrive(j.getY(), j.getX());
+    }
+    
+    public void powerDriveTrain() {
+        
+    }
+    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
