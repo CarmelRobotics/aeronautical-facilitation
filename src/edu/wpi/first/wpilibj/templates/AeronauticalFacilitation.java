@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
+import edu.wpi.first.wpilibj.templates.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,11 +26,17 @@ import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
 public class AeronauticalFacilitation extends IterativeRobot {
 
     Command autonomousCommand;
-
+    private static DriveTrain DriveTrain;
+    
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
+   public static DriveTrain getDriveTrain() {
+       return DriveTrain;
+   }
+    
     public void robotInit() {
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
