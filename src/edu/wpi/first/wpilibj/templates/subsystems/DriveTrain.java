@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Gyro;
 
 
 /**
@@ -20,6 +21,7 @@ public class DriveTrain extends Subsystem {
     private Talon FrontRightTalon;
     private Talon RearLeftTalon;
     private Talon RearRightTalon;
+    private static Gyro gyroball;
 
     public DriveTrain() {
         super("Drive Train");
@@ -35,13 +37,33 @@ public class DriveTrain extends Subsystem {
         drive.arcadeDrive(j.getY(), j.getX());
     }
     
+    public void drive(double speed) {
+        //powerDriveTrain();
+        drive.drive(speed, 0.0);
+    }
+    
+    public RobotDrive getDrive() {
+        return drive;
+    }
+    
     public void powerDriveTrain() {
         
     }
     
+    public static Gyro getGyroball() {
+        return gyroball;
+    }
+    
+    public void disbleSafety() {
+        drive.setSafetyEnabled(false);
+    }
+    
+    public void enableSafety() {
+        drive.setSafetyEnabled(true);
+    }
+    
     public void initDefaultCommand() {
-        // Set the default command for a subsystem here.
-        //setDefaultCommand(new MySpecialCommand());
+        //super.setDefaultCommand(new StandardDrive(drive, OI.getDriveStick()));
     }
 }
 

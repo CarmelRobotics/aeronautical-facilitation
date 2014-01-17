@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj.Gyro;
 
 /**
  *
@@ -16,10 +17,12 @@ public class StandardDrive extends CommandBase {
     private Joystick joystick;
     private RobotDrive drive;
     private DriveTrain theDriveTrain;
+    private Gyro gyroball;
     
     public StandardDrive() {
         super("StandardDrive");
         theDriveTrain = AeronauticalFacilitation.getDriveTrain();
+        //gyroball = DriveTrain.getGyroball();
         requires(theDriveTrain);
         //joystick = j;
         //drive = d;
@@ -27,11 +30,14 @@ public class StandardDrive extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        //DriveTrain.getCommandLog().setCommand(this.getName());
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        //DriveTrain.powerDriveTrain();
+        //DriveTrain.getCommandLog().setInputs("" + gyroball.getAngle());
+        //DriveTrain.setMetaCommandOutputs();
+        //DriveTrain.powerDriveTrain();        
         DriveTrain.arcadeDrive(joystick);
     }
 
@@ -42,6 +48,7 @@ public class StandardDrive extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        drive.stopMotor();
     }
 
     // Called when another command which requires one or more of the same
