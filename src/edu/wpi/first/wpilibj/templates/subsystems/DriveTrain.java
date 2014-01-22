@@ -4,7 +4,6 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Gyro;
@@ -30,6 +29,8 @@ public class DriveTrain extends Subsystem {
         FrontRightTalon = new Talon(RobotMap.frontRightMotor);
         RearLeftTalon = new Talon(RobotMap.rearLeftMotor);
         RearRightTalon = new Talon(RobotMap.rearRightMotor);
+        gyroball = new Gyro(RobotMap.AnalogSidecar, RobotMap.DriveTrainGyroInput);
+        drive = new RobotDrive(FrontLeftTalon, FrontLeftTalon, RearLeftTalon, RearLeftTalon);
     }
     
     public static void arcadeDrive(Joystick j) {
@@ -47,7 +48,7 @@ public class DriveTrain extends Subsystem {
     }
     
     public void powerDriveTrain() {
-        
+  
     }
     
     public static Gyro getGyroball() {
