@@ -3,7 +3,6 @@ package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.Gyro;
@@ -17,12 +16,10 @@ public class StandardDrive extends CommandBase {
     private Joystick joystick;
     private RobotDrive drive;
     private DriveTrain theDriveTrain;
-    private Gyro gyroball;
     
     public StandardDrive(RobotDrive d, Joystick j) {
         super("StandardDrive");
         theDriveTrain = AeronauticalFacilitation.getDriveTrain();
-        gyroball = DriveTrain.getGyroball();
         requires(theDriveTrain);
         joystick = j;
         drive = d;
@@ -37,7 +34,6 @@ public class StandardDrive extends CommandBase {
     protected void execute() {
         //DriveTrain.getCommandLog().setInputs("" + gyroball.getAngle());
         //DriveTrain.setMetaCommandOutputs();
-        theDriveTrain.powerDriveTrain();
         
         theDriveTrain.arcadeDrive(joystick);
     }

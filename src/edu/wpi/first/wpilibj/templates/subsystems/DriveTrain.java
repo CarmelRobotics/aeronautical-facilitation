@@ -16,15 +16,12 @@ import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
  *
  */
 public class DriveTrain extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
+
     private static RobotDrive drive;
     private Talon FrontLeftTalon;
     private Talon FrontRightTalon;
     private Talon RearLeftTalon;
     private Talon RearRightTalon;
-    private static Gyro gyroball;
-    private Solenoid powerTakeOff;
     private Solenoid shifter;
     
     public DriveTrain() {
@@ -34,8 +31,10 @@ public class DriveTrain extends Subsystem {
         FrontRightTalon = new Talon(RobotMap.frontRightMotor);
         RearLeftTalon = new Talon(RobotMap.rearLeftMotor);
         RearRightTalon = new Talon(RobotMap.rearRightMotor);
-        gyroball = new Gyro(RobotMap.AnalogSidecar, RobotMap.DriveTrainGyroInput);
+        
         drive = new RobotDrive(FrontLeftTalon, FrontLeftTalon, RearLeftTalon, RearLeftTalon);
+        
+        shifter = new Solenoid(RobotMap.SolenoidShifter);
     }
     
     public void initDefaultCommand() {
@@ -43,12 +42,10 @@ public class DriveTrain extends Subsystem {
     }
     
     public void arcadeDrive(Joystick j) {
-        powerDriveTrain();
         drive.arcadeDrive(j.getY(), j.getX());
     }
     
     public void drive(double speed) {
-        powerDriveTrain();
         drive.drive(speed, 0.0);
     }
     
@@ -56,27 +53,19 @@ public class DriveTrain extends Subsystem {
         return drive;
     }
     
-    public void powerDriveTrain() {
-        System.out.println("Shifting the gears BRO");
-        powerTakeOff.set(RobotMap.shifterDriveTrainDirection);
-    }
-    
-    public static Gyro getGyroball() {
-        return gyroball;
-    }
     
     public void rotate(double rot) {
-        powerDriveTrain();
         drive.drive(0, rot);
     }
     
     public void shiftLowGear() {
         shifter.set(RobotMap.shifterLowGear);
+        System.out.println("Shifting to Low gear");
     }
     
     public void shiftHighGear() {
         shifter.set(RobotMap.shifterHighGear);
-        System.out.println("Shiftin Them Gears HIGH");
+        System.out.println("Shifting to High gear");
     }
             
     public void disbleSafety() {

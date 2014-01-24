@@ -51,5 +51,7 @@ public class RobotMap {
     /* 
      * SOLENOIDS
      */
-    public static final Solenoid shifter = new Solenoid(1);
+    public static final int SolenoidShifter = 1;
+    public static final boolean shifterHighGear = true;
+    public static final boolean shifterLowGear = false;
 }
