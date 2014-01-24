@@ -1,6 +1,7 @@
 package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
@@ -40,4 +41,15 @@ public class RobotMap {
     
     public static final Joystick sticky =  new Joystick(DriverJoystickNumber);
     public static final JoystickButton trigger = new JoystickButton(sticky, 1);
+
+    public static final boolean shifterDriveTrainDirection = false;
+    
+    /* 
+    * SOLENOIDS
+    */
+    public static final Solenoid shifter = new Solenoid(1);
+    public static final Solenoid powerTakeOff = new Solenoid(2);
+    
+    public static final boolean shifterLowGear = true;
+    public static final boolean shifterHighGear = false;
 }

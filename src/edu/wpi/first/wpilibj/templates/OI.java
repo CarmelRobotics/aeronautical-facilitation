@@ -56,5 +56,9 @@ public class OI {
         
         shiftLowGear = RobotMap.trigger;
     }
+    
+    public static Joystick getDriveStick() {
+        return RobotMap.sticky;
+    }
 }
 

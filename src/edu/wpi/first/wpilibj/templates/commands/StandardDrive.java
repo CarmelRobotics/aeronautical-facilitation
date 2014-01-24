@@ -19,13 +19,13 @@ public class StandardDrive extends CommandBase {
     private DriveTrain theDriveTrain;
     private Gyro gyroball;
     
-    public StandardDrive() {
+    public StandardDrive(RobotDrive d, Joystick j) {
         super("StandardDrive");
         theDriveTrain = AeronauticalFacilitation.getDriveTrain();
-        //gyroball = DriveTrain.getGyroball();
+        gyroball = DriveTrain.getGyroball();
         requires(theDriveTrain);
-        //joystick = j;
-        //drive = d;
+        joystick = j;
+        drive = d;
     }
 
     // Called just before this Command runs the first time
@@ -37,8 +37,9 @@ public class StandardDrive extends CommandBase {
     protected void execute() {
         //DriveTrain.getCommandLog().setInputs("" + gyroball.getAngle());
         //DriveTrain.setMetaCommandOutputs();
-        //DriveTrain.powerDriveTrain();        
-        DriveTrain.arcadeDrive(joystick);
+        theDriveTrain.powerDriveTrain();
+        
+        theDriveTrain.arcadeDrive(joystick);
     }
 
     // Make this return true when this Command no longer needs to run execute()
