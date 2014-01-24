@@ -7,6 +7,9 @@ import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Gyro;
+import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.templates.OI;
+import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
 
 
 /**
@@ -21,7 +24,9 @@ public class DriveTrain extends Subsystem {
     private Talon RearLeftTalon;
     private Talon RearRightTalon;
     private static Gyro gyroball;
-
+    private Solenoid powerTakeOff;
+    private Solenoid shifter;
+    
     public DriveTrain() {
         super("Drive Train");
         
@@ -33,13 +38,17 @@ public class DriveTrain extends Subsystem {
         drive = new RobotDrive(FrontLeftTalon, FrontLeftTalon, RearLeftTalon, RearLeftTalon);
     }
     
-    public static void arcadeDrive(Joystick j) {
-        //powerDriveTrain();
+    public void initDefaultCommand() {
+        super.setDefaultCommand(new StandardDrive(drive, OI.getDriveStick()));
+    }
+    
+    public void arcadeDrive(Joystick j) {
+        powerDriveTrain();
         drive.arcadeDrive(j.getY(), j.getX());
     }
     
     public void drive(double speed) {
-        //powerDriveTrain();
+        powerDriveTrain();
         drive.drive(speed, 0.0);
     }
     
@@ -48,13 +57,28 @@ public class DriveTrain extends Subsystem {
     }
     
     public void powerDriveTrain() {
-  
+        System.out.println("Shifting the gears BRO");
+        powerTakeOff.set(RobotMap.shifterDriveTrainDirection);
     }
     
     public static Gyro getGyroball() {
         return gyroball;
     }
     
+    public void rotate(double rot) {
+        powerDriveTrain();
+        drive.drive(0, rot);
+    }
+    
+    public void shiftLowGear() {
+        shifter.set(RobotMap.shifterLowGear);
+    }
+    
+    public void shiftHighGear() {
+        shifter.set(RobotMap.shifterHighGear);
+        System.out.println("Shiftin Them Gears HIGH");
+    }
+            
     public void disbleSafety() {
         drive.setSafetyEnabled(false);
     }
@@ -63,8 +87,10 @@ public class DriveTrain extends Subsystem {
         drive.setSafetyEnabled(true);
     }
     
-    public void initDefaultCommand() {
-        //super.setDefaultCommand(new StandardDrive(drive, OI.getDriveStick()));
+    public double truncate(double d) {
+        int temp = (int)(d*1000);
+        double result = (double)temp/1000;
+        return result;
     }
 }
 
