@@ -1,8 +1,7 @@
 package edu.wpi.first.wpilibj.templates;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -35,4 +34,10 @@ public class RobotMap {
     
     public static final int DriveTrainGyroInput = 1; // Gyro Analog input is on channel 1
     
+    private static boolean JoystickEnabled = true;
+    
+    public static final int DriverJoystickNumber = 1;
+    
+    public static final Joystick sticky =  new Joystick(DriverJoystickNumber);
+    public static final JoystickButton trigger = new JoystickButton(sticky, 1);
 }
