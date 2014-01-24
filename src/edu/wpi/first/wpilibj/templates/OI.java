@@ -3,6 +3,8 @@ package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.DigitalIOButton;
+import edu.wpi.first.wpilibj.templates.commands.*;
+import edu.wpi.first.wpilibj.Joystick;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -40,5 +42,19 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
+    
+    private static Button shiftLowGear;
+    private static Button launch;
+    private static Button loadBall;
+    private static Button releaseBall;
+    private static Button raiseArm;
+    private static Button lowerArm;
+    private static Button extendRoller;
+    private static Button retractRoller;
+    
+    public void initialize() {
+        
+        shiftLowGear = RobotMap.trigger;
+    }
 }
 
