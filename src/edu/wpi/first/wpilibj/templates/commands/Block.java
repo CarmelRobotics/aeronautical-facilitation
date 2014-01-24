@@ -1,12 +1,14 @@
-
 package edu.wpi.first.wpilibj.templates.commands;
 
 /**
  *
- * @author bradmiller
+ * @author Team 2035
  */
 public class Block extends CommandBase {
 
+    /**
+     *
+     */
     public Block() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);

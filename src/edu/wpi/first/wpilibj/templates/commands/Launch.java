@@ -1,16 +1,14 @@
-
 package edu.wpi.first.wpilibj.templates.commands;
-import edu.wpi.first.wpilibj.templates.OI;
-import edu.wpi.first.wpilibj.templates.RobotMap;
-import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
-
 
 /**
  *
- * @author bradmiller
+ * @author Team 2035
  */
 public class Launch extends CommandBase {
 
+    /**
+     *
+     */
     public Launch() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -22,7 +20,7 @@ public class Launch extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
