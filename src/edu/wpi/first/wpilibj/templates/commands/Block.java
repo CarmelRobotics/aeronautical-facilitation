@@ -6,11 +6,16 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
+import edu.wpi.first.wpilibj.templates.subsystems.BlockerArm;
+
 /**
  *
  * @author Team 2035
  */
 public class Block extends CommandBase {
+
+    private BlockerArm block;
 
     /**
      *
@@ -18,6 +23,10 @@ public class Block extends CommandBase {
     public Block() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        super("Block");
+        block = AeronauticalFacilitation.getBlockerArm();
+        requires(block);
+
     }
 
     // Called just before this Command runs the first time
