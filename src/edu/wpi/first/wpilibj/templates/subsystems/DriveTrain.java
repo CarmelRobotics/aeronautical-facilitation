@@ -28,11 +28,12 @@ public class DriveTrain extends Subsystem {
     private final Victor BRightMotor;
     private final Victor RollerMotor;
     private final Victor BlockerMotor;
-    private final Solenoid shifter;
-
-    /**
-     *
-     */
+    private final Solenoid GShiftSol;
+    private final Solenoid LFLaunchSol;
+    private final Solenoid RFLaunchSol;
+    private final Solenoid RollSol;
+     
+  
     public DriveTrain() {
         super("Drive Choo Choo Train");
 
@@ -45,7 +46,10 @@ public class DriveTrain extends Subsystem {
         
         drive = new RobotDrive(FLeftMotor, FRightMotor, BLeftMotor, BRightMotor);
 
-        shifter = new Solenoid(RobotMap.SolenoidShifter);
+        GShiftSol = new Solenoid(RobotMap.GShiftSol);
+        LFLaunchSol = new Solenoid(RobotMap.LFLaunchSol);
+        RollSol = new Solenoid(RobotMap.RollSol);
+        RFLaunchSol = new Solenoid(RobotMap.RFLaunchSol);
     }
 
     public void initDefaultCommand() {
@@ -88,7 +92,7 @@ public class DriveTrain extends Subsystem {
      *
      */
     public void shiftLowGear() {
-        shifter.set(RobotMap.shifterLowGear);
+        GShiftSol.set(RobotMap.shifterLowGear);
         System.out.println("Shifting to Low gear");
     }
 
@@ -96,7 +100,7 @@ public class DriveTrain extends Subsystem {
      *
      */
     public void shiftHighGear() {
-        shifter.set(RobotMap.shifterHighGear);
+       GShiftSol.set(RobotMap.shifterHighGear);
         System.out.println("Shifting to High gear");
     }
 
