@@ -4,11 +4,11 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.templates.commands.Launch;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -56,6 +56,9 @@ public class OI {
     public void initialize() {
 
         shiftLowGear = RobotMap.dButtonGearShftD;
+        launch = RobotMap.dButtonLaunch;
+
+        launch.whenPressed(new Launch());
     }
 
     /**
