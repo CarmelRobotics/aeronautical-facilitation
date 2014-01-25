@@ -25,6 +25,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
 
     Command autonomousCommand;
     private static DriveTrain DriveTrain;
+    private static Roller rollerSubsystem;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -35,6 +36,10 @@ public class AeronauticalFacilitation extends IterativeRobot {
     public static DriveTrain getDriveTrain() {
         return DriveTrain;
     }
+    
+    public static Roller getRoller() {
+        return rollerSubsystem;
+    }
 
     /**
      *
@@ -42,6 +47,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
     public void robotInit() {
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
+        rollerSubsystem = new Roller();
 
         // Initialize all subsystems
         CommandBase.init();

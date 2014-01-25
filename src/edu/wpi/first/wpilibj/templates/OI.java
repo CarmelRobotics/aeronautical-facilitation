@@ -9,6 +9,7 @@ package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.templates.commands.RaiseRoller;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -48,14 +49,17 @@ public class OI {
     private static Button raiseArm;
     private static Button lowerArm;
     private static Button extendRoller;
-    private static Button retractRoller;
+    private static Button raiseRoller;
 
     /**
      *
      */
     public void initialize() {
-
+        
         shiftLowGear = RobotMap.dButtonGearShftD;
+        raiseRoller = RobotMap.dButtonRollerBkw;
+        
+        raiseRoller.whenPressed(new RaiseRoller());
     }
 
     /**
