@@ -9,6 +9,9 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Victor;
 
+import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.templates.RobotMap;
+
 /**
  *
  * @author Team 2035
@@ -22,10 +25,16 @@ public class BlockerArm extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-        blocker = new Victor(3);
+
+        blocker = new Victor(RobotMap.BlockerMotor);
     }
 
-    public void setBlockerjaguar(double speed) {
-        blocker.set(1);
+    public void setBlockerRaise() {
+        blocker.set(1.0);
+    }
+
+    public void setBlockerLower() {
+        blocker.set(-1.0);
+
     }
 }

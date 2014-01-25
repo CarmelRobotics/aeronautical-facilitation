@@ -13,19 +13,21 @@ import edu.wpi.first.wpilibj.templates.subsystems.BlockerArm;
  *
  * @author Team 2035
  */
-public class Block extends CommandBase {
+public class BlockerDown extends CommandBase {
 
-    private BlockerArm block;
+    private BlockerArm blocker;
+    private double speed = 1.0; 
+    
 
     /**
      *
      */
-    public Block() {
+    public BlockerDown() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         super("Block");
-        block = AeronauticalFacilitation.getBlockerArm();
-        requires(block);
+        blocker = AeronauticalFacilitation.getBlockerArm();
+        requires(blocker);
 
     }
 
@@ -35,12 +37,17 @@ public class Block extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+       blocker.setBlockerRaise();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
+       
     }
+     
+
+    
 
     // Called once after isFinished returns true
     protected void end() {

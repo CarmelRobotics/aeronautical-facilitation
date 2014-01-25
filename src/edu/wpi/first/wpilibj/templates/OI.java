@@ -10,6 +10,9 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.templates.commands.Launch;
 
+import edu.wpi.first.wpilibj.templates.commands.BlockerUp;
+import edu.wpi.first.wpilibj.templates.commands.Launch;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -45,8 +48,8 @@ public class OI {
     private static Button launch;
     private static Button loadBall;
     private static Button releaseBall;
-    private static Button raiseArm;
-    private static Button lowerArm;
+    private static Button raiseBlocker;
+    private static Button lowerBlocker;
     private static Button extendRoller;
     private static Button retractRoller;
 
@@ -56,9 +59,15 @@ public class OI {
     public void initialize() {
 
         shiftLowGear = RobotMap.dButtonGearShftD;
+
         launch = RobotMap.dButtonLaunch;
+        raiseBlocker = RobotMap.dButtonBlkU;
+        lowerBlocker = RobotMap.dButtonBlkD;
 
         launch.whenPressed(new Launch());
+        raiseBlocker.whenPressed(new BlockerUp());
+        lowerBlocker.whenPressed(new BlockerUp());
+
     }
 
     /**
