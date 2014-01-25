@@ -8,10 +8,10 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
 
@@ -22,24 +22,28 @@ import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
 public class DriveTrain extends Subsystem {
 
     private static RobotDrive drive;
-    private Talon FrontLeftTalon;
-    private Talon FrontRightTalon;
-    private Talon RearLeftTalon;
-    private Talon RearRightTalon;
-    private Solenoid shifter;
+    private final Victor FLeftMotor;
+    private final Victor  BLeftMotor;
+    private final Victor  FRightMotor;
+    private final Victor BRightMotor;
+    private final Victor RollerMotor;
+    private final Victor BlockerMotor;
+    private final Solenoid shifter;
 
     /**
      *
      */
     public DriveTrain() {
-        super("Drive Train");
+        super("Drive Choo Choo Train");
 
-        FrontLeftTalon = new Talon(RobotMap.frontLeftMotor);
-        FrontRightTalon = new Talon(RobotMap.frontRightMotor);
-        RearLeftTalon = new Talon(RobotMap.rearLeftMotor);
-        RearRightTalon = new Talon(RobotMap.rearRightMotor);
-
-        drive = new RobotDrive(FrontLeftTalon, FrontLeftTalon, RearLeftTalon, RearLeftTalon);
+        FLeftMotor= new Victor(RobotMap.FLeftMotor);
+        FRightMotor = new Victor(RobotMap.FRightMotor);
+        BLeftMotor = new Victor(RobotMap.BLeftMotor);
+        BRightMotor = new Victor(RobotMap.BRightMotor);
+        RollerMotor= new Victor(RobotMap.RollerMotor);
+        BlockerMotor= new Victor(RobotMap.BlockerMotor);
+        
+        drive = new RobotDrive(FLeftMotor, FRightMotor, BLeftMotor, BRightMotor);
 
         shifter = new Solenoid(RobotMap.SolenoidShifter);
     }
