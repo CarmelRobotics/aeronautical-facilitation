@@ -4,13 +4,13 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  *
+ * @author Team 2035
  */
 public class BlockerArm extends Subsystem {
     // Put methods for controlling this subsystem
@@ -21,4 +21,3 @@ public class BlockerArm extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
 }
-

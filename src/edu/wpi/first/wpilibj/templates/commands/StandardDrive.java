@@ -4,25 +4,28 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
-import edu.wpi.first.wpilibj.Gyro;
 
 /**
  *
- * @author bradmiller
+ * @author Team 2035
  */
 public class StandardDrive extends CommandBase {
 
     private Joystick joystick;
     private RobotDrive drive;
     private DriveTrain theDriveTrain;
-    
+
+    /**
+     *
+     * @param d
+     * @param j
+     */
     public StandardDrive(RobotDrive d, Joystick j) {
         super("StandardDrive");
         theDriveTrain = AeronauticalFacilitation.getDriveTrain();
@@ -40,7 +43,7 @@ public class StandardDrive extends CommandBase {
     protected void execute() {
         //DriveTrain.getCommandLog().setInputs("" + gyroball.getAngle());
         //DriveTrain.setMetaCommandOutputs();
-        
+
         theDriveTrain.arcadeDrive(joystick);
     }
 
