@@ -25,6 +25,8 @@ public class AeronauticalFacilitation extends IterativeRobot {
 
     Command autonomousCommand;
     private static DriveTrain DriveTrain;
+    private static Launcher launchercontroller;
+    private static BlockerArm blockercontroller;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -36,12 +38,22 @@ public class AeronauticalFacilitation extends IterativeRobot {
         return DriveTrain;
     }
 
+    public static Launcher getLauncher() {
+        return launchercontroller;
+    }
+
+    public static BlockerArm getBlockerArm() {
+        return blockercontroller;
+    }
+
     /**
      *
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
+        DriveTrain = new DriveTrain();
+        launchercontroller = new Launcher();
 
         // Initialize all subsystems
         CommandBase.init();

@@ -8,6 +8,7 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.templates.RobotMap;
 
 /**
  *
@@ -17,7 +18,8 @@ public class Launcher extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    Solenoid launcher;
+    Solenoid launcherL;
+    Solenoid launcherR;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -28,14 +30,32 @@ public class Launcher extends Subsystem {
      *
      */
     public Launcher() {
-        launcher = new Solenoid(5);
+        launcherL = new Solenoid(RobotMap.LFLaunchSol);
+        launcherR = new Solenoid(RobotMap.RFLaunchSol);
     }
 
     /**
      *
-     * @param on
+     * @param value
      */
-    public void setLauncherSolenoid(boolean on) {
-        launcher.set(on);
+    public void setLauncherSolenoid(boolean value) {
+        launcherL.set(value);
+        launcherR.set(value);
+        
+    }
+    
+    public void launch() {
+        launcherL.set(true);
+        launcherR.set(true);
+    }
+    
+    public void pass() {
+        launcherL.set(true);
+        launcherR.set(false);
+    }
+    
+    public void retract() {
+        launcherL.set(false);
+        launcherR.set(false);
     }
 }
