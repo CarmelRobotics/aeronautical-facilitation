@@ -6,18 +6,29 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
+import edu.wpi.first.wpilibj.templates.subsystems.BlockerArm;
+
 /**
  *
  * @author Team 2035
  */
-public class Block extends CommandBase {
+public class BlockerUp extends CommandBase {
+
+    private BlockerArm blocker;
+    private double speed = 1.0;
 
     /**
      *
      */
-    public Block() {
+    public BlockerUp() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+
+        super("Block");
+        blocker = AeronauticalFacilitation.getBlockerArm();
+        requires(blocker);
+
     }
 
     // Called just before this Command runs the first time
@@ -26,11 +37,13 @@ public class Block extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        blocker.setBlockerRaise(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
+
     }
 
     // Called once after isFinished returns true
