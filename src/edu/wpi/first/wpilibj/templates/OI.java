@@ -8,10 +8,14 @@ package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
+<<<<<<< HEAD
 import edu.wpi.first.wpilibj.templates.commands.Launch;
 
 import edu.wpi.first.wpilibj.templates.commands.BlockerUp;
 import edu.wpi.first.wpilibj.templates.commands.Launch;
+=======
+import edu.wpi.first.wpilibj.templates.commands.RaiseRoller;
+>>>>>>> refs/remotes/origin/feature-roller
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -51,14 +55,15 @@ public class OI {
     private static Button raiseBlocker;
     private static Button lowerBlocker;
     private static Button extendRoller;
-    private static Button retractRoller;
+    private static Button raiseRoller;
 
     /**
      *
      */
     public void initialize() {
-
+        
         shiftLowGear = RobotMap.dButtonGearShftD;
+
 
         launch = RobotMap.dButtonLaunch;
         raiseBlocker = RobotMap.dButtonBlkU;
@@ -68,7 +73,10 @@ public class OI {
         raiseBlocker.whenPressed(new BlockerUp());
         lowerBlocker.whenPressed(new BlockerUp());
 
-    }
+        raiseRoller = RobotMap.dButtonRollerBkw;
+        
+        raiseRoller.whenPressed(new RaiseRoller());
+
 
     /**
      *
