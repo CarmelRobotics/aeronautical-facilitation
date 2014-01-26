@@ -7,9 +7,9 @@
 
 package edu.wpi.first.wpilibj.templates.subsystems;
 
-import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.Victor;
 
 /**
  *
@@ -27,14 +27,14 @@ public class Roller extends Subsystem {
     /**
      *
      */
-    public final Jaguar motor;
+    public final Victor motor;
 
     /**
      *
      */
     public Roller() {
-        motor = new Jaguar(1);  // TODO change number
-        piston = new Solenoid(1); // TODO change number
+        motor = new Victor(5);  // TODO change number
+        piston = new Solenoid(4); // TODO change number
     }
 
     public void initDefaultCommand() {

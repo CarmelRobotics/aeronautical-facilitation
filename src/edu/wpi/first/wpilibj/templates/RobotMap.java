@@ -102,8 +102,6 @@ public class RobotMap {
     /**
      *
      */
-    public static final int SolenoidShifter = 1;
-
     /**
      *
      */
@@ -114,13 +112,13 @@ public class RobotMap {
      */
     public static final boolean shifterLowGear = false;
     
-    public static final Solenoid GShiftSol = new Solenoid(1);
+    public static final int GShiftSol = 1;
     
-    public static final Solenoid RFLaunchSol = new Solenoid(2);
+    public static final int RFLaunchSol = 2;
     
-    public static final Solenoid LFLaunchSol = new Solenoid(3);
+    public static final int LFLaunchSol = 3;
     
-    public static final Solenoid RollSol = new Solenoid(4);
+    public static final int RollSol = 4;
     
    
   
