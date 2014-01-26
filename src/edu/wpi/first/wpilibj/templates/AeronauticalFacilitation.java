@@ -29,7 +29,6 @@ public class AeronauticalFacilitation extends IterativeRobot {
     private static BlockerArm blockercontroller;
     private static Roller rollerSubsystem;
 
-
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -39,7 +38,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
     public static DriveTrain getDriveTrain() {
         return DriveTrain;
     }
-    
+
     public static Roller getRoller() {
         return rollerSubsystem;
     }
@@ -58,12 +57,9 @@ public class AeronauticalFacilitation extends IterativeRobot {
     public void robotInit() {
         // instantiate the command used for the autonomous period
         autonomousCommand = new ExampleCommand();
-<<<<<<< HEAD
         DriveTrain = new DriveTrain();
         launchercontroller = new Launcher();
-=======
         rollerSubsystem = new Roller();
->>>>>>> refs/remotes/origin/feature-roller
 
         // Initialize all subsystems
         CommandBase.init();
