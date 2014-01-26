@@ -8,6 +8,7 @@ package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.templates.commands.BlockerDown;
 import edu.wpi.first.wpilibj.templates.commands.BlockerUp;
 import edu.wpi.first.wpilibj.templates.commands.Launch;
 import edu.wpi.first.wpilibj.templates.commands.RaiseRoller;
@@ -65,7 +66,7 @@ public class OI {
 
         launch.whenPressed(new Launch());
         raiseBlocker.whenPressed(new BlockerUp());
-        lowerBlocker.whenPressed(new BlockerUp());
+        lowerBlocker.whenPressed(new BlockerDown());
 
         raiseRoller = RobotMap.dButtonRollerBkw;
 
