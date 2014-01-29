@@ -22,10 +22,10 @@ import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
 public class DriveTrain extends Subsystem {
 
     private static RobotDrive drive;
-    private final Victor FLeftMotor;
-    private final Victor  BLeftMotor;
-    private final Victor  FRightMotor;
-    private final Victor BRightMotor;
+    public final Victor FLeftMotor;
+    public final Victor  BLeftMotor;
+    public final Victor  FRightMotor;
+    public final Victor BRightMotor;
     private final Victor RollerMotor;
     private final Victor BlockerMotor;
     private final Solenoid GShiftSol;
@@ -70,6 +70,10 @@ public class DriveTrain extends Subsystem {
      */
     public void drive(double speed) {
         drive.drive(speed, 0.0);
+    }
+    
+    public void drivetank(double speedL, double speedR) {
+        drive.tankDrive(speedL, speedR);
     }
 
     /**
