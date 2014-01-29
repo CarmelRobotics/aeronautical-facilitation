@@ -52,14 +52,20 @@ public class Autonomous extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        double tv = t.get();
+        if (tv>0.0 && tv<3.0)
+            // put stuff that the robot is going to do here
+        else if (tv>3.0 && tv<6.0)
+           //     
         drive.getDrive();
         drive.drivetank(SpeedL, SpeedR);
         
+    
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (t.get() < 15.0) {
+        if (t.get() < 10.0) {
             return true;
         }
         return false;
