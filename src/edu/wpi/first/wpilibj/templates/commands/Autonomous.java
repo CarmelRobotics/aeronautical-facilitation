@@ -6,20 +6,10 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
-//import edu.wpi.first.wpilibj.templates.OI;
-//import edu.wpi.first.wpilibj.Joystick;
-//import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
 import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
-
-
-
-
-
-
-
 
 /**
  *
@@ -30,8 +20,9 @@ public class Autonomous extends CommandBase {
     private DriveTrain drive;
     private Launcher launcher;
     private Timer t;
-    private  double SpeedL = 0.25;
-    private double SpeedR = 0.25;        
+    private double SpeedL = 0.25;
+    private double SpeedR = 0.25;
+
     /**
      *
      */
@@ -53,14 +44,16 @@ public class Autonomous extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         double tv = t.get();
-        if (tv>0.0 && tv<3.0)
+        if (tv > 0.0 && tv < 3.0)
             // put stuff that the robot is going to do here
-        else if (tv>3.0 && tv<6.0)
-           //     
+            ; // THIS IS A BLANK LINE PLACEHOLDER!
+        else if (tv > 3.0 && tv < 6.0)
+           //
+           ; // THIS IS A BLANK LINE PLACEHOLDER!
+
         drive.getDrive();
         drive.drivetank(SpeedL, SpeedR);
-        
-    
+
     }
 
     // Make this return true when this Command no longer needs to run execute()
