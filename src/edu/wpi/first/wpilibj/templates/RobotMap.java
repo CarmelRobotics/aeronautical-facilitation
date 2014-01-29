@@ -4,11 +4,9 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
@@ -34,18 +32,17 @@ public class RobotMap {
      *
      */
     public static final int FLeftMotor = 1;
-     
+
     public static final int BLeftMotor = 2;
 
     public static final int FRightMotor = 3;
 
     public static final int BRightMotor = 4;
-    
+
     public static final int RollerMotor = 5;
-    
+
     public static final int BlockerMotor = 6;
-    
-    
+
     //public static final int AnalogSidecar = 1; // Analog sidecar possibly connected to cRIO Slot 1, check later
     //public static final int DigitalSidecar = 2; // Digital possibly connected to Slot 2, check later
     //public static final int DriveTrainGyroInput = 1; // Gyro Analog input is on channel 1
@@ -111,15 +108,13 @@ public class RobotMap {
      *
      */
     public static final boolean shifterLowGear = false;
-    
+
     public static final int GShiftSol = 1;
-    
+
     public static final int RFLaunchSol = 2;
-    
+
     public static final int LFLaunchSol = 3;
-    
+
     public static final int RollSol = 4;
-    
-   
-  
+
 }

@@ -4,7 +4,6 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
 package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -34,23 +33,21 @@ public class Roller extends Subsystem {
      *
      */
     public Roller() {
-        motor = new Victor (RobotMap.RollerMotor);  // TODO change number
-        piston = new Solenoid (RobotMap.RollSol); // TODO change number
+        motor = new Victor(RobotMap.RollerMotor);  // TODO change number
+        piston = new Solenoid(RobotMap.RollSol); // TODO change number
     }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
-    
-    public void raiseRoller() {   
+
+    public void raiseRoller() {
         piston.set(true);
     }
-    
+
     public void lowerRoller() {
         piston.set(false);
     }
 
-    
-    
 }

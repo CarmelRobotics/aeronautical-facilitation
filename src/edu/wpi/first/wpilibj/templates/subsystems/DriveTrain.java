@@ -23,8 +23,8 @@ public class DriveTrain extends Subsystem {
 
     private static RobotDrive drive;
     public final Victor FLeftMotor;
-    public final Victor  BLeftMotor;
-    public final Victor  FRightMotor;
+    public final Victor BLeftMotor;
+    public final Victor FRightMotor;
     public final Victor BRightMotor;
     private final Victor RollerMotor;
     private final Victor BlockerMotor;
@@ -32,18 +32,17 @@ public class DriveTrain extends Subsystem {
     private final Solenoid LFLaunchSol;
     private final Solenoid RFLaunchSol;
     private final Solenoid RollSol;
-     
-  
+
     public DriveTrain() {
         super("Drive Choo Choo Train");
 
-        FLeftMotor= new Victor(RobotMap.FLeftMotor);
+        FLeftMotor = new Victor(RobotMap.FLeftMotor);
         FRightMotor = new Victor(RobotMap.FRightMotor);
         BLeftMotor = new Victor(RobotMap.BLeftMotor);
         BRightMotor = new Victor(RobotMap.BRightMotor);
-        RollerMotor= new Victor(RobotMap.RollerMotor);
-        BlockerMotor= new Victor(RobotMap.BlockerMotor);
-        
+        RollerMotor = new Victor(RobotMap.RollerMotor);
+        BlockerMotor = new Victor(RobotMap.BlockerMotor);
+
         drive = new RobotDrive(FLeftMotor, FRightMotor, BLeftMotor, BRightMotor);
 
         GShiftSol = new Solenoid(RobotMap.GShiftSol);
@@ -71,7 +70,7 @@ public class DriveTrain extends Subsystem {
     public void drive(double speed) {
         drive.drive(speed, 0.0);
     }
-    
+
     public void drivetank(double speedL, double speedR) {
         drive.tankDrive(speedL, speedR);
     }
@@ -104,7 +103,7 @@ public class DriveTrain extends Subsystem {
      *
      */
     public void shiftHighGear() {
-       GShiftSol.set(RobotMap.shifterHighGear);
+        GShiftSol.set(RobotMap.shifterHighGear);
         System.out.println("Shifting to High gear");
     }
 
