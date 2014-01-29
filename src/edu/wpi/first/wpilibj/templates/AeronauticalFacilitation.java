@@ -74,9 +74,8 @@ public class AeronauticalFacilitation extends IterativeRobot {
         // schedule the autonomous command (example)
         autonomousCommand.start();
         System.out.println("Entering Autonomous....");
-      
-   }
-    
+
+    }
 
     /**
      * This function is called periodically during autonomous
