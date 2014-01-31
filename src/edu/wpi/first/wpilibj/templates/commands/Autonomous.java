@@ -45,7 +45,7 @@ public class Autonomous extends CommandBase {
     protected void execute() {
         double tv = t.get();
         if (tv > 0.0 && tv < 3.0)
-            // put stuff that the robot is going to do here
+            // put stuff that the robot is going to do here TODO
             ; // THIS IS A BLANK LINE PLACEHOLDER!
         else if (tv > 3.0 && tv < 6.0)
            //
@@ -58,7 +58,7 @@ public class Autonomous extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (t.get() < 10.0) {
+        if (t.get() > 10.0) {
             return true;
         }
         return false;
