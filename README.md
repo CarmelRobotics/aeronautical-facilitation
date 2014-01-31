@@ -18,6 +18,8 @@ Reference documentation
 * [Markdown syntax][markdown]
 * [JD's vision paper][jdpaper]
 * [Git tutorial][gittutorial]
+* [Networktables protocol specification][ntspec]
+* [Networktables python implementation][ntpy]
 
 Useful websites
 ---------------
@@ -42,6 +44,9 @@ Useful websites
 [markdown]: http://daringfireball.net/projects/markdown/basics
 [jdpaper]: http://www.chiefdelphi.com/media/papers/2854
 [gittutorial]: http://try.github.io/levels/1/challenges/1
+[ntspec]: http://firstforge.wpi.edu/sf/docman/do/downloadDocument/projects.wpilib/docman.root/doc1318
+[ntpy]: https://github.com/Team3574/2013VisionCode/blob/master/src/nt_client.py
+
 
 Daily activities
 ================
