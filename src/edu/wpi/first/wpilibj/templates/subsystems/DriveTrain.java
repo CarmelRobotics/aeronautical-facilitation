@@ -14,7 +14,8 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
-
+import edu.wpi.first.wpilibj.DriverStationLCD.Line;
+import edu.wpi.first.wpilibj.DriverStationLCD;
 /**
  *
  * @author Team 2035
@@ -32,9 +33,10 @@ public class DriveTrain extends Subsystem {
     private final Solenoid LFLaunchSol;
     private final Solenoid RFLaunchSol;
     private final Solenoid RollSol;
+    private static DriverStationLCD display;
 
     public DriveTrain() {
-        super("Drive Choo Choo Train");
+        super("Drive Train");
 
         FLeftMotor = new Victor(RobotMap.FLeftMotor);
         FRightMotor = new Victor(RobotMap.FRightMotor);
@@ -96,7 +98,9 @@ public class DriveTrain extends Subsystem {
      */
     public void shiftLowGear() {
         GShiftSol.set(RobotMap.shifterLowGear);
-        System.out.println("Shifting to Low gear");
+        //System.out.println("Shifting to Low gear");
+        display.println(Line.kUser1, 1, "Into Low Gear");
+        display.updateLCD();
     }
 
     /**
@@ -104,7 +108,9 @@ public class DriveTrain extends Subsystem {
      */
     public void shiftHighGear() {
         GShiftSol.set(RobotMap.shifterHighGear);
-        System.out.println("Shifting to High gear");
+        //System.out.println("Shifting to High gear");
+        display.println(Line.kUser1, 1, "Into High Gear");
+        display.updateLCD();
     }
 
     /**
@@ -112,6 +118,8 @@ public class DriveTrain extends Subsystem {
      */
     public void disbleSafety() {
         drive.setSafetyEnabled(false);
+        display.println(Line.kUser1, 1, "Safety Disabled");
+        display.updateLCD();
     }
 
     /**
@@ -119,6 +127,8 @@ public class DriveTrain extends Subsystem {
      */
     public void enableSafety() {
         drive.setSafetyEnabled(true);
+        display.println(Line.kUser1, 1, "Safety Enabled");
+        display.updateLCD();
     }
 
     /**
