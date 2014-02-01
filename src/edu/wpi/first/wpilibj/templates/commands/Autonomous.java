@@ -23,6 +23,7 @@ public class Autonomous extends CommandBase {
     private Timer r;
     private double SpeedL = 0.25;
     private double SpeedR = 0.25;
+    private double MotorSpeed = 0.0;
 
     /**
      *
@@ -54,7 +55,8 @@ public class Autonomous extends CommandBase {
             // THIS IS A BLANK LINE PLACEHOLDER!
         } else if (tv > 3.0 && tv < 6.0) {
             launcher.launch();
-            r.start();   
+            r.start();
+            drive.drive(0.0);
         }
         if (tc >5.0) {
             launcher.retract();
