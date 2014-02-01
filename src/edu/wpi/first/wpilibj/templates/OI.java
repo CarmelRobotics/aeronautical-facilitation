@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.templates.commands.BlockerDown;
 import edu.wpi.first.wpilibj.templates.commands.BlockerUp;
 import edu.wpi.first.wpilibj.templates.commands.Launch;
 import edu.wpi.first.wpilibj.templates.commands.RaiseRoller;
+import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -50,9 +51,9 @@ public class OI {
     private static Button releaseBall;
     private static Button raiseBlocker;
     private static Button lowerBlocker;
-    private static Button extendRoller;
+    private static Button lowerRoller;
     private static Button raiseRoller;
-
+   
     /**
      *
      */
@@ -67,12 +68,17 @@ public class OI {
         launch.whenPressed(new Launch());
         raiseBlocker.whenPressed(new BlockerUp());
         lowerBlocker.whenPressed(new BlockerDown());
+      
 
-        raiseRoller = RobotMap.dButtonRollerBkw;
-
+        raiseRoller = RobotMap. ;
+        lowerRoller = RobotMap.
         raiseRoller.whenPressed(new RaiseRoller());
+        lowerRoller.whenPressed(new LowerRoller());
+        //StandardDrive.whileHeld(new StandardDrive());
+        
+        
     }
-
+   
     /**
      *
      * @return
