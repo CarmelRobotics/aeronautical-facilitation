@@ -24,9 +24,6 @@ public class Roller extends Subsystem {
      */
     public final Solenoid piston;
 
-    /**
-     *
-     */
     public final Victor motor;
 
     /**
@@ -48,6 +45,10 @@ public class Roller extends Subsystem {
 
     public void lowerRoller() {
         piston.set(false);
+    }
+    public void retrievalRoller() {
+        motor.set(1);
+        
     }
 
 }
