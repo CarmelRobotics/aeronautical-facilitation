@@ -64,15 +64,15 @@ Daily activities
 TODO 
 ====
 
-1. Add compressor object.  
-1. There are unused objects in OI.java that need to be added!
-1. Continue work on autonomous (see notes on whiteboard)
+1. Add `Compressor` object.  
+1. There are unused objects in `OI.java` that need to be added!
+1. Continue work on `Autonomous.java` (see notes on whiteboard)
 1. Work on the javadoc throughout the project!  In the menu bar, run Tools-Analyze Javadoc 
-1. BUG: BlockerUp and BlockerDown both use blocker.setBlockerRaise()
-1. Roller branch still needs work (Kat was working on this)
-1. Blocker.java uses hard coded 1.0 and -1.0 values for raise/lower.  Only one should be defined in RobotMap (and then the second one uses the negative of it)
-1. DriveTrain.java defines variables that it should not.
-1. Launcher.java uses hard coded true and false values for launch/pass/retract.  Only one should be defined in RobotMap (and the other usage should be the logical not of it).
-1. Roller.java uses hard coded true and false values for raiseRoller and lowerRoller.  Only one should be defined in RobotMap (and the other usage should be the logical not of it).
+1. BUG: `BlockerUp` and `BlockerDown` both use blocker.setBlockerRaise()
+1. Feature-Roller branch still needs work (Kat was working on this)
+1. `Blocker.java` uses hard coded 1.0 and -1.0 values for raise/lower.  Only one should be defined in RobotMap (and then the second one uses the negative of it)
+1. `DriveTrain.java` defines variables that it should not.
+1. `Launcher.java` uses hard coded true and false values for launch/pass/retract.  Only one should be defined in `RobotMap.java` (and the other usage should be the logical not of it).
+1. Roller.java uses hard coded true and false values for raiseRoller and lowerRoller.  Only one should be defined in `RobotMap.java` (and the other usage should be the logical not of it).
 1. We could make our own screen captures website of our daily workflow.
 
