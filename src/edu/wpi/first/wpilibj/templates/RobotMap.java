@@ -43,6 +43,10 @@ public class RobotMap {
 
     public static final int BlockerMotor = 6;
 
+    public static final double RaiseBlockerMotor = 1.0;
+    
+    public static final double LowerBlockerMotor = -1.0;
+    
     //public static final int AnalogSidecar = 1; // Analog sidecar possibly connected to cRIO Slot 1, check later
     //public static final int DigitalSidecar = 2; // Digital possibly connected to Slot 2, check later
     //public static final int DriveTrainGyroInput = 1; // Gyro Analog input is on channel 1
