@@ -35,7 +35,7 @@ public class DriveTrain extends Subsystem {
      
   
     public DriveTrain() {
-        super("Drive Choo Choo Train");
+        super("DriveTrain");
 
         FLeftMotor= new Victor(RobotMap.FLeftMotor);
         FRightMotor = new Victor(RobotMap.FRightMotor);
