@@ -73,9 +73,9 @@ public class DriveTrain extends Subsystem {
         drive.drive(speed, 0.0);
     }
 
-//    public void drivetank(double speedL, double speedR) {
-//        drive.tankDrive(speedL, speedR);
-//    }
+    public void drivetank(double speedL, double speedR) {
+        drive.tankDrive(speedL, speedR);
+    }
 
     /**
      *
