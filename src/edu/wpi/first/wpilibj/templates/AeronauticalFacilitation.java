@@ -7,12 +7,15 @@
 package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.templates.commands.Autonomous;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
-import edu.wpi.first.wpilibj.templates.commands.ExampleCommand;
 import edu.wpi.first.wpilibj.templates.subsystems.*;
+import edu.wpi.first.wpilibj.DriverStationLCD.Line;
+import edu.wpi.first.wpilibj.DriverStationLCD;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -28,6 +31,8 @@ public class AeronauticalFacilitation extends IterativeRobot {
     private static Launcher launchercontroller;
     private static BlockerArm blockercontroller;
     private static Roller rollerSubsystem;
+    Timer t;
+    private static DriverStationLCD display;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -56,7 +61,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
+        autonomousCommand = new Autonomous();
         DriveTrain = new DriveTrain();
         launchercontroller = new Launcher();
         rollerSubsystem = new Roller();
@@ -71,6 +76,10 @@ public class AeronauticalFacilitation extends IterativeRobot {
     public void autonomousInit() {
         // schedule the autonomous command (example)
         autonomousCommand.start();
+        //System.out.println("Entering Autonomous....");
+        display.println(Line.kUser1, 1, "Autonomous");
+        display.updateLCD();
+
     }
 
     /**

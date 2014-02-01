@@ -14,7 +14,8 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
-
+import edu.wpi.first.wpilibj.DriverStationLCD.Line;
+import edu.wpi.first.wpilibj.DriverStationLCD;
 /**
  *
  * @author Team 2035
@@ -22,34 +23,34 @@ import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
 public class DriveTrain extends Subsystem {
 
     private static RobotDrive drive;
-    private final Victor FLeftMotor;
-    private final Victor  BLeftMotor;
-    private final Victor  FRightMotor;
-    private final Victor BRightMotor;
-    private final Victor RollerMotor;
-    private final Victor BlockerMotor;
+    public final Victor FLeftMotor;
+    public final Victor BLeftMotor;
+    public final Victor FRightMotor;
+    public final Victor BRightMotor;
+    //private final Victor RollerMotor;
+    //private final Victor BlockerMotor;
     private final Solenoid GShiftSol;
-    private final Solenoid LFLaunchSol;
-    private final Solenoid RFLaunchSol;
-    private final Solenoid RollSol;
-     
-  
-    public DriveTrain() {
-        super("Drive Choo Choo Train");
+    //private final Solenoid LFLaunchSol;
+   //private final Solenoid RFLaunchSol;
+    //private final Solenoid RollSol;
+    private static DriverStationLCD display;
 
-        FLeftMotor= new Victor(RobotMap.FLeftMotor);
+    public DriveTrain() {
+        super("Drive Train");
+
+        FLeftMotor = new Victor(RobotMap.FLeftMotor);
         FRightMotor = new Victor(RobotMap.FRightMotor);
         BLeftMotor = new Victor(RobotMap.BLeftMotor);
         BRightMotor = new Victor(RobotMap.BRightMotor);
-        RollerMotor= new Victor(RobotMap.RollerMotor);
-        BlockerMotor= new Victor(RobotMap.BlockerMotor);
-        
+        //RollerMotor = new Victor(RobotMap.RollerMotor);
+        //BlockerMotor = new Victor(RobotMap.BlockerMotor);
+
         drive = new RobotDrive(FLeftMotor, FRightMotor, BLeftMotor, BRightMotor);
 
         GShiftSol = new Solenoid(RobotMap.GShiftSol);
-        LFLaunchSol = new Solenoid(RobotMap.LFLaunchSol);
-        RollSol = new Solenoid(RobotMap.RollSol);
-        RFLaunchSol = new Solenoid(RobotMap.RFLaunchSol);
+        //LFLaunchSol = new Solenoid(RobotMap.LFLaunchSol);
+        //RollSol = new Solenoid(RobotMap.RollSol);
+        //RFLaunchSol = new Solenoid(RobotMap.RFLaunchSol);
     }
 
     public void initDefaultCommand() {
@@ -70,6 +71,10 @@ public class DriveTrain extends Subsystem {
      */
     public void drive(double speed) {
         drive.drive(speed, 0.0);
+    }
+
+    public void drivetank(double speedL, double speedR) {
+        drive.tankDrive(speedL, speedR);
     }
 
     /**
@@ -93,15 +98,19 @@ public class DriveTrain extends Subsystem {
      */
     public void shiftLowGear() {
         GShiftSol.set(RobotMap.shifterLowGear);
-        System.out.println("Shifting to Low gear");
+        //System.out.println("Shifting to Low gear");
+        display.println(Line.kUser1, 1, "Into Low Gear");
+        display.updateLCD();
     }
 
     /**
      *
      */
     public void shiftHighGear() {
-       GShiftSol.set(RobotMap.shifterHighGear);
-        System.out.println("Shifting to High gear");
+        GShiftSol.set(RobotMap.shifterHighGear);
+        //System.out.println("Shifting to High gear");
+        display.println(Line.kUser1, 1, "Into High Gear");
+        display.updateLCD();
     }
 
     /**
@@ -109,6 +118,8 @@ public class DriveTrain extends Subsystem {
      */
     public void disbleSafety() {
         drive.setSafetyEnabled(false);
+        display.println(Line.kUser1, 1, "Safety Disabled");
+        display.updateLCD();
     }
 
     /**
@@ -116,6 +127,8 @@ public class DriveTrain extends Subsystem {
      */
     public void enableSafety() {
         drive.setSafetyEnabled(true);
+        display.println(Line.kUser1, 1, "Safety Enabled");
+        display.updateLCD();
     }
 
     /**

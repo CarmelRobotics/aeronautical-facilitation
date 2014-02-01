@@ -41,19 +41,19 @@ public class Launcher extends Subsystem {
     public void setLauncherSolenoid(boolean value) {
         launcherL.set(value);
         launcherR.set(value);
-        
+
     }
-    
+
     public void launch() {
         launcherL.set(true);
         launcherR.set(true);
     }
-    
+
     public void pass() {
         launcherL.set(true);
         launcherR.set(false);
     }
-    
+
     public void retract() {
         launcherL.set(false);
         launcherR.set(false);

@@ -16,8 +16,7 @@ import edu.wpi.first.wpilibj.templates.subsystems.BlockerArm;
 public class BlockerDown extends CommandBase {
 
     private BlockerArm blocker;
-    private double speed = 1.0; 
-    
+    private double speed = 1.0;
 
     /**
      *
@@ -37,17 +36,14 @@ public class BlockerDown extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-       blocker.setBlockerRaise();
+        blocker.setBlockerRaise();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         return false;
-       
-    }
-     
 
-    
+    }
 
     // Called once after isFinished returns true
     protected void end() {

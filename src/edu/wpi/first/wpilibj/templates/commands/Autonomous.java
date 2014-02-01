@@ -6,29 +6,31 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
-//import edu.wpi.first.wpilibj.templates.OI;
-//import edu.wpi.first.wpilibj.Joystick;
-//import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
+import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
+import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
 
 /**
  *
  * @author Team 2035
  */
-public class Launch extends CommandBase {
+public class Autonomous extends CommandBase {
 
+    private DriveTrain drive;
     private Launcher launcher;
     private Timer t;
+    private double SpeedL = 0.25;
+    private double SpeedR = 0.25;
 
     /**
      *
      */
-    public Launch() {
-        super("Launch");
+    public Autonomous() {
+        super("drive");
+        drive = AeronauticalFacilitation.getDriveTrain();
         launcher = AeronauticalFacilitation.getLauncher();
-        requires(launcher);
+        requires(drive);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -41,13 +43,22 @@ public class Launch extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        launcher.launch();
+        double tv = t.get();
+        if (tv > 0.0 && tv < 3.0)
+            // put stuff that the robot is going to do here TODO
+            ; // THIS IS A BLANK LINE PLACEHOLDER!
+        else if (tv > 3.0 && tv < 6.0)
+           //
+           ; // THIS IS A BLANK LINE PLACEHOLDER!
+
+        drive.getDrive();
+        drive.drivetank(SpeedL, SpeedR);
 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (t.get() > 5.0) {
+        if (t.get() > 10.0) {
             return true;
         }
         return false;
@@ -55,7 +66,7 @@ public class Launch extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
-        launcher.retract();
+
     }
 
     // Called when another command which requires one or more of the same
