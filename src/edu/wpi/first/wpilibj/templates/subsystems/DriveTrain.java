@@ -36,7 +36,7 @@ public class DriveTrain extends Subsystem {
     private static DriverStationLCD display;
 
     public DriveTrain() {
-        super("Drive Train");
+        super("DriveTrain");
 
         FLeftMotor = new Victor(RobotMap.FLeftMotor);
         FRightMotor = new Victor(RobotMap.FRightMotor);
