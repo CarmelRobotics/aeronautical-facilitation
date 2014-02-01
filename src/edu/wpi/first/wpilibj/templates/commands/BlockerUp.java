@@ -39,7 +39,7 @@ public class BlockerUp extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        blocker.setBlockerLower();
+        blocker.setBlockerRaise();
     }
 
     // Make this return true when this Command nol onger needs to run execute()
