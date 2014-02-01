@@ -73,6 +73,6 @@ TODO
 1. `Blocker.java` uses hard coded 1.0 and -1.0 values for raise/lower.  Only one should be defined in RobotMap (and then the second one uses the negative of it)
 1. `DriveTrain.java` defines variables that it should not.
 1. `Launcher.java` uses hard coded true and false values for launch/pass/retract.  Only one should be defined in `RobotMap.java` (and the other usage should be the logical not of it).
-1. Roller.java uses hard coded true and false values for raiseRoller and lowerRoller.  Only one should be defined in `RobotMap.java` (and the other usage should be the logical not of it).
+1. `Roller.java` uses hard coded true and false values for raiseRoller and lowerRoller.  Only one should be defined in `RobotMap.java` (and the other usage should be the logical not of it).
 1. We could make our own screen captures website of our daily workflow.
 
