@@ -85,22 +85,28 @@ public class RobotMap {
      *
      */
     public static final JoystickButton dButtonRollerFwd = new JoystickButton(dStick, 4);
+    public static final JoystickButton dButtonRollerLoad = new JoystickButton(dStick, 5);
 
     /**
      *
      */
-    public static final JoystickButton dButtonRollerBkw = new JoystickButton(dStick, 5);
+    public static final JoystickButton dButtonRollerRelease = new JoystickButton(dStick, 6);
 
     /**
      *
      */
-    public static final JoystickButton dButtonGearShftU = new JoystickButton(dStick, 6);
+    public static final JoystickButton dButtonGearShftU = new JoystickButton(dStick, 7);
 
     /**
      *
      */
-    public static final JoystickButton dButtonGearShftD = new JoystickButton(dStick, 7);
+    public static final JoystickButton dButtonGearShftD = new JoystickButton(dStick, 8);
 
+    public static final JoystickButton dButtonPass = new JoystickButton(dStick, 9);
+    
+    public static final JoystickButton dButtonLowerRoll = new JoystickButton(dStick, 10);
+    
+    public static final JoystickButton dButtonRaiseRoll = new JoystickButton(dStick, 11);
     //public static final boolean shifterDriveTrainDirection = false;
     /* 
      * SOLENOIDS
