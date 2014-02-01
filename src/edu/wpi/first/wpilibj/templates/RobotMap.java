@@ -75,7 +75,7 @@ public class RobotMap {
     /**
      *
      */
-    public static final JoystickButton dButtonRollerSux = new JoystickButton(dStick, 4);
+    public static final JoystickButton dButtonRollerFwd = new JoystickButton(dStick, 4);
 
     /**
      *

@@ -36,8 +36,9 @@ public class AeronauticalFacilitation extends IterativeRobot {
 
     /**
      * This function is run when the robot is first started up and should be
-     * used for any initialization code.
-     *
+     * used for any initialization code. 
+     * This declares all of the hardware on the robot that will be used in the
+     * javadoc.
      * @return
      */
     public static DriveTrain getDriveTrain() {
@@ -55,7 +56,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
     public static BlockerArm getBlockerArm() {
         return blockercontroller;
     }
-
+     
     /**
      *
      */
@@ -66,7 +67,8 @@ public class AeronauticalFacilitation extends IterativeRobot {
         launchercontroller = new Launcher();
         rollerSubsystem = new Roller();
 
-        // Initialize all subsystems
+        // Initialize all subsystems.
+        // Subsystems: a self-contained system within a larger system. 
         CommandBase.init();
     }
 
@@ -75,6 +77,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
      */
     public void autonomousInit() {
         // schedule the autonomous command (example)
+        // 
         autonomousCommand.start();
         //System.out.println("Entering Autonomous....");
         display.println(Line.kUser1, 1, "Autonomous");
@@ -83,7 +86,8 @@ public class AeronauticalFacilitation extends IterativeRobot {
     }
 
     /**
-     * This function is called periodically during autonomous
+     * This function is called periodically (at regular intervals of time) 
+     * during autonomous period.
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
