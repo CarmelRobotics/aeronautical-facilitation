@@ -24,6 +24,7 @@ public class Autonomous extends CommandBase {
     private double SpeedL = 0.25;
     private double SpeedR = 0.25;
     private double MotorSpeed = 0.0;
+    private double t2;
 
     /**
      *
@@ -40,14 +41,14 @@ public class Autonomous extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
         t = new Timer();
-        r = new Timer();
+        //r = new Timer();
         t.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         double tv = t.get();
-        double tc = r.get();
+        //double tc = r.get();
         if (tv > 0.0 && tv < 3.0) {
             drive.getDrive();
             drive.drivetank(SpeedL, SpeedR);
@@ -55,10 +56,11 @@ public class Autonomous extends CommandBase {
             // THIS IS A BLANK LINE PLACEHOLDER!
         } else if (tv > 3.0 && tv < 6.0) {
             launcher.launch();
-            r.start();
-            drive.drive(0.0);
+            double t2 = t.get();
+            //r.start();
+            drive.drivetank(MotorSpeed, MotorSpeed);
         }
-        if (tc >5.0) {
+        if (tv > t2 + 5.0) {
             launcher.retract();
         }
         
