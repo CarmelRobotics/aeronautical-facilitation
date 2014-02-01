@@ -11,6 +11,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.templates.commands.BlockerDown;
 import edu.wpi.first.wpilibj.templates.commands.BlockerUp;
 import edu.wpi.first.wpilibj.templates.commands.Launch;
+import edu.wpi.first.wpilibj.templates.commands.LowerRoller;
+import edu.wpi.first.wpilibj.templates.commands.Pass;
 import edu.wpi.first.wpilibj.templates.commands.RaiseRoller;
 
 /**
@@ -46,13 +48,13 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
     private static Button shiftLowGear;
     private static Button launch;
-    private static Button loadBall;
-    private static Button releaseBall;
+    private static Button LoadBall;
+    private static Button ReleaseBall;
     private static Button raiseBlocker;
     private static Button lowerBlocker;
-    private static Button extendRoller;
     private static Button raiseRoller;
-
+    private static Button lowerRoller;
+    private static Button Pass;
     /**
      *
      */
@@ -61,16 +63,20 @@ public class OI {
         shiftLowGear = RobotMap.dButtonGearShftD;
 
         launch = RobotMap.dButtonLaunch;
+        Pass = RobotMap.dButtonPass;
+        launch.whenPressed(new Launch());
+        Pass.whenPressed(new Pass());
+        
         raiseBlocker = RobotMap.dButtonBlkU;
         lowerBlocker = RobotMap.dButtonBlkD;
-
-        launch.whenPressed(new Launch());
         raiseBlocker.whenPressed(new BlockerUp());
         lowerBlocker.whenPressed(new BlockerDown());
 
-        raiseRoller = RobotMap.dButtonRollerBkw;
-
+        
+        raiseRoller = RobotMap.dButtonRaiseRoll;
+        lowerRoller = RobotMap.dButtonLowerRoll;
         raiseRoller.whenPressed(new RaiseRoller());
+        lowerRoller.whenPressed(new LowerRoller());
     }
 
     /**
