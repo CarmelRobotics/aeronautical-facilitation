@@ -125,5 +125,17 @@ public class RobotMap {
     public static final int LFLaunchSol = 3;
 
     public static final int RollSol = 4;
+    
+    public static final boolean launchValve1 = true;
+    
+    public static final boolean launchValve2= true;
+    
+    public static final boolean passValve1 = true;
+    
+    public static final boolean passValve2 = false;
+    
+    public static final boolean retractValve1 = false;
+    
+    public static final boolean retractValve2 = false;
 
 }

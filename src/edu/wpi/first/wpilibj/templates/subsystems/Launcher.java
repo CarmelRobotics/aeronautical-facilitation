@@ -49,17 +49,17 @@ public class Launcher extends Subsystem {
     }
 
     public void launch() {
-        launcherL.set(true);
-        launcherR.set(true);
+        launcherL.set(RobotMap.launchValve1);
+        launcherR.set(RobotMap.launchValve2);
     }
 
     public void pass() {
-        launcherL.set(true);
-        launcherR.set(false);
+        launcherL.set(RobotMap.passValve1);
+        launcherR.set(RobotMap.passValve2);
     }
 
     public void retract() {
-        launcherL.set(false);
-        launcherR.set(false);
+        launcherL.set(RobotMap.retractValve1);
+        launcherR.set(RobotMap.retractValve2);
     }
 }
