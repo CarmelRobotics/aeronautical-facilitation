@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.templates.commands.BlockerDown;
 import edu.wpi.first.wpilibj.templates.commands.BlockerUp;
 import edu.wpi.first.wpilibj.templates.commands.Launch;
+import edu.wpi.first.wpilibj.templates.commands.LowerRoller;
 import edu.wpi.first.wpilibj.templates.commands.RaiseRoller;
-import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -68,10 +68,10 @@ public class OI {
         launch.whenPressed(new Launch());
         raiseBlocker.whenPressed(new BlockerUp());
         lowerBlocker.whenPressed(new BlockerDown());
-      
+        
 
-        raiseRoller = RobotMap. ;
-        lowerRoller = RobotMap.
+        raiseRoller = RobotMap.dButtonRollerBkw;
+        lowerRoller = RobotMap.dButtonRollerFwd;
         raiseRoller.whenPressed(new RaiseRoller());
         lowerRoller.whenPressed(new LowerRoller());
         //StandardDrive.whileHeld(new StandardDrive());
