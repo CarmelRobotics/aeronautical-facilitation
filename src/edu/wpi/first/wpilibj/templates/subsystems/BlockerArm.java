@@ -28,11 +28,11 @@ public class BlockerArm extends Subsystem {
     }
 
     public void setBlockerRaise() {
-        blocker.set(1.0);
+        blocker.set(RobotMap.RaiseBlockerMotor);
     }
 
     public void setBlockerLower() {
-        blocker.set(-1.0);
+        blocker.set(RobotMap.LowerBlockerMotor);
 
     }
 }
