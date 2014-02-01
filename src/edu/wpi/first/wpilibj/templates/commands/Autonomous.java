@@ -20,8 +20,11 @@ public class Autonomous extends CommandBase {
     private DriveTrain drive;
     private Launcher launcher;
     private Timer t;
+    private Timer r;
     private double SpeedL = 0.25;
     private double SpeedR = 0.25;
+    private double MotorSpeed = 0.0;
+    private double t2;
 
     /**
      *
@@ -38,23 +41,36 @@ public class Autonomous extends CommandBase {
     // Called just before this Command runs the first time
     protected void initialize() {
         t = new Timer();
+        //r = new Timer();
         t.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         double tv = t.get();
-        if (tv > 0.0 && tv < 3.0)
+        //double tc = r.get();
+        if (tv > 0.0 && tv < 3.0) {
+            drive.getDrive();
+            drive.drivetank(SpeedL, SpeedR);
             // put stuff that the robot is going to do here TODO
-            ; // THIS IS A BLANK LINE PLACEHOLDER!
-        else if (tv > 3.0 && tv < 6.0)
+            // THIS IS A BLANK LINE PLACEHOLDER!
+        } else if (tv > 3.0 && tv < 6.0) {
+            launcher.launch();
+            double t2 = t.get();
+            //r.start();
+            drive.drivetank(MotorSpeed, MotorSpeed);
+        }
+        if (tv > t2 + 5.0) {
+            launcher.retract();
+        }
+        
            //
-           ; // THIS IS A BLANK LINE PLACEHOLDER!
+        // THIS IS A BLANK LINE PLACEHOLDER!
 
-        drive.getDrive();
-        drive.drivetank(SpeedL, SpeedR);
-
+//        drive.getDrive();
+//        drive.drivetank(SpeedL, SpeedR);
     }
+    
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
