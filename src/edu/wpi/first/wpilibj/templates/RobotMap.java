@@ -42,6 +42,11 @@ public class RobotMap {
     public static final int RollerMotor = 5;
 
     public static final int BlockerMotor = 6;
+    
+    /** The pressure switch that provides feedback to the compressor to turn off when the system reaches 60 PSI. */
+    public static final int pressureSwitch = 13;// fake port. Find real port number
+    /** The compressor is connected to the Digital SideCar Relay */
+    public static final int compressorRelay = 6;//Also fake port.
 
     public static final double RaiseBlockerMotor = 1.0;
     
@@ -52,7 +57,7 @@ public class RobotMap {
     //public static final int DriveTrainGyroInput = 1; // Gyro Analog input is on channel 1
     //private static boolean JoystickEnabled = true;
     /**
-     *
+     *Joystick objects for driver joystick
      */
     public static final int DriverJoystickNumber = 1;
 

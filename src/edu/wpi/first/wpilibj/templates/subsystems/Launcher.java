@@ -9,7 +9,7 @@ package edu.wpi.first.wpilibj.templates.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.templates.RobotMap;
-
+import edu.wpi.first.wpilibj.Compressor;
 /**
  *
  * @author Team 2035
@@ -20,6 +20,7 @@ public class Launcher extends Subsystem {
     // here. Call these from Commands.
     Solenoid launcherL;
     Solenoid launcherR;
+    Compressor compress;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -32,7 +33,10 @@ public class Launcher extends Subsystem {
     public Launcher() {
         launcherL = new Solenoid(RobotMap.LFLaunchSol);
         launcherR = new Solenoid(RobotMap.RFLaunchSol);
+        compress = new Compressor(RobotMap.pressureSwitch, RobotMap.compressorRelay);
+        compress.start();
     }
+    
 
     /**
      *
