@@ -10,12 +10,12 @@ package edu.wpi.first.wpilibj.templates.commands;
  *
  * @author Team 2035
  */
-public class Roll extends CommandBase {
+public class RetirievalRoller extends CommandBase {
 
     /**
      *
      */
-    public Roll() {
+    public RetirievalRoller() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
