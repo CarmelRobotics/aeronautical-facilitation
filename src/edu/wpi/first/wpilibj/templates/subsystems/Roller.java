@@ -24,13 +24,13 @@ public class Roller extends Subsystem {
      */
     public final Solenoid piston;
 
-    public final Victor motor;
+    public final Victor rollermotor;
 
     /**
      *
      */
     public Roller() {
-        motor = new Victor(RobotMap.RollerMotor);  // TODO change number
+        rollermotor = new Victor(RobotMap.RollerMotor);  // TODO change number
         piston = new Solenoid(RobotMap.RollSol); // TODO change number
     }
 
@@ -47,8 +47,19 @@ public class Roller extends Subsystem {
         piston.set(false);
     }
     public void retrievalRoller() {
-        motor.set(1);
+        rollermotor.set(1);
         
     }
+    public void setRolleroff() {
+        rollermotor.set(0);
+    }
+    
+    public void setRolleron() {
+        rollermotor.set(0.75);
+    }
+    public void setRollerOuton() {
+        rollermotor.set(-0.75);
+    }
+    
 
 }

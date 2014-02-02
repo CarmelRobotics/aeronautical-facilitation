@@ -62,11 +62,16 @@ public class AeronauticalFacilitation extends IterativeRobot {
      */
     public void robotInit() {
         // instantiate the command used for the autonomous period
-        autonomousCommand = new Autonomous();
         DriveTrain = new DriveTrain();
         launchercontroller = new Launcher();
         rollerSubsystem = new Roller();
+        blockercontroller = new BlockerArm();
+        display = DriverStationLCD.getInstance();
+        
+        OI.initialize();
 
+        autonomousCommand = new Autonomous();
+        
         // Initialize all subsystems.
         // Subsystems: a self-contained system within a larger system. 
         CommandBase.init();
