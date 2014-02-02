@@ -6,9 +6,9 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.subsystems;
 
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 
 /**
@@ -24,13 +24,13 @@ public class Roller extends Subsystem {
      */
     public final Solenoid piston;
 
-    public final Victor rollermotor;
+    public final Relay rollermotor;
 
     /**
      *
      */
     public Roller() {
-        rollermotor = new Victor(RobotMap.RollerMotor);  // TODO change number
+        rollermotor = new Relay (RobotMap.RollerMotor);  // TODO change number
         piston = new Solenoid(RobotMap.RollSol); // TODO change number
     }
 
