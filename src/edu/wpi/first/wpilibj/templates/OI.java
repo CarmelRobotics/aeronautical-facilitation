@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.templates.commands.Launch;
 import edu.wpi.first.wpilibj.templates.commands.LowerRoller;
 import edu.wpi.first.wpilibj.templates.commands.Pass;
 import edu.wpi.first.wpilibj.templates.commands.RaiseRoller;
+import edu.wpi.first.wpilibj.templates.commands.RetrievalRoller;
+import edu.wpi.first.wpilibj.templates.commands.SpitoutRoller;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -55,10 +57,12 @@ public class OI {
     private static Button lowerRoller;
     private static Button raiseRoller;
     private static Button Pass;
+    private static Button retrieve;
+    private static Button spitout;
     /**
      *
      */
-    public void initialize() {
+    public static void initialize() {
 
         shiftLowGear = RobotMap.dButtonGearShftD;
 
@@ -69,14 +73,23 @@ public class OI {
         
         raiseBlocker = RobotMap.dButtonBlkU;
         lowerBlocker = RobotMap.dButtonBlkD;
-        raiseBlocker.whenPressed(new BlockerUp());
-        lowerBlocker.whenPressed(new BlockerDown());
+        raiseBlocker.whileHeld(new BlockerUp());
+        lowerBlocker.whileHeld(new BlockerDown());
         
              
         raiseRoller = RobotMap.dButtonRaiseRoll;
         lowerRoller = RobotMap.dButtonLowerRoll;
         raiseRoller.whenPressed(new RaiseRoller());
         lowerRoller.whenPressed(new LowerRoller());
+        
+         retrieve = RobotMap.dButtonRetrieve;
+         retrieve.whileHeld(new RetrievalRoller());
+         
+         spitout = RobotMap.dButtonOut;
+         spitout.whileHeld(new SpitoutRoller());
+         
+       
+        
     }
    
     /**

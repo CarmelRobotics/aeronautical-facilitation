@@ -7,30 +7,26 @@
 package edu.wpi.first.wpilibj.templates.commands;
 
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
-import edu.wpi.first.wpilibj.templates.subsystems.BlockerArm;
+import edu.wpi.first.wpilibj.templates.subsystems.Roller;
 
 /**
  *
  * @author Team 2035
  */
-public class BlockerUp extends CommandBase {
+public class SpitoutRoller extends CommandBase {
 
-    private BlockerArm blocker;
-    private double speed = 1.0;
-
-    private BlockerArm block;
+    private Roller r;
 
     /**
      *
-     * 
      */
-    public BlockerUp() {
+    public SpitoutRoller() {
+
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        super("Block");
-        blocker = AeronauticalFacilitation.getBlockerArm();
-        requires(blocker);
-
+        super("roll forward");
+        r = AeronauticalFacilitation.getRoller();
+        requires(r);
     }
 
     // Called just before this Command runs the first time
@@ -39,23 +35,25 @@ public class BlockerUp extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        blocker.setBlockerRaise();
+        r.setRollerOuton();
+
     }
 
-    // Make this return true when this Command nol onger needs to run execute()
+    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
 
+        return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        blocker.setBlockeroff();
+
+        r.setRolleroff();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        blocker.setBlockeroff();
+        r.setRolleroff();
     }
 }

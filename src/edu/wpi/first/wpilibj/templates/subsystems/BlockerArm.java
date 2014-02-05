@@ -19,12 +19,15 @@ public class BlockerArm extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     Victor blocker;
+    
+    public BlockerArm() {
+        blocker = new Victor(RobotMap.BlockerMotor);
+    }
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
 
-        blocker = new Victor(RobotMap.BlockerMotor);
     }
 
     public void setBlockerRaise() {
@@ -34,5 +37,9 @@ public class BlockerArm extends Subsystem {
     public void setBlockerLower() {
         blocker.set(RobotMap.LowerBlockerMotor);
 
+    }
+    
+    public void setBlockeroff() {
+        blocker.set(0.0);
     }
 }

@@ -52,6 +52,9 @@ public class RobotMap {
     
     public static final double LowerBlockerMotor = -1.0;
     
+    public static final double retrieveMotor = 1.0;
+    
+    
     //public static final int AnalogSidecar = 1; // Analog sidecar possibly connected to cRIO Slot 1, check later
     //public static final int DigitalSidecar = 2; // Digital possibly connected to Slot 2, check later
     //public static final int DriveTrainGyroInput = 1; // Gyro Analog input is on channel 1
@@ -65,6 +68,7 @@ public class RobotMap {
      *
      */
     public static final Joystick dStick = new Joystick(DriverJoystickNumber);
+    public static final Joystick dStickII = new Joystick(2);
 
     /**
      *
@@ -107,6 +111,10 @@ public class RobotMap {
     public static final JoystickButton dButtonLowerRoll = new JoystickButton(dStick, 10);
     
     public static final JoystickButton dButtonRaiseRoll = new JoystickButton(dStick, 11);
+    
+    public static final JoystickButton dButtonRetrieve = new JoystickButton(dStickII, 3);
+    
+    public static final JoystickButton dButtonOut = new JoystickButton(dStickII, 4);
     //public static final boolean shifterDriveTrainDirection = false;
     /* 
      * SOLENOIDS
