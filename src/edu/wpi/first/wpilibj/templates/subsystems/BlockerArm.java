@@ -6,8 +6,8 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.subsystems;
 
+import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.templates.RobotMap;
 
 /**
@@ -18,10 +18,10 @@ public class BlockerArm extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    Victor blocker;
+    Relay blocker;
     
     public BlockerArm() {
-        blocker = new Victor(RobotMap.BlockerMotor);
+        blocker = new Relay(RobotMap.BlockerMotor);
     }
 
     public void initDefaultCommand() {
@@ -31,15 +31,15 @@ public class BlockerArm extends Subsystem {
     }
 
     public void setBlockerRaise() {
-        blocker.set(RobotMap.RaiseBlockerMotor);
+        blocker.set(Relay.Value.kForward);
     }
 
     public void setBlockerLower() {
-        blocker.set(RobotMap.LowerBlockerMotor);
+        blocker.set(Relay.Value.kReverse);
 
     }
     
     public void setBlockeroff() {
-        blocker.set(0.0);
+        blocker.set(Relay.Value.kOff);
     }
 }
