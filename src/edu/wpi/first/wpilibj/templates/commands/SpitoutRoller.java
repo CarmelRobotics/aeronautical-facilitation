@@ -35,7 +35,7 @@ public class SpitoutRoller extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        r.setRollerOuton();
+        r.setRelease();
 
     }
 
