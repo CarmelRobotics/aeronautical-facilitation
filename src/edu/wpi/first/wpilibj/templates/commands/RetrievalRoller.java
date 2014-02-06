@@ -38,7 +38,7 @@ public class RetrievalRoller extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        r.setRolleron();
+        r.setretrievalRoller();
 
     }
 
