@@ -46,7 +46,7 @@ public class Roller extends Subsystem {
     public void lowerRoller() {
         piston.set(false);
     }
-     public void retrievalRoller() {
+     public void setretrievalRoller() {
         rollermotor.set(RobotMap.retrieveMotor);
         
     }
