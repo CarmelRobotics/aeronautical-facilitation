@@ -53,14 +53,15 @@ public class RobotMap {
     
     public static final double LowerBlockerMotor = -1.0;
     
+
     
-    public static final Relay.Value retrieveMotor = Relay.Value.kForward;
+    /*public static final Relay.Value retrieveMotor = Relay.Value.kForward;
     
     public static final Relay.Value spinOut = Relay.Value.kReverse;
 
     public static final Relay.Value rollerOff = Relay.Value.kOff;
     
-    public static final Relay.Value rollerOn = Relay.Value.kOn;
+    public static final Relay.Value rollerOn = Relay.Value.kOn;*/
     //public static final int AnalogSidecar = 1; // Analog sidecar p
     
     
