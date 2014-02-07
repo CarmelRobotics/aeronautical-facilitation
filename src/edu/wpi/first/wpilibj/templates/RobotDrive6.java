@@ -98,34 +98,7 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     protected static boolean kMecanumCartesian_Reported = false;
     protected static boolean kMecanumPolar_Reported = false;
 
-    /**
-     * Constructor for RobotDrive with 2 motors specified with channel numbers.
-     * Set up parameters for a two wheel drive system where the left and right
-     * motor pwm channels are specified in the call. This call assumes Jaguars
-     * for controlling the motors.
-     *
-     * @param leftMotorChannel The PWM channel number on the default digital
-     * module that drives the left motor.
-     * @param rightMotorChannel The PWM channel number on the default digital
-     * module that drives the right motor.
-     */
-    public RobotDrive6(final int leftMotorChannel, final int rightMotorChannel) {
-        m_sensitivity = kDefaultSensitivity;
-        m_maxOutput = kDefaultMaxOutput;
-        m_frontLeftMotor = null;
-        m_rearLeftMotor = new Jaguar(leftMotorChannel);
-        m_frontRightMotor = null;
-        m_rearRightMotor = new Jaguar(rightMotorChannel);
-        m_middleRightMotor = null;
-        m_middleRightMotor = null;
-        for (int i = 0; i < kMaxNumberOfMotors; i++) {
-            m_invertedMotors[i] = 1;
-        }
-        m_allocatedSpeedControllers = true;
-        setupMotorSafety();
-        drive(0, 0);
-    }
-
+    
     /**
      * Constructor for RobotDrive with 4 motors specified with channel numbers.
      * Set up parameters for a four wheel drive system where all four motor pwm
@@ -140,6 +113,8 @@ public class RobotDrive6 implements MotorSafety, IUtility {
      * digital module
      * @param rearRightMotor Rear Right motor channel number on the default
      * digital module
+     * @param middleLeftMotor third left motor PWM channel number
+     * @param middleRightMotor third right motor PWM channel number
      */
     public RobotDrive6(final int frontLeftMotor, final int rearLeftMotor,
             final int frontRightMotor, final int rearRightMotor,
@@ -160,38 +135,7 @@ public class RobotDrive6 implements MotorSafety, IUtility {
         drive(0, 0);
     }
 
-    /**
-     * Constructor for RobotDrive with 2 motors specified as SpeedController
-     * objects. The SpeedController version of the constructor enables programs
-     * to use the RobotDrive classes with subclasses of the SpeedController
-     * objects, for example, versions with ramping or reshaping of the curve to
-     * suit motor bias or dead-band elimination.
-     *
-     * @param leftMotor The left SpeedController object used to drive the robot.
-     * @param rightMotor the right SpeedController object used to drive the
-     * robot.
-     */
-    public RobotDrive6(SpeedController leftMotor, SpeedController rightMotor) {
-        if (leftMotor == null || rightMotor == null) {
-            m_rearLeftMotor = m_rearRightMotor = null;
-            throw new NullPointerException("Null motor provided");
-        }
-        m_frontLeftMotor = null;
-        m_rearLeftMotor = leftMotor;
-        m_frontRightMotor = null;
-        m_rearRightMotor = rightMotor;
-        m_middleLeftMotor = null;
-        m_middleRightMotor = null;
-        m_sensitivity = kDefaultSensitivity;
-        m_maxOutput = kDefaultMaxOutput;
-        for (int i = 0; i < kMaxNumberOfMotors; i++) {
-            m_invertedMotors[i] = 1;
-        }
-        m_allocatedSpeedControllers = false;
-        setupMotorSafety();
-        drive(0, 0);
-    }
-
+    
     /**
      * Constructor for RobotDrive with 6 motors specified as SpeedController
      * objects. Speed controller input version of RobotDrive (see previous
