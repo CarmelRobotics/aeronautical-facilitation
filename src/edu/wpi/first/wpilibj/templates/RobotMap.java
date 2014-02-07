@@ -43,41 +43,40 @@ public class RobotMap {
     public static final int RollerMotor = 5;
 
     public static final int BlockerMotor = 6;
-    
-    /** The pressure switch that provides feedback to the compressor to turn off when the system reaches 60 PSI. */
+
+    /**
+     * The pressure switch that provides feedback to the compressor to turn off
+     * when the system reaches 60 PSI.
+     */
     public static final int pressureSwitch = 1;
     public static final int compressorRelay = 3;
 
     public static final Relay.Value RaiseBlockerMotor = Relay.Value.kForward;
-    
+
     public static final Relay.Value LowerBlockerMotor = Relay.Value.kReverse;
-    
+
     public static final Relay.Value blocker = Relay.Value.kOff;
-    
-    public static final double LowerBlockerMotor = -1.0;
-    
+
     public static final double RollerRetrieval = 0.25;
-    
+
     public static final double RollerRelease = -0.25;
-    
+
     public static final double Rolleroff = 0;
-    
+
     /*public static final Relay.Value retrieveMotor = Relay.Value.kForward;
     
-    public static final Relay.Value spinOut = Relay.Value.kReverse;
+     public static final Relay.Value spinOut = Relay.Value.kReverse;
 
-    public static final Relay.Value rollerOff = Relay.Value.kOff;
+     public static final Relay.Value rollerOff = Relay.Value.kOff;
     
-    public static final Relay.Value rollerOn = Relay.Value.kOn;*/
+     public static final Relay.Value rollerOn = Relay.Value.kOn;*/
     //public static final int AnalogSidecar = 1; // Analog sidecar p
-    
-    
     //public static final int AnalogSidecar = 1; // Analog sidecar possibly connected to cRIO Slot 1, check later
     //public static final int DigitalSidecar = 2; // Digital possibly connected to Slot 2, check later
     //public static final int DriveTrainGyroInput = 1; // Gyro Analog input is on channel 1
     //private static boolean JoystickEnabled = true;
     /**
-     *Joystick objects for driver joystick
+     * Joystick objects for driver joystick
      */
     public static final int DriverJoystickNumber = 1;
 
@@ -107,12 +106,10 @@ public class RobotMap {
      */
     //public static final JoystickButton dButtonRollerFwd = new JoystickButton(dStick, 4);
     //public static final JoystickButton dButtonRollerLoad = new JoystickButton(dStick, 5);
-
     /**
      *
      */
     //public static final JoystickButton dButtonRollerRelease = new JoystickButton(dStick, 6);
-
     /**
      *
      */
@@ -124,13 +121,13 @@ public class RobotMap {
     public static final JoystickButton dButtonGearShftD = new JoystickButton(dStick, 8);
 
     public static final JoystickButton dButtonPass = new JoystickButton(dStick, 9);
-    
+
     public static final JoystickButton dButtonLowerRoll = new JoystickButton(dStickII, 3);
-    
+
     public static final JoystickButton dButtonRaiseRoll = new JoystickButton(dStickII, 4);
-    
+
     public static final JoystickButton dButtonRetrieve = new JoystickButton(dStickII, 1);
-    
+
     public static final JoystickButton dButtonOut = new JoystickButton(dStickII, 2);
     //public static final boolean shifterDriveTrainDirection = false;
     /* 
@@ -156,17 +153,17 @@ public class RobotMap {
     public static final int LFLaunchSol = 3;
 
     public static final int RollSol = 4;
-    
+
     public static final boolean launchValve1 = true;
-    
-    public static final boolean launchValve2= true;
-    
+
+    public static final boolean launchValve2 = true;
+
     public static final boolean passValve1 = true;
-    
+
     public static final boolean passValve2 = false;
-    
+
     public static final boolean retractValve1 = false;
-    
+
     public static final boolean retractValve2 = false;
 
 }
