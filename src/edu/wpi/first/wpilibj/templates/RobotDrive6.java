@@ -40,27 +40,27 @@ public class RobotDrive6 implements MotorSafety, IUtility {
         static final int kMiddleLeft_val = 4;
         static final int kMiddleRight_val = 5;
         /**
-         * motortype: front left
+         * motor type: front left
          */
         public static final MotorType kFrontLeft = new MotorType(kFrontLeft_val);
         /**
-         * motortype: front right
+         * motor type: front right
          */
         public static final MotorType kFrontRight = new MotorType(kFrontRight_val);
         /**
-         * motortype: rear left
+         * motor type: rear left
          */
         public static final MotorType kMiddleLeft = new MotorType(kMiddleLeft_val);
         /**
-         * motortype: middle left
+         * motor type: middle left
          */
         public static final MotorType kMiddleRight = new MotorType(kMiddleRight_val);
         /**
-         * motortype: middle right
+         * motor type: middle right
          */
         public static final MotorType kRearLeft = new MotorType(kRearLeft_val);
         /**
-         * motortype: rear right
+         * motor type: rear right
          */
         public static final MotorType kRearRight = new MotorType(kRearRight_val);
 
