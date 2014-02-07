@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
  * the wiring easier and significantly reduces the number of magic numbers
- * floating around.
+ * floating around
  */
 public class RobotMap {
     // For example to map the left and right motors, you could define the
@@ -48,7 +48,11 @@ public class RobotMap {
     public static final int pressureSwitch = 1;
     public static final int compressorRelay = 3;
 
-    public static final double RaiseBlockerMotor = 1.0;
+    public static final Relay.Value RaiseBlockerMotor = Relay.Value.kForward;
+    
+    public static final Relay.Value LowerBlockerMotor = Relay.Value.kReverse;
+    
+    public static final Relay.Value blocker = Relay.Value.kOff;
     
     public static final double LowerBlockerMotor = -1.0;
     
