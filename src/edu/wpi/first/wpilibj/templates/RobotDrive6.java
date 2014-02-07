@@ -4,9 +4,16 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-package edu.wpi.first.wpilibj;
+package edu.wpi.first.wpilibj.templates;
 
 import com.sun.squawk.util.MathUtils;
+import edu.wpi.first.wpilibj.CANJaguar;
+import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Jaguar;
+import edu.wpi.first.wpilibj.MotorSafety;
+import edu.wpi.first.wpilibj.MotorSafetyHelper;
+import edu.wpi.first.wpilibj.PWM;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.can.CANNotInitializedException;
 import edu.wpi.first.wpilibj.can.CANTimeoutException;
 import edu.wpi.first.wpilibj.communication.UsageReporting;
