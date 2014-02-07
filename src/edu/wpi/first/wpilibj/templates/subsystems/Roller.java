@@ -24,6 +24,7 @@ public class Roller extends Subsystem {
      *
      */
     public final Solenoid piston;
+    //TODO: add another Solenoid
 
     public final Victor rollermotor;
 
@@ -33,6 +34,7 @@ public class Roller extends Subsystem {
     public Roller() {
         rollermotor = new Victor (RobotMap.RollerMotor);  // TODO change number
         piston = new Solenoid(RobotMap.RollSol); // TODO change number
+        //TODO: initalize other solenoid  Use RobotMap.
     }
 
     public void initDefaultCommand() {
@@ -42,10 +44,12 @@ public class Roller extends Subsystem {
 
     public void raiseRoller() {
         piston.set(true);
+        //TODO: other solenoid must be set to the opposite
     }
 
     public void lowerRoller() {
         piston.set(false);
+        //TODO: other solenoid must be set to the opposite
     }
      public void setretrievalRoller() {
         rollermotor.set(RobotMap.RollerRetrieval);
