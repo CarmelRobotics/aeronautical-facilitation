@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
 public class Launch extends CommandBase {
 
     private Launcher launcher;
+    //TODO: add Roller subsystem here.
     private Timer t;
 
     /**
@@ -26,6 +27,8 @@ public class Launch extends CommandBase {
         super("Launch");
         launcher = AeronauticalFacilitation.getLauncher();
         requires(launcher);
+        //TODO: add roller = here
+        //TODO: add requires(roller) here
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -34,6 +37,7 @@ public class Launch extends CommandBase {
     protected void initialize() {
         t = new Timer();
         t.start();
+        //TODO: use roller subsystem to lower the roller.
     }
 
     // Called repeatedly when this Command is scheduled to run
