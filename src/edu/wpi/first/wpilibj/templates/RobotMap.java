@@ -45,22 +45,26 @@ public class RobotMap {
     public static final int BlockerMotor = 6;
     
     /** The pressure switch that provides feedback to the compressor to turn off when the system reaches 60 PSI. */
-    public static final int pressureSwitch = 13;// fake port. Find real port number
-    /** The compressor is connected to the Digital SideCar Relay */
-    public static final int compressorRelay = 6;//Also fake port.
+    public static final int pressureSwitch = 1;
+    public static final int compressorRelay = 3;
 
     public static final double RaiseBlockerMotor = 1.0;
     
     public static final double LowerBlockerMotor = -1.0;
     
+    public static final double RollerRetrieval = 0.25;
     
-    public static final Relay.Value retrieveMotor = Relay.Value.kForward;
+    public static final double RollerRelease = -0.25;
+    
+    public static final double Rolleroff = 0;
+    
+    /*public static final Relay.Value retrieveMotor = Relay.Value.kForward;
     
     public static final Relay.Value spinOut = Relay.Value.kReverse;
 
     public static final Relay.Value rollerOff = Relay.Value.kOff;
     
-    public static final Relay.Value rollerOn = Relay.Value.kOn;
+    public static final Relay.Value rollerOn = Relay.Value.kOn;*/
     //public static final int AnalogSidecar = 1; // Analog sidecar p
     
     
@@ -97,13 +101,13 @@ public class RobotMap {
     /**
      *
      */
-    public static final JoystickButton dButtonRollerFwd = new JoystickButton(dStick, 4);
-    public static final JoystickButton dButtonRollerLoad = new JoystickButton(dStick, 5);
+    //public static final JoystickButton dButtonRollerFwd = new JoystickButton(dStick, 4);
+    //public static final JoystickButton dButtonRollerLoad = new JoystickButton(dStick, 5);
 
     /**
      *
      */
-    public static final JoystickButton dButtonRollerRelease = new JoystickButton(dStick, 6);
+    //public static final JoystickButton dButtonRollerRelease = new JoystickButton(dStick, 6);
 
     /**
      *
@@ -117,13 +121,13 @@ public class RobotMap {
 
     public static final JoystickButton dButtonPass = new JoystickButton(dStick, 9);
     
-    public static final JoystickButton dButtonLowerRoll = new JoystickButton(dStick, 10);
+    public static final JoystickButton dButtonLowerRoll = new JoystickButton(dStickII, 3);
     
-    public static final JoystickButton dButtonRaiseRoll = new JoystickButton(dStick, 11);
+    public static final JoystickButton dButtonRaiseRoll = new JoystickButton(dStickII, 4);
     
-    public static final JoystickButton dButtonRetrieve = new JoystickButton(dStickII, 3);
+    public static final JoystickButton dButtonRetrieve = new JoystickButton(dStickII, 1);
     
-    public static final JoystickButton dButtonOut = new JoystickButton(dStickII, 4);
+    public static final JoystickButton dButtonOut = new JoystickButton(dStickII, 2);
     //public static final boolean shifterDriveTrainDirection = false;
     /* 
      * SOLENOIDS

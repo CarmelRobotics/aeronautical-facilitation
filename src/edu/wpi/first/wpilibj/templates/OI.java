@@ -50,8 +50,8 @@ public class OI {
     // button.whenReleased(new ExampleCommand());
     private static Button shiftLowGear;
     private static Button launch;
-    private static Button LoadBall;
-    private static Button ReleaseBall;
+    //private static Button LoadBall;
+    //private static Button ReleaseBall;
     private static Button raiseBlocker;
     private static Button lowerBlocker;
     private static Button lowerRoller;
