@@ -53,7 +53,11 @@ public class RobotMap {
     
     public static final double LowerBlockerMotor = -1.0;
     
-
+    public static final double RollerRetrieval = 0.25;
+    
+    public static final double RollerRelease = -0.25;
+    
+    public static final double Rolleroff = 0;
     
     /*public static final Relay.Value retrieveMotor = Relay.Value.kForward;
     

@@ -48,14 +48,14 @@ public class Roller extends Subsystem {
         piston.set(false);
     }
      public void setretrievalRoller() {
-        rollermotor.set(0.25);
+        rollermotor.set(RobotMap.RollerRetrieval);
         
     }
     public void setRolleroff() {
-        rollermotor.set(0);
+        rollermotor.set(RobotMap.Rolleroff);
     }
       public void setRelease() {
-        rollermotor.set(-0.25);
+        rollermotor.set(RobotMap.RollerRelease);
     }
 
 }
