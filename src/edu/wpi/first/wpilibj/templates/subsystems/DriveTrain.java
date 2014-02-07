@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
 import edu.wpi.first.wpilibj.DriverStationLCD.Line;
 import edu.wpi.first.wpilibj.DriverStationLCD;
+
 /**
  *
  * @author Team 2035
@@ -27,6 +28,7 @@ public class DriveTrain extends Subsystem {
     public final Victor BLeftMotor;
     public final Victor FRightMotor;
     public final Victor BRightMotor;
+
     //private final Victor RollerMotor;
     //private final Victor BlockerMotor;
     private final Solenoid GShiftSol;
@@ -42,15 +44,14 @@ public class DriveTrain extends Subsystem {
         FRightMotor = new Victor(RobotMap.FRightMotor);
         BLeftMotor = new Victor(RobotMap.BLeftMotor);
         BRightMotor = new Victor(RobotMap.BRightMotor);
-        //RollerMotor = new Victor(RobotMap.RollerMotor);
-        //BlockerMotor = new Victor(RobotMap.BlockerMotor);
-
         drive = new RobotDrive(FLeftMotor, FRightMotor, BLeftMotor, BRightMotor);
 
         GShiftSol = new Solenoid(RobotMap.GShiftSol);
+
         //LFLaunchSol = new Solenoid(RobotMap.LFLaunchSol);
         //RollSol = new Solenoid(RobotMap.RollSol);
         //RFLaunchSol = new Solenoid(RobotMap.RFLaunchSol);
+
     }
 
     public void initDefaultCommand() {
