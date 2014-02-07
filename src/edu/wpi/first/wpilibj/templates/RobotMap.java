@@ -39,10 +39,14 @@ public class RobotMap {
     public static final int FRightMotor = 3;
 
     public static final int BRightMotor = 4;
+    
+    public static final int MLeftMotor = 5;
+    
+    public static final int MRightMotor = 6;
+    
+    public static final int RollerMotor = 7;
 
-    public static final int RollerMotor = 5;
-
-    public static final int BlockerMotor = 6;
+    public static final int BlockerMotor = 8;
     
     /** The pressure switch that provides feedback to the compressor to turn off when the system reaches 60 PSI. */
     public static final int pressureSwitch = 13;// fake port. Find real port number

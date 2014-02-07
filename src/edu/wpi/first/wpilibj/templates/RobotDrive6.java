@@ -618,16 +618,13 @@ public class RobotDrive6 implements MotorSafety, IUtility {
 
         byte syncGroup = (byte)0x80;
 
-        if (m_frontLeftMotor != null) {
-            m_frontLeftMotor.set(limit(leftOutput) * m_invertedMotors[MotorType.kFrontLeft_val] * m_maxOutput, syncGroup);
-        }
+        m_frontLeftMotor.set(limit(leftOutput) * m_invertedMotors[MotorType.kFrontLeft_val] * m_maxOutput, syncGroup);
         m_rearLeftMotor.set(limit(leftOutput) * m_invertedMotors[MotorType.kRearLeft_val] * m_maxOutput, syncGroup);
-      
-        if (m_frontRightMotor != null) {
-            m_frontRightMotor.set(-limit(rightOutput) * m_invertedMotors[MotorType.kFrontRight_val] * m_maxOutput, syncGroup);
-        }
+        m_middleLeftMotor.set(limit(leftOutput) * m_invertedMotors[MotorType.kMiddleLeft_val] * m_maxOutput, syncGroup);
+        m_frontRightMotor.set(-limit(rightOutput) * m_invertedMotors[MotorType.kFrontRight_val] * m_maxOutput, syncGroup);
         m_rearRightMotor.set(-limit(rightOutput) * m_invertedMotors[MotorType.kRearRight_val] * m_maxOutput, syncGroup);
-
+        m_middleRightMotor.set(-limit(rightOutput) * m_invertedMotors[MotorType.kMiddleRight_val] * m_maxOutput, syncGroup);
+        
         if (m_isCANInitialized) {
             try {
                 CANJaguar.updateSyncGroup(syncGroup);

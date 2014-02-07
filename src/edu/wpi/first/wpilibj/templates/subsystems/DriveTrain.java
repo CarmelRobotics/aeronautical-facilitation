@@ -23,18 +23,24 @@ import edu.wpi.first.wpilibj.DriverStationLCD;
 public class DriveTrain extends Subsystem {
 
     private static RobotDrive drive;
+    private static RobotDrive drive6;
     public final Victor FLeftMotor;
     public final Victor BLeftMotor;
     public final Victor FRightMotor;
     public final Victor BRightMotor;
+    public final Victor MLeftMotor;
+    public final Victor MRightMotor;
     //private final Victor RollerMotor;
     //private final Victor BlockerMotor;
     private final Solenoid GShiftSol;
     //private final Solenoid LFLaunchSol;
-   //private final Solenoid RFLaunchSol;
+    //private final Solenoid RFLaunchSol;
     //private final Solenoid RollSol;
     private static DriverStationLCD display;
 
+    /**
+     *
+     */
     public DriveTrain() {
         super("DriveTrain");
 
@@ -42,6 +48,9 @@ public class DriveTrain extends Subsystem {
         FRightMotor = new Victor(RobotMap.FRightMotor);
         BLeftMotor = new Victor(RobotMap.BLeftMotor);
         BRightMotor = new Victor(RobotMap.BRightMotor);
+        MLeftMotor = new Victor(RobotMap.MLeftMotor);
+        MRightMotor = new Victor(RobotMap.MRightMotor);
+        
         //RollerMotor = new Victor(RobotMap.RollerMotor);
         //BlockerMotor = new Victor(RobotMap.BlockerMotor);
 
@@ -71,6 +80,10 @@ public class DriveTrain extends Subsystem {
      */
     public void drive(double speed) {
         drive.drive(speed, 0.0);
+    }
+    
+    public void drive6(double speed) {
+        drive6.drive(speed, 0.0);
     }
 
     public void drivetank(double speedL, double speedR) {
