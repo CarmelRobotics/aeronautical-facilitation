@@ -20,12 +20,14 @@ import edu.wpi.first.wpilibj.communication.UsageReporting;
 import edu.wpi.first.wpilibj.parsing.IUtility;
 
 /**
- * Utility class for handling Robot drive based on a definition of the motor configuration.
- * The robot drive class handles basic driving for a robot. Currently, 2 and 4 motor standard
- * drive trains are supported. In the future other drive types like swerve and meccanum might
- * be implemented. Motor channel numbers are passed supplied on creation of the class. Those are
- * used for either the drive function (intended for hand created drive code, such as autonomous)
- * or with the Tank/Arcade functions intended to be used for Operator Control driving.
+ * Utility class for handling Robot drive based on a definition of the motor
+ * configuration. The robot drive class handles basic driving for a robot.
+ * Currently, 2 and 4 motor standard drive trains are supported. In the future
+ * other drive types like swerve and meccanum might be implemented. Motor
+ * channel numbers are passed supplied on creation of the class. Those are used
+ * for either the drive function (intended for hand created drive code, such as
+ * autonomous) or with the Tank/Arcade functions intended to be used for
+ * Operator Control driving.
  */
 public class RobotDrive6 implements MotorSafety, IUtility {
 
@@ -96,12 +98,16 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     protected static boolean kMecanumCartesian_Reported = false;
     protected static boolean kMecanumPolar_Reported = false;
 
-    /** Constructor for RobotDrive with 2 motors specified with channel numbers.
-     * Set up parameters for a two wheel drive system where the
-     * left and right motor pwm channels are specified in the call.
-     * This call assumes Jaguars for controlling the motors.
-     * @param leftMotorChannel The PWM channel number on the default digital module that drives the left motor.
-     * @param rightMotorChannel The PWM channel number on the default digital module that drives the right motor.
+    /**
+     * Constructor for RobotDrive with 2 motors specified with channel numbers.
+     * Set up parameters for a two wheel drive system where the left and right
+     * motor pwm channels are specified in the call. This call assumes Jaguars
+     * for controlling the motors.
+     *
+     * @param leftMotorChannel The PWM channel number on the default digital
+     * module that drives the left motor.
+     * @param rightMotorChannel The PWM channel number on the default digital
+     * module that drives the right motor.
      */
     public RobotDrive6(final int leftMotorChannel, final int rightMotorChannel) {
         m_sensitivity = kDefaultSensitivity;
@@ -122,16 +128,21 @@ public class RobotDrive6 implements MotorSafety, IUtility {
 
     /**
      * Constructor for RobotDrive with 4 motors specified with channel numbers.
-     * Set up parameters for a four wheel drive system where all four motor
-     * pwm channels are specified in the call.
-     * This call assumes Jaguars for controlling the motors.
-     * @param frontLeftMotor Front left motor channel number on the default digital module
-     * @param rearLeftMotor Rear Left motor channel number on the default digital module
-     * @param frontRightMotor Front right motor channel number on the default digital module
-     * @param rearRightMotor Rear Right motor channel number on the default digital module
+     * Set up parameters for a four wheel drive system where all four motor pwm
+     * channels are specified in the call. This call assumes Jaguars for
+     * controlling the motors.
+     *
+     * @param frontLeftMotor Front left motor channel number on the default
+     * digital module
+     * @param rearLeftMotor Rear Left motor channel number on the default
+     * digital module
+     * @param frontRightMotor Front right motor channel number on the default
+     * digital module
+     * @param rearRightMotor Rear Right motor channel number on the default
+     * digital module
      */
     public RobotDrive6(final int frontLeftMotor, final int rearLeftMotor,
-            final int frontRightMotor, final int rearRightMotor, 
+            final int frontRightMotor, final int rearRightMotor,
             final int middleLeftMotor, final int middleRightMotor) {
         m_sensitivity = kDefaultSensitivity;
         m_maxOutput = kDefaultMaxOutput;
@@ -150,12 +161,15 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Constructor for RobotDrive with 2 motors specified as SpeedController objects.
-     * The SpeedController version of the constructor enables programs to use the RobotDrive classes with
-     * subclasses of the SpeedController objects, for example, versions with ramping or reshaping of
-     * the curve to suit motor bias or dead-band elimination.
+     * Constructor for RobotDrive with 2 motors specified as SpeedController
+     * objects. The SpeedController version of the constructor enables programs
+     * to use the RobotDrive classes with subclasses of the SpeedController
+     * objects, for example, versions with ramping or reshaping of the curve to
+     * suit motor bias or dead-band elimination.
+     *
      * @param leftMotor The left SpeedController object used to drive the robot.
-     * @param rightMotor the right SpeedController object used to drive the robot.
+     * @param rightMotor the right SpeedController object used to drive the
+     * robot.
      */
     public RobotDrive6(SpeedController leftMotor, SpeedController rightMotor) {
         if (leftMotor == null || rightMotor == null) {
@@ -174,22 +188,30 @@ public class RobotDrive6 implements MotorSafety, IUtility {
             m_invertedMotors[i] = 1;
         }
         m_allocatedSpeedControllers = false;
-		setupMotorSafety();
-		drive(0, 0);
+        setupMotorSafety();
+        drive(0, 0);
     }
 
     /**
-     * Constructor for RobotDrive with 6 motors specified as SpeedController objects.
-     * Speed controller input version of RobotDrive (see previous comments).
-     * @param rearLeftMotor The back left SpeedController object used to drive the robot.
-     * @param frontLeftMotor The front left SpeedController object used to drive the robot
-     * @param rearRightMotor The back right SpeedController object used to drive the robot.
-     * @param frontRightMotor The front right SpeedController object used to drive the robot.
-     * @param middleLeftMotor The middle left SpeedController object used to drive the robot.
-     * @param middleRightMotor The middle right SpeedController object used to drive the robot.
+     * Constructor for RobotDrive with 6 motors specified as SpeedController
+     * objects. Speed controller input version of RobotDrive (see previous
+     * comments).
+     *
+     * @param rearLeftMotor The back left SpeedController object used to drive
+     * the robot.
+     * @param frontLeftMotor The front left SpeedController object used to drive
+     * the robot
+     * @param rearRightMotor The back right SpeedController object used to drive
+     * the robot.
+     * @param frontRightMotor The front right SpeedController object used to
+     * drive the robot.
+     * @param middleLeftMotor The middle left SpeedController object used to
+     * drive the robot.
+     * @param middleRightMotor The middle right SpeedController object used to
+     * drive the robot.
      */
     public RobotDrive6(SpeedController frontLeftMotor, SpeedController rearLeftMotor,
-            SpeedController frontRightMotor, SpeedController rearRightMotor, 
+            SpeedController frontRightMotor, SpeedController rearRightMotor,
             SpeedController middleLeftMotor, SpeedController middleRightMotor) {
         if (frontLeftMotor == null || rearLeftMotor == null || frontRightMotor == null || rearRightMotor == null) {
             m_frontLeftMotor = m_rearLeftMotor = m_frontRightMotor = m_rearRightMotor = null;
@@ -207,26 +229,27 @@ public class RobotDrive6 implements MotorSafety, IUtility {
             m_invertedMotors[i] = 1;
         }
         m_allocatedSpeedControllers = false;
-		setupMotorSafety();
-		drive(0, 0);
+        setupMotorSafety();
+        drive(0, 0);
     }
 
     /**
      * Drive the motors at "speed" and "curve".
      *
-     * The speed and curve are -1.0 to +1.0 values where 0.0 represents stopped and
-     * not turning. The algorithm for adding in the direction attempts to provide a constant
-     * turn radius for differing speeds.
+     * The speed and curve are -1.0 to +1.0 values where 0.0 represents stopped
+     * and not turning. The algorithm for adding in the direction attempts to
+     * provide a constant turn radius for differing speeds.
      *
      * This function will most likely be used in an autonomous routine.
      *
-     * @param outputMagnitude The forward component of the output magnitude to send to the motors.
+     * @param outputMagnitude The forward component of the output magnitude to
+     * send to the motors.
      * @param curve The rate of turn, constant for different forward speeds.
      */
     public void drive(double outputMagnitude, double curve) {
         double leftOutput, rightOutput;
-        
-        if(!kArcadeRatioCurve_Reported){
+
+        if (!kArcadeRatioCurve_Reported) {
             UsageReporting.report(UsageReporting.kResourceType_RobotDrive, getNumMotors(), UsageReporting.kRobotDrive_ArcadeRatioCurve);
             kArcadeRatioCurve_Reported = true;
         }
@@ -254,9 +277,10 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Provide tank steering using the stored robot configuration.
-     * drive the robot using two joystick inputs. The Y-axis will be selected from
-     * each Joystick object.
+     * Provide tank steering using the stored robot configuration. drive the
+     * robot using two joystick inputs. The Y-axis will be selected from each
+     * Joystick object.
+     *
      * @param leftStick The joystick to control the left side of the robot.
      * @param rightStick The joystick to control the right side of the robot.
      */
@@ -268,12 +292,14 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Provide tank steering using the stored robot configuration.
-     * drive the robot using two joystick inputs. The Y-axis will be selected from
-     * each Joystick object.
+     * Provide tank steering using the stored robot configuration. drive the
+     * robot using two joystick inputs. The Y-axis will be selected from each
+     * Joystick object.
+     *
      * @param leftStick The joystick to control the left side of the robot.
      * @param rightStick The joystick to control the right side of the robot.
-     * @param squaredInputs Setting this parameter to true decreases the sensitivity at lower speeds
+     * @param squaredInputs Setting this parameter to true decreases the
+     * sensitivity at lower speeds
      */
     public void tankDrive(GenericHID leftStick, GenericHID rightStick, boolean squaredInputs) {
         if (leftStick == null || rightStick == null) {
@@ -283,12 +309,15 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Provide tank steering using the stored robot configuration.
-     * This function lets you pick the axis to be used on each Joystick object for the left
+     * Provide tank steering using the stored robot configuration. This function
+     * lets you pick the axis to be used on each Joystick object for the left
      * and right sides of the robot.
-     * @param leftStick The Joystick object to use for the left side of the robot.
+     *
+     * @param leftStick The Joystick object to use for the left side of the
+     * robot.
      * @param leftAxis The axis to select on the left side Joystick object.
-     * @param rightStick The Joystick object to use for the right side of the robot.
+     * @param rightStick The Joystick object to use for the right side of the
+     * robot.
      * @param rightAxis The axis to select on the right side Joystick object.
      */
     public void tankDrive(GenericHID leftStick, final int leftAxis,
@@ -300,14 +329,18 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Provide tank steering using the stored robot configuration.
-     * This function lets you pick the axis to be used on each Joystick object for the left
+     * Provide tank steering using the stored robot configuration. This function
+     * lets you pick the axis to be used on each Joystick object for the left
      * and right sides of the robot.
-     * @param leftStick The Joystick object to use for the left side of the robot.
+     *
+     * @param leftStick The Joystick object to use for the left side of the
+     * robot.
      * @param leftAxis The axis to select on the left side Joystick object.
-     * @param rightStick The Joystick object to use for the right side of the robot.
+     * @param rightStick The Joystick object to use for the right side of the
+     * robot.
      * @param rightAxis The axis to select on the right side Joystick object.
-     * @param squaredInputs Setting this parameter to true decreases the sensitivity at lower speeds
+     * @param squaredInputs Setting this parameter to true decreases the
+     * sensitivity at lower speeds
      */
     public void tankDrive(GenericHID leftStick, final int leftAxis,
             GenericHID rightStick, final int rightAxis, boolean squaredInputs) {
@@ -318,15 +351,17 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Provide tank steering using the stored robot configuration.
-     * This function lets you directly provide joystick values from any source.
+     * Provide tank steering using the stored robot configuration. This function
+     * lets you directly provide joystick values from any source.
+     *
      * @param leftValue The value of the left stick.
      * @param rightValue The value of the right stick.
-     * @param squaredInputs Setting this parameter to true decreases the sensitivity at lower speeds
+     * @param squaredInputs Setting this parameter to true decreases the
+     * sensitivity at lower speeds
      */
     public void tankDrive(double leftValue, double rightValue, boolean squaredInputs) {
-        
-        if(!kTank_Reported){
+
+        if (!kTank_Reported) {
             UsageReporting.report(UsageReporting.kResourceType_RobotDrive, getNumMotors(), UsageReporting.kRobotDrive_Tank);
             kTank_Reported = true;
         }
@@ -334,7 +369,7 @@ public class RobotDrive6 implements MotorSafety, IUtility {
         // square the inputs (while preserving the sign) to increase fine control while permitting full power
         leftValue = limit(leftValue);
         rightValue = limit(rightValue);
-        if(squaredInputs) {
+        if (squaredInputs) {
             if (leftValue >= 0.0) {
                 leftValue = (leftValue * leftValue);
             } else {
@@ -350,8 +385,9 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Provide tank steering using the stored robot configuration.
-     * This function lets you directly provide joystick values from any source.
+     * Provide tank steering using the stored robot configuration. This function
+     * lets you directly provide joystick values from any source.
+     *
      * @param leftValue The value of the left stick.
      * @param rightValue The value of the right stick.
      */
@@ -360,13 +396,16 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Arcade drive implements single stick driving.
-     * Given a single Joystick, the class assumes the Y axis for the move value and the X axis
-     * for the rotate value.
-     * (Should add more information here regarding the way that arcade drive works.)
-     * @param stick The joystick to use for Arcade single-stick driving. The Y-axis will be selected
-     * for forwards/backwards and the X-axis will be selected for rotation rate.
-     * @param squaredInputs If true, the sensitivity will be decreased for small values
+     * Arcade drive implements single stick driving. Given a single Joystick,
+     * the class assumes the Y axis for the move value and the X axis for the
+     * rotate value. (Should add more information here regarding the way that
+     * arcade drive works.)
+     *
+     * @param stick The joystick to use for Arcade single-stick driving. The
+     * Y-axis will be selected for forwards/backwards and the X-axis will be
+     * selected for rotation rate.
+     * @param squaredInputs If true, the sensitivity will be decreased for small
+     * values
      */
     public void arcadeDrive(GenericHID stick, boolean squaredInputs) {
         // simply call the full-featured arcadeDrive with the appropriate values
@@ -374,26 +413,33 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Arcade drive implements single stick driving.
-     * Given a single Joystick, the class assumes the Y axis for the move value and the X axis
-     * for the rotate value.
-     * (Should add more information here regarding the way that arcade drive works.)
-     * @param stick The joystick to use for Arcade single-stick driving. The Y-axis will be selected
-     * for forwards/backwards and the X-axis will be selected for rotation rate.
+     * Arcade drive implements single stick driving. Given a single Joystick,
+     * the class assumes the Y axis for the move value and the X axis for the
+     * rotate value. (Should add more information here regarding the way that
+     * arcade drive works.)
+     *
+     * @param stick The joystick to use for Arcade single-stick driving. The
+     * Y-axis will be selected for forwards/backwards and the X-axis will be
+     * selected for rotation rate.
      */
     public void arcadeDrive(GenericHID stick) {
         this.arcadeDrive(stick, true);
     }
 
     /**
-     * Arcade drive implements single stick driving.
-     * Given two joystick instances and two axis, compute the values to send to either two
-     * or four motors.
-     * @param moveStick The Joystick object that represents the forward/backward direction
-     * @param moveAxis The axis on the moveStick object to use for forwards/backwards (typically Y_AXIS)
+     * Arcade drive implements single stick driving. Given two joystick
+     * instances and two axis, compute the values to send to either two or four
+     * motors.
+     *
+     * @param moveStick The Joystick object that represents the forward/backward
+     * direction
+     * @param moveAxis The axis on the moveStick object to use for
+     * forwards/backwards (typically Y_AXIS)
      * @param rotateStick The Joystick object that represents the rotation value
-     * @param rotateAxis The axis on the rotation object to use for the rotate right/left (typically X_AXIS)
-     * @param squaredInputs Setting this parameter to true decreases the sensitivity at lower speeds
+     * @param rotateAxis The axis on the rotation object to use for the rotate
+     * right/left (typically X_AXIS)
+     * @param squaredInputs Setting this parameter to true decreases the
+     * sensitivity at lower speeds
      */
     public void arcadeDrive(GenericHID moveStick, final int moveAxis,
             GenericHID rotateStick, final int rotateAxis,
@@ -405,13 +451,17 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Arcade drive implements single stick driving.
-     * Given two joystick instances and two axis, compute the values to send to either two
-     * or four motors.
-     * @param moveStick The Joystick object that represents the forward/backward direction
-     * @param moveAxis The axis on the moveStick object to use for forwards/backwards (typically Y_AXIS)
+     * Arcade drive implements single stick driving. Given two joystick
+     * instances and two axis, compute the values to send to either two or four
+     * motors.
+     *
+     * @param moveStick The Joystick object that represents the forward/backward
+     * direction
+     * @param moveAxis The axis on the moveStick object to use for
+     * forwards/backwards (typically Y_AXIS)
      * @param rotateStick The Joystick object that represents the rotation value
-     * @param rotateAxis The axis on the rotation object to use for the rotate right/left (typically X_AXIS)
+     * @param rotateAxis The axis on the rotation object to use for the rotate
+     * right/left (typically X_AXIS)
      */
     public void arcadeDrive(GenericHID moveStick, final int moveAxis,
             GenericHID rotateStick, final int rotateAxis) {
@@ -419,15 +469,16 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Arcade drive implements single stick driving.
-     * This function lets you directly provide joystick values from any source.
+     * Arcade drive implements single stick driving. This function lets you
+     * directly provide joystick values from any source.
+     *
      * @param moveValue The value to use for forwards/backwards
      * @param rotateValue The value to use for the rotate right/left
      * @param squaredInputs If set, decreases the sensitivity at low speeds
      */
     public void arcadeDrive(double moveValue, double rotateValue, boolean squaredInputs) {
         // local variables to hold the computed PWM values for the motors
-        if(!kArcadeStandard_Reported){
+        if (!kArcadeStandard_Reported) {
             UsageReporting.report(UsageReporting.kResourceType_RobotDrive, getNumMotors(), UsageReporting.kRobotDrive_ArcadeStandard);
             kArcadeStandard_Reported = true;
         }
@@ -474,8 +525,9 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Arcade drive implements single stick driving.
-     * This function lets you directly provide joystick values from any source.
+     * Arcade drive implements single stick driving. This function lets you
+     * directly provide joystick values from any source.
+     *
      * @param moveValue The value to use for fowards/backwards
      * @param rotateValue The value to use for the rotate right/left
      */
@@ -486,22 +538,25 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     /**
      * Drive method for Mecanum wheeled robots.
      *
-     * A method for driving with Mecanum wheeled robots. There are 4 wheels
-     * on the robot, arranged so that the front and back wheels are toed in 45 degrees.
-     * When looking at the wheels from the top, the roller axles should form an X across the robot.
+     * A method for driving with Mecanum wheeled robots. There are 4 wheels on
+     * the robot, arranged so that the front and back wheels are toed in 45
+     * degrees. When looking at the wheels from the top, the roller axles should
+     * form an X across the robot.
      *
      * This is designed to be directly driven by joystick axes.
      *
-     * @param x The speed that the robot should drive in the X direction. [-1.0..1.0]
-     * @param y The speed that the robot should drive in the Y direction.
-     * This input is inverted to match the forward == -1.0 that joysticks produce. [-1.0..1.0]
-     * @param rotation The rate of rotation for the robot that is completely independent of
-     * the translation. [-1.0..1.0]
-     * @param gyroAngle The current angle reading from the gyro.  Use this to implement field-oriented controls.
+     * @param x The speed that the robot should drive in the X direction.
+     * [-1.0..1.0]
+     * @param y The speed that the robot should drive in the Y direction. This
+     * input is inverted to match the forward == -1.0 that joysticks produce.
+     * [-1.0..1.0]
+     * @param rotation The rate of rotation for the robot that is completely
+     * independent of the translation. [-1.0..1.0]
+     * @param gyroAngle The current angle reading from the gyro. Use this to
+     * implement field-oriented controls.
      */
-    public void mecanumDrive_Cartesian(double x, double y, double rotation, double gyroAngle)
-    {
-        if(!kMecanumCartesian_Reported){
+    public void mecanumDrive_Cartesian(double x, double y, double rotation, double gyroAngle) {
+        if (!kMecanumCartesian_Reported) {
             UsageReporting.report(UsageReporting.kResourceType_RobotDrive, getNumMotors(), UsageReporting.kRobotDrive_MecanumCartesian);
             kMecanumCartesian_Reported = true;
         }
@@ -522,7 +577,7 @@ public class RobotDrive6 implements MotorSafety, IUtility {
 
         normalize(wheelSpeeds);
 
-        byte syncGroup = (byte)0x80;
+        byte syncGroup = (byte) 0x80;
 
         m_frontLeftMotor.set(wheelSpeeds[MotorType.kFrontLeft_val] * m_invertedMotors[MotorType.kFrontLeft_val] * m_maxOutput, syncGroup);
         m_frontRightMotor.set(wheelSpeeds[MotorType.kFrontRight_val] * m_invertedMotors[MotorType.kFrontRight_val] * m_maxOutput, syncGroup);
@@ -536,27 +591,32 @@ public class RobotDrive6 implements MotorSafety, IUtility {
                 CANJaguar.updateSyncGroup(syncGroup);
             } catch (CANNotInitializedException e) {
                 m_isCANInitialized = false;
-            } catch (CANTimeoutException e) {}
+            } catch (CANTimeoutException e) {
+            }
         }
 
-        if (m_safetyHelper != null) m_safetyHelper.feed();
+        if (m_safetyHelper != null) {
+            m_safetyHelper.feed();
+        }
     }
 
     /**
      * Drive method for Mecanum wheeled robots.
      *
-     * A method for driving with Mecanum wheeled robots. There are 4 wheels
-     * on the robot, arranged so that the front and back wheels are toed in 45 degrees.
-     * When looking at the wheels from the top, the roller axles should form an X across the robot.
+     * A method for driving with Mecanum wheeled robots. There are 4 wheels on
+     * the robot, arranged so that the front and back wheels are toed in 45
+     * degrees. When looking at the wheels from the top, the roller axles should
+     * form an X across the robot.
      *
-     * @param magnitude The speed that the robot should drive in a given direction.
-     * @param direction The direction the robot should drive in degrees. The direction and maginitute are
-     * independent of the rotation rate.
-     * @param rotation The rate of rotation for the robot that is completely independent of
-     * the magnitute or direction. [-1.0..1.0]
+     * @param magnitude The speed that the robot should drive in a given
+     * direction.
+     * @param direction The direction the robot should drive in degrees. The
+     * direction and maginitute are independent of the rotation rate.
+     * @param rotation The rate of rotation for the robot that is completely
+     * independent of the magnitute or direction. [-1.0..1.0]
      */
     public void mecanumDrive_Polar(double magnitude, double direction, double rotation) {
-        if(!kMecanumPolar_Reported){
+        if (!kMecanumPolar_Reported) {
             UsageReporting.report(UsageReporting.kResourceType_RobotDrive, getNumMotors(), UsageReporting.kRobotDrive_MecanumPolar);
             kMecanumPolar_Reported = true;
         }
@@ -576,7 +636,7 @@ public class RobotDrive6 implements MotorSafety, IUtility {
 
         normalize(wheelSpeeds);
 
-        byte syncGroup = (byte)0x80;
+        byte syncGroup = (byte) 0x80;
 
         m_frontLeftMotor.set(wheelSpeeds[MotorType.kFrontLeft_val] * m_invertedMotors[MotorType.kFrontLeft_val] * m_maxOutput, syncGroup);
         m_frontRightMotor.set(wheelSpeeds[MotorType.kFrontRight_val] * m_invertedMotors[MotorType.kFrontRight_val] * m_maxOutput, syncGroup);
@@ -590,10 +650,13 @@ public class RobotDrive6 implements MotorSafety, IUtility {
                 CANJaguar.updateSyncGroup(syncGroup);
             } catch (CANNotInitializedException e) {
                 m_isCANInitialized = false;
-            } catch (CANTimeoutException e) {}
+            } catch (CANTimeoutException e) {
+            }
         }
 
-        if (m_safetyHelper != null) m_safetyHelper.feed();
+        if (m_safetyHelper != null) {
+            m_safetyHelper.feed();
+        }
     }
 
     /**
@@ -601,20 +664,23 @@ public class RobotDrive6 implements MotorSafety, IUtility {
      *
      * This is an alias to mecanumDrive_Polar() for backward compatability
      *
-     * @param magnitude The speed that the robot should drive in a given direction.  [-1.0..1.0]
-     * @param direction The direction the robot should drive. The direction and maginitute are
-     * independent of the rotation rate.
-     * @param rotation The rate of rotation for the robot that is completely independent of
-     * the magnitute or direction.  [-1.0..1.0]
+     * @param magnitude The speed that the robot should drive in a given
+     * direction. [-1.0..1.0]
+     * @param direction The direction the robot should drive. The direction and
+     * maginitute are independent of the rotation rate.
+     * @param rotation The rate of rotation for the robot that is completely
+     * independent of the magnitute or direction. [-1.0..1.0]
      */
     void holonomicDrive(float magnitude, float direction, float rotation) {
         mecanumDrive_Polar(magnitude, direction, rotation);
     }
 
-    /** Set the speed of the right and left motors.
-     * This is used once an appropriate drive setup function is called such as
-     * twoWheelDrive(). The motors are set to "leftSpeed" and "rightSpeed"
-     * and includes flipping the direction of one side for opposing motors.
+    /**
+     * Set the speed of the right and left motors. This is used once an
+     * appropriate drive setup function is called such as twoWheelDrive(). The
+     * motors are set to "leftSpeed" and "rightSpeed" and includes flipping the
+     * direction of one side for opposing motors.
+     *
      * @param leftOutput The speed to send to the left side of the robot.
      * @param rightOutput The speed to send to the right side of the robot.
      */
@@ -623,7 +689,7 @@ public class RobotDrive6 implements MotorSafety, IUtility {
             throw new NullPointerException("Null motor provided");
         }
 
-        byte syncGroup = (byte)0x80;
+        byte syncGroup = (byte) 0x80;
 
         m_frontLeftMotor.set(limit(leftOutput) * m_invertedMotors[MotorType.kFrontLeft_val] * m_maxOutput, syncGroup);
         m_rearLeftMotor.set(limit(leftOutput) * m_invertedMotors[MotorType.kRearLeft_val] * m_maxOutput, syncGroup);
@@ -631,16 +697,19 @@ public class RobotDrive6 implements MotorSafety, IUtility {
         m_frontRightMotor.set(-limit(rightOutput) * m_invertedMotors[MotorType.kFrontRight_val] * m_maxOutput, syncGroup);
         m_rearRightMotor.set(-limit(rightOutput) * m_invertedMotors[MotorType.kRearRight_val] * m_maxOutput, syncGroup);
         m_middleRightMotor.set(-limit(rightOutput) * m_invertedMotors[MotorType.kMiddleRight_val] * m_maxOutput, syncGroup);
-        
+
         if (m_isCANInitialized) {
             try {
                 CANJaguar.updateSyncGroup(syncGroup);
             } catch (CANNotInitializedException e) {
                 m_isCANInitialized = false;
-            } catch (CANTimeoutException e) {}
+            } catch (CANTimeoutException e) {
+            }
         }
 
-        if (m_safetyHelper != null) m_safetyHelper.feed();
+        if (m_safetyHelper != null) {
+            m_safetyHelper.feed();
+        }
     }
 
     /**
@@ -657,17 +726,20 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Normalize all wheel speeds if the magnitude of any wheel is greater than 1.0.
+     * Normalize all wheel speeds if the magnitude of any wheel is greater than
+     * 1.0.
      */
     protected static void normalize(double wheelSpeeds[]) {
         double maxMagnitude = Math.abs(wheelSpeeds[0]);
         int i;
-        for (i=1; i<kMaxNumberOfMotors; i++) {
+        for (i = 1; i < kMaxNumberOfMotors; i++) {
             double temp = Math.abs(wheelSpeeds[i]);
-            if (maxMagnitude < temp) maxMagnitude = temp;
+            if (maxMagnitude < temp) {
+                maxMagnitude = temp;
+            }
         }
         if (maxMagnitude > 1.0) {
-            for (i=0; i<kMaxNumberOfMotors; i++) {
+            for (i = 0; i < kMaxNumberOfMotors; i++) {
                 wheelSpeeds[i] = wheelSpeeds[i] / maxMagnitude;
             }
         }
@@ -686,10 +758,11 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     }
 
     /**
-     * Invert a motor direction.
-     * This is used when a motor should run in the opposite direction as the drive
-     * code would normally run it. Motors that are direct drive would be inverted, the
-     * drive code assumes that the motors are geared with one reversal.
+     * Invert a motor direction. This is used when a motor should run in the
+     * opposite direction as the drive code would normally run it. Motors that
+     * are direct drive would be inverted, the drive code assumes that the
+     * motors are geared with one reversal.
+     *
      * @param motor The motor index to invert.
      * @param isInverted True if the motor should be inverted when operated.
      */
@@ -701,22 +774,24 @@ public class RobotDrive6 implements MotorSafety, IUtility {
      * Set the turning sensitivity.
      *
      * This only impacts the drive() entry-point.
-     * @param sensitivity Effectively sets the turning sensitivity (or turn radius for a given value)
+     *
+     * @param sensitivity Effectively sets the turning sensitivity (or turn
+     * radius for a given value)
      */
-    public void setSensitivity(double sensitivity)
-    {
-            m_sensitivity = sensitivity;
+    public void setSensitivity(double sensitivity) {
+        m_sensitivity = sensitivity;
     }
 
     /**
-     * Configure the scaling factor for using RobotDrive with motor controllers in a mode other than PercentVbus.
-     * @param maxOutput Multiplied with the output percentage computed by the drive functions.
+     * Configure the scaling factor for using RobotDrive with motor controllers
+     * in a mode other than PercentVbus.
+     *
+     * @param maxOutput Multiplied with the output percentage computed by the
+     * drive functions.
      */
-    public void setMaxOutput(double maxOutput)
-    {
-            m_maxOutput = maxOutput;
+    public void setMaxOutput(double maxOutput) {
+        m_maxOutput = maxOutput;
     }
-
 
     /**
      * Free the speed controllers if they were allocated locally
@@ -763,7 +838,7 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     public void setSafetyEnabled(boolean enabled) {
         m_safetyHelper.setSafetyEnabled(enabled);
     }
-    
+
     public String getDescription() {
         return "Robot Drive";
     }
@@ -795,15 +870,26 @@ public class RobotDrive6 implements MotorSafety, IUtility {
         m_safetyHelper.setSafetyEnabled(true);
     }
 
-    protected int getNumMotors()
-    {
+    protected int getNumMotors() {
         int motors = 0;
-        if (m_frontLeftMotor != null) motors++;
-        if (m_frontRightMotor != null) motors++;
-        if (m_rearLeftMotor != null) motors++;
-        if (m_rearRightMotor != null) motors++;
-        if (m_middleLeftMotor != null) motors++;
-        if (m_middleRightMotor != null) motors++;
+        if (m_frontLeftMotor != null) {
+            motors++;
+        }
+        if (m_frontRightMotor != null) {
+            motors++;
+        }
+        if (m_rearLeftMotor != null) {
+            motors++;
+        }
+        if (m_rearRightMotor != null) {
+            motors++;
+        }
+        if (m_middleLeftMotor != null) {
+            motors++;
+        }
+        if (m_middleRightMotor != null) {
+            motors++;
+        }
         return motors;
     }
 }
