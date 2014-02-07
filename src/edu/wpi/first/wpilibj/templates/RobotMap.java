@@ -62,6 +62,8 @@ public class RobotMap {
     
     public static final double Rolleroff = 0;
     
+    public static final boolean launchSolenoidValue = true;
+    
     /*public static final Relay.Value retrieveMotor = Relay.Value.kForward;
     
     public static final Relay.Value spinOut = Relay.Value.kReverse;
