@@ -62,6 +62,11 @@ public class RobotMap {
     public static final double Rolleroff = 0;
     
     public static final boolean launchSolenoidValue = true;
+    
+    public static final int LauncherSafetyDigitalInput = 13;
+    
+    public static final boolean SafetoFire = false;
+    
 
     /*public static final Relay.Value retrieveMotor = Relay.Value.kForward;
     
