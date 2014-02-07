@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.subsystems.*;
 import edu.wpi.first.wpilibj.DriverStationLCD.Line;
 import edu.wpi.first.wpilibj.DriverStationLCD;
+import edu.wpi.first.wpilibj.Compressor;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -33,6 +34,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
     private static Roller rollerSubsystem;
     Timer t;
     private static DriverStationLCD display;
+    private static Compressor compressor;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -67,6 +69,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
         rollerSubsystem = new Roller();
         blockercontroller = new BlockerArm();
         display = DriverStationLCD.getInstance();
+        compressor = new Compressor (RobotMap.pressureSwitch, RobotMap.compressorRelay);
         
         OI.initialize();
 
