@@ -45,7 +45,7 @@ public class RobotMap {
     public static final int BlockerMotor = 6;
     
     /** The pressure switch that provides feedback to the compressor to turn off when the system reaches 60 PSI. */
-    public static final int pressureSwitch = 1;
+    public static final int pressureSwitch = 14;
     public static final int compressorRelay = 3;
 
     public static final Relay.Value RaiseBlockerMotor = Relay.Value.kForward;
