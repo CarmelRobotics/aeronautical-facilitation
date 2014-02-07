@@ -46,20 +46,15 @@ public class Roller extends Subsystem {
     public void lowerRoller() {
         piston.set(false);
     }
-    public void retrievalRoller() {
-        rollermotor.set(1);
+     public void setretrievalRoller() {
+        rollermotor.set(RobotMap.retrieveMotor);
         
     }
     public void setRolleroff() {
-        rollermotor.set(0);
+        rollermotor.set(RobotMap.rollerOff);
     }
-    
-    public void setRolleron() {
-        rollermotor.set(0.75);
+      public void setRelease() {
+        rollermotor.set(RobotMap.spinOut);
     }
-    public void setRollerOuton() {
-        rollermotor.set(-0.75);
-    }
-    
 
 }
