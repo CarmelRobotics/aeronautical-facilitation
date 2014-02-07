@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
 import edu.wpi.first.wpilibj.DriverStationLCD.Line;
 import edu.wpi.first.wpilibj.DriverStationLCD;
+
 /**
  *
  * @author Team 2035
@@ -57,9 +58,11 @@ public class DriveTrain extends Subsystem {
         drive = new RobotDrive(FLeftMotor, FRightMotor, BLeftMotor, BRightMotor);
 
         GShiftSol = new Solenoid(RobotMap.GShiftSol);
+
         //LFLaunchSol = new Solenoid(RobotMap.LFLaunchSol);
         //RollSol = new Solenoid(RobotMap.RollSol);
         //RFLaunchSol = new Solenoid(RobotMap.RFLaunchSol);
+
     }
 
     public void initDefaultCommand() {
