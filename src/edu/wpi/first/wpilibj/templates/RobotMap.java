@@ -40,11 +40,11 @@ public class RobotMap {
 
     public static final int BRightMotor = 4;
     
-    public static final int MLeftMotor = 5;
+    public static final int MLeftMotor = 7;
     
     public static final int MRightMotor = 6;
     
-    public static final int RollerMotor = 7;
+    public static final int RollerMotor = 5;
 
     public static final int BlockerMotor = 8;
     
@@ -140,23 +140,20 @@ public class RobotMap {
     /**
      *
      */
-    /**
-     *
-     */
-    public static final boolean shifterHighGear = true;
-
-    /**
-     *
-     */
     public static final boolean shifterLowGear = false;
 
-    public static final int GShiftSol = 1;
-
+    public static final int GShiftSolDown = 4;
+    
+    public static final int GShiftSolUp = 3;
+    
     public static final int RFLaunchSol = 2;
 
-    public static final int LFLaunchSol = 3;
+    public static final int LFLaunchSol = 6;
 
-    public static final int RollSol = 4;
+    public static final int ExtSol = 7; 
+    
+    public static final int RetSol = 8;
+    
 
     public static final boolean launchValve1 = true;
 

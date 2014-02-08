@@ -31,12 +31,8 @@ public class DriveTrain extends Subsystem {
     public final Victor BRightMotor;
     public final Victor MLeftMotor;
     public final Victor MRightMotor;
-    //private final Victor RollerMotor;
-    //private final Victor BlockerMotor;
-    private final Solenoid GShiftSol;
-    //private final Solenoid LFLaunchSol;
-    //private final Solenoid RFLaunchSol;
-    //private final Solenoid RollSol;
+    private final Solenoid GShiftSolDown;
+    private final Solenoid GShiftSolUp;
     private static DriverStationLCD display;
 
     /**
@@ -51,18 +47,10 @@ public class DriveTrain extends Subsystem {
         BRightMotor = new Victor(RobotMap.BRightMotor);
         MLeftMotor = new Victor(RobotMap.MLeftMotor);
         MRightMotor = new Victor(RobotMap.MRightMotor);
-        
-        //RollerMotor = new Victor(RobotMap.RollerMotor);
-        //BlockerMotor = new Victor(RobotMap.BlockerMotor);
-
         drive = new RobotDrive(FLeftMotor, FRightMotor, BLeftMotor, BRightMotor);
 
-        GShiftSol = new Solenoid(RobotMap.GShiftSol);
-
-        //LFLaunchSol = new Solenoid(RobotMap.LFLaunchSol);
-        //RollSol = new Solenoid(RobotMap.RollSol);
-        //RFLaunchSol = new Solenoid(RobotMap.RFLaunchSol);
-
+        GShiftSolDown = new Solenoid(RobotMap.GShiftSolDown);
+        GShiftSolUp = new Solenoid(RobotMap.GShiftSolUp);
     }
 
     public void initDefaultCommand() {
@@ -85,7 +73,7 @@ public class DriveTrain extends Subsystem {
     public void drive(double speed) {
         drive.drive(speed, 0.0);
     }
-    
+
     public void drive6(double speed) {
         drive6.drive(speed, 0.0);
     }
@@ -114,7 +102,8 @@ public class DriveTrain extends Subsystem {
      *
      */
     public void shiftLowGear() {
-        GShiftSol.set(RobotMap.shifterLowGear);
+        GShiftSolDown.set(RobotMap.shifterLowGear);
+        GShiftSolUp.set(!RobotMap.shifterLowGear);
         //System.out.println("Shifting to Low gear");
         display.println(Line.kUser1, 1, "Into Low Gear");
         display.updateLCD();
@@ -124,7 +113,9 @@ public class DriveTrain extends Subsystem {
      *
      */
     public void shiftHighGear() {
-        GShiftSol.set(RobotMap.shifterHighGear);
+        GShiftSolUp.set(!RobotMap.shifterLowGear);
+        GShiftSolDown.set(RobotMap.shifterLowGear);
+
         //System.out.println("Shifting to High gear");
         display.println(Line.kUser1, 1, "Into High Gear");
         display.updateLCD();
