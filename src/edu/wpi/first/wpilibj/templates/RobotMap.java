@@ -67,7 +67,7 @@ public class RobotMap {
     
     public static final boolean launchSolenoidValue = true;
     
-    public static final int LauncherSafetyDigitalInput = 13;
+    public static final int LauncherSafetyDigitalInput = 2;
     
     public static final boolean SafetoFire = false;
     
