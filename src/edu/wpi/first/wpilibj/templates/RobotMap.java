@@ -151,12 +151,16 @@ public class RobotMap {
     public static final boolean shifterLowGear = false;
 
     public static final int GShiftSol = 1;
+    
+    //TODO: add another gear shifter solenoid number (one is Low Gear, one is High Gear)
 
     public static final int RFLaunchSol = 2;
 
     public static final int LFLaunchSol = 3;
 
-    public static final int RollSol = 4;
+    public static final int RollSol = 4;  
+    
+    //TODO: add another Roll solenoid (one is to Lower the Roller, one is to Raise the Roller)
 
     public static final boolean launchValve1 = true;
 

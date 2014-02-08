@@ -34,6 +34,7 @@ public class DriveTrain extends Subsystem {
     //private final Victor RollerMotor;
     //private final Victor BlockerMotor;
     private final Solenoid GShiftSol;
+    //TODO: add another Solenoid (one low gear, one high gear)
     //private final Solenoid LFLaunchSol;
     //private final Solenoid RFLaunchSol;
     //private final Solenoid RollSol;
@@ -58,6 +59,7 @@ public class DriveTrain extends Subsystem {
         drive = new RobotDrive(FLeftMotor, FRightMotor, BLeftMotor, BRightMotor);
 
         GShiftSol = new Solenoid(RobotMap.GShiftSol);
+        //TODO: initialize the other Solenoid (use RobotMap also)
 
         //LFLaunchSol = new Solenoid(RobotMap.LFLaunchSol);
         //RollSol = new Solenoid(RobotMap.RollSol);
@@ -115,6 +117,7 @@ public class DriveTrain extends Subsystem {
      */
     public void shiftLowGear() {
         GShiftSol.set(RobotMap.shifterLowGear);
+        //TODO: set the other solenoid to be the opposite of the first
         //System.out.println("Shifting to Low gear");
         display.println(Line.kUser1, 1, "Into Low Gear");
         display.updateLCD();
@@ -125,6 +128,7 @@ public class DriveTrain extends Subsystem {
      */
     public void shiftHighGear() {
         GShiftSol.set(RobotMap.shifterHighGear);
+        //TODO: set the other solenoid to be the opposite of the first
         //System.out.println("Shifting to High gear");
         display.println(Line.kUser1, 1, "Into High Gear");
         display.updateLCD();
