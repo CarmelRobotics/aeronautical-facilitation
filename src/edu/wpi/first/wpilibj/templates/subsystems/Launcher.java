@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.templates.RobotMap;
+import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
 
 /**
  *
@@ -75,4 +76,11 @@ public class Launcher extends Subsystem {
         launcherL.set(!RobotMap.launchSolenoidValue);
 
     }
+
+    public boolean launcherswitch() {
+        return launcherSafetySwitch.get();
+
+    }
+
 }
+

@@ -124,5 +124,10 @@ public class AeronauticalFacilitation extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
+    } 
+    
+    public void disabledPeriodic() {
+        display.println(Line.kUser1,1, "Lauch: " + launchercontroller.launcherswitch());
+        display.updateLCD();
     }
 }
