@@ -6,9 +6,12 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.templates.RobotMap;
+import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
+
 /**
  *
  * @author Team 2035
@@ -19,6 +22,7 @@ public class Launcher extends Subsystem {
     // here. Call these from Commands.
     Solenoid launcherL;
     Solenoid launcherR;
+    DigitalInput launcherSafetySwitch;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -31,8 +35,8 @@ public class Launcher extends Subsystem {
     public Launcher() {
         launcherL = new Solenoid(RobotMap.LFLaunchSol);
         launcherR = new Solenoid(RobotMap.RFLaunchSol);
+        launcherSafetySwitch = new DigitalInput(RobotMap.LauncherSafetyDigitalInput);
     }
-    
 
     /**
      *
@@ -45,18 +49,38 @@ public class Launcher extends Subsystem {
     }
 
     public void launch() {
-        launcherL.set(RobotMap.launchSolenoidValue);
-        launcherR.set(RobotMap.launchSolenoidValue);
+        if (launcherSafetySwitch.get() == RobotMap.SafetoFire) {
+
+            launcherL.set(RobotMap.launchSolenoidValue);
+            launcherR.set(RobotMap.launchSolenoidValue);
+        } else if (launcherSafetySwitch.get() != RobotMap.SafetoFire) {
+            launcherL.set(!RobotMap.launchValve1);
+            launcherR.set(!RobotMap.launchValve2);
+
+        }
     }
 
     public void pass() {
-        launcherL.set(RobotMap.launchSolenoidValue);
-        launcherR.set(!RobotMap.launchSolenoidValue);
+        if (launcherSafetySwitch.get() == RobotMap.SafetoFire) {
+
+            launcherL.set(RobotMap.passValve1);
+            launcherR.set(!RobotMap.passValve2);
+        } else if (launcherSafetySwitch.get() != RobotMap.SafetoFire) {
+            launcherL.set(!RobotMap.passValve1);
+            launcherR.set(!RobotMap.passValve2);
+        }
     }
 
     public void retract() {
         launcherL.set(!RobotMap.launchSolenoidValue);
         launcherL.set(!RobotMap.launchSolenoidValue);
-     
+
     }
+
+    public boolean launcherswitch() {
+        return launcherSafetySwitch.get();
+
+    }
+
 }
+
