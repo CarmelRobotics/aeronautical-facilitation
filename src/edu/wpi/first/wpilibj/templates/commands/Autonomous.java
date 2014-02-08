@@ -49,11 +49,11 @@ public class Autonomous extends CommandBase {
     protected void execute() {
         double tv = t.get();
         //double tc = r.get();
-        if (tv > 0.0 && tv < 3.0) {
+        if (tv > 0.0 && tv < 1.5) {
             drive.drivetank(SpeedL, SpeedR);
             // put stuff that the robot is going to do here TODO
             // THIS IS A BLANK LINE PLACEHOLDER!
-        } else if (tv > 3.0 && tv < 6.0) {
+        } else if (tv > 1.5 && tv < 6.0) {
             launcher.launch();
             t2 = t.get();
             //r.start();
