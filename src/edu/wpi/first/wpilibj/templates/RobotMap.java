@@ -98,17 +98,17 @@ public class RobotMap {
     /**
      *
      */
-    public static final JoystickButton dButtonLaunch = new JoystickButton(dStick, 1);
+    public static final JoystickButton dButtonShoot = new JoystickButton(dStick, 6);
 
     /**
      *
      */
-    public static final JoystickButton dButtonBlkD = new JoystickButton(dStick, 2);
+    //public static final JoystickButton dButtonBlkD = new JoystickButton(dStick, 2);
 
     /**
      *
      */
-    public static final JoystickButton dButtonBlkU = new JoystickButton(dStick, 3);
+    //public static final JoystickButton dButtonBlkU = new JoystickButton(dStick, 3);
 
     /**
      *
@@ -122,22 +122,22 @@ public class RobotMap {
     /**
      *
      */
-    public static final JoystickButton dButtonGearShftU = new JoystickButton(dStick, 7);
+    //public static final JoystickButton dButtonGearShftU = new JoystickButton(dStick, 7);
 
     /**
      *
      */
-    public static final JoystickButton dButtonGearShftD = new JoystickButton(dStick, 8);
+    public static final JoystickButton dButtonGearShiftLowGear = new JoystickButton(dStick, 1);
 
-    public static final JoystickButton dButtonPass = new JoystickButton(dStick, 9);
+    public static final JoystickButton dButtonPass = new JoystickButton(dStick, 7);
 
-    public static final JoystickButton dButtonLowerRoll = new JoystickButton(dStickII, 3);
+    public static final JoystickButton dButtonRollerOut = new JoystickButton(dStickII, 4);
 
-    public static final JoystickButton dButtonRaiseRoll = new JoystickButton(dStickII, 4);
+    public static final JoystickButton dButtonRollerIn = new JoystickButton(dStickII, 5);
 
-    public static final JoystickButton dButtonRetrieve = new JoystickButton(dStickII, 1);
+    public static final JoystickButton dButtonFeedIn = new JoystickButton(dStick, 2);
 
-    public static final JoystickButton dButtonOut = new JoystickButton(dStickII, 2);
+    public static final JoystickButton dButtonFeedOut = new JoystickButton(dStick, 3);
     //public static final boolean shifterDriveTrainDirection = false;
     /* 
      * SOLENOIDS
@@ -147,16 +147,14 @@ public class RobotMap {
      */
     public static final boolean shifterLowGear = false;
 
-    public static final int GShiftSolDown = 4;
     
-    public static final int GShiftSolUp = 3;
     
     public static final int RFLaunchSol = 2;
-
-    public static final int LFLaunchSol = 6;
-
-    public static final int ExtSol = 7; 
+    public static final int GShiftSolUp = 3;
+    public static final int GShiftSolDown = 4;
     
+    public static final int LFLaunchSol = 6;
+    public static final int ExtSol = 7; 
     public static final int RetSol = 8;
     
 
