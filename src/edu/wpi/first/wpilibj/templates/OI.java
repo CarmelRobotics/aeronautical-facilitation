@@ -93,12 +93,5 @@ public class OI {
        
         
     }
-   
-    /**
-     *
-     * @return
-     */
-    public static Joystick getDriveStick() {
-        return RobotMap.DriverJoystick;
-    }
+
 }

@@ -57,7 +57,7 @@ public class DriveTrain extends Subsystem {
     }
 
     public void initDefaultCommand() {
-        super.setDefaultCommand(new StandardDrive(drive, OI.getDriveStick()));
+        super.setDefaultCommand(new StandardDrive(drive, RobotMap.DriverJoystick));
         //super.setDefaultCommand(new StandardDrive(drive6, OI.getDriveStick()));
     }
 
