@@ -59,9 +59,9 @@ public class RobotMap {
 
     public static final Relay.Value blocker = Relay.Value.kOff;
 
-    public static final double RollerRetrieval = 0.25;
+    public static final double RollerRetrieval = 1.0; // this one really releases
 
-    public static final double RollerRelease = -0.25;
+    public static final double RollerRelease = -1.00; // this one really retrieves
 
     public static final double Rolleroff = 0;
     
@@ -131,9 +131,9 @@ public class RobotMap {
 
     public static final JoystickButton dButtonPass = new JoystickButton(dStick, 7);
 
-    public static final JoystickButton dButtonRollerOut = new JoystickButton(dStickII, 4);
+    public static final JoystickButton dButtonRollerOut = new JoystickButton(dStick, 4);
 
-    public static final JoystickButton dButtonRollerIn = new JoystickButton(dStickII, 5);
+    public static final JoystickButton dButtonRollerIn = new JoystickButton(dStick, 5);
 
     public static final JoystickButton dButtonFeedIn = new JoystickButton(dStick, 2);
 
