@@ -41,12 +41,12 @@ public class DriveTrain extends Subsystem {
     public DriveTrain() {
         super("DriveTrain");
 
-        FLeftMotor = new Victor(RobotMap.FLeftMotor);
-        FRightMotor = new Victor(RobotMap.FRightMotor);
-        BLeftMotor = new Victor(RobotMap.BLeftMotor);
-        BRightMotor = new Victor(RobotMap.BRightMotor);
-        MLeftMotor = new Victor(RobotMap.MLeftMotor);
-        MRightMotor = new Victor(RobotMap.MRightMotor);
+        FLeftMotor = new Victor(RobotMap.FLeftMotorPWM);
+        FRightMotor = new Victor(RobotMap.FRightMotorPWM);
+        BLeftMotor = new Victor(RobotMap.BLeftMotorPWM);
+        BRightMotor = new Victor(RobotMap.BRightMotorPWM);
+        MLeftMotor = new Victor(RobotMap.MLeftMotorPWM);
+        MRightMotor = new Victor(RobotMap.MRightMotorPWM);
         drive = new RobotDrive(FLeftMotor, BLeftMotor,  FRightMotor, BRightMotor);
         //drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         //drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);

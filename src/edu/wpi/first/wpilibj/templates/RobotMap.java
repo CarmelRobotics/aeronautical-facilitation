@@ -21,14 +21,14 @@ public class RobotMap {
     /*
      * DIGITAL SIDECAR PWMS NUMBERING
      */
-    public static final int FLeftMotor = 1;
-    public static final int BLeftMotor = 2;
-    public static final int FRightMotor = 3;
-    public static final int BRightMotor = 4;
-    public static final int RollerMotor = 5;
-    public static final int MRightMotor = 6;
-    public static final int MLeftMotor = 7;
-    public static final int BlockerMotor = 8;
+    public static final int FLeftMotorPWM = 1;
+    public static final int BLeftMotorPWM = 2;
+    public static final int FRightMotorPWM = 3;
+    public static final int BRightMotorPWM = 4;
+    public static final int RollerMotorPWM = 5;
+    public static final int MRightMotorPWM = 6;
+    public static final int MLeftMotorPWM = 7;
+    public static final int BlockerMotorPWM = 8;
 
     /*
      * DIGITAL SIDECAR DIGITAL INPUTS NUMBERING

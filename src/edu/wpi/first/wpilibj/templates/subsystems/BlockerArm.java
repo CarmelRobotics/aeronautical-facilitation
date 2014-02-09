@@ -21,7 +21,7 @@ public class BlockerArm extends Subsystem {
     Relay blocker;
     
     public BlockerArm() {
-        blocker = new Relay(RobotMap.BlockerMotor);
+        blocker = new Relay(RobotMap.BlockerMotorPWM);
     }
 
     public void initDefaultCommand() {
