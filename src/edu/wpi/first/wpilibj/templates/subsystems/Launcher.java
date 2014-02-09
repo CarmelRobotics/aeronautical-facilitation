@@ -73,7 +73,7 @@ public class Launcher extends Subsystem {
 
     public void retract() {
         launcherL.set(!RobotMap.launchSolenoidValue);
-        launcherL.set(!RobotMap.launchSolenoidValue);
+        launcherR.set(!RobotMap.launchSolenoidValue);
 
     }
 

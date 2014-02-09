@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.templates.commands.BlockerDown;
 import edu.wpi.first.wpilibj.templates.commands.BlockerUp;
+import edu.wpi.first.wpilibj.templates.commands.DriveShiftLow;
 import edu.wpi.first.wpilibj.templates.commands.Launch;
 import edu.wpi.first.wpilibj.templates.commands.LowerRoller;
 import edu.wpi.first.wpilibj.templates.commands.Pass;
@@ -64,28 +65,29 @@ public class OI {
      */
     public static void initialize() {
 
-        shiftLowGear = RobotMap.dButtonGearShftD;
+        shiftLowGear = RobotMap.dButtonGearShiftLowGear;
+        shiftLowGear.whileHeld(new DriveShiftLow());
 
-        launch = RobotMap.dButtonLaunch;
+        launch = RobotMap.dButtonShoot;
         Pass = RobotMap.dButtonPass;
         launch.whenPressed(new Launch());
         Pass.whenPressed(new Pass());
         
-        raiseBlocker = RobotMap.dButtonBlkU;
-        lowerBlocker = RobotMap.dButtonBlkD;
+        //raiseBlocker = RobotMap.dButtonBlkU;
+       // lowerBlocker = RobotMap.dButtonBlkD;
         raiseBlocker.whileHeld(new BlockerUp());
         lowerBlocker.whileHeld(new BlockerDown());
         
              
-        raiseRoller = RobotMap.dButtonRaiseRoll;
-        lowerRoller = RobotMap.dButtonLowerRoll;
+        raiseRoller = RobotMap.dButtonRollerIn;
+        lowerRoller = RobotMap.dButtonRollerOut;
         raiseRoller.whenPressed(new RaiseRoller());
         lowerRoller.whenPressed(new LowerRoller());
         
-         retrieve = RobotMap.dButtonRetrieve;
+         retrieve = RobotMap.dButtonFeedIn;
          retrieve.whileHeld(new RetrievalRoller());
          
-         spitout = RobotMap.dButtonOut;
+         spitout = RobotMap.dButtonFeedOut;
          spitout.whileHeld(new SpitoutRoller());
          
        

@@ -47,10 +47,13 @@ public class DriveTrain extends Subsystem {
         BRightMotor = new Victor(RobotMap.BRightMotor);
         MLeftMotor = new Victor(RobotMap.MLeftMotor);
         MRightMotor = new Victor(RobotMap.MRightMotor);
-        drive = new RobotDrive(FLeftMotor, FRightMotor, BLeftMotor, BRightMotor);
+        drive = new RobotDrive(FLeftMotor, BLeftMotor,  FRightMotor, BRightMotor);
+        //drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
+        //drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 
         GShiftSolDown = new Solenoid(RobotMap.GShiftSolDown);
         GShiftSolUp = new Solenoid(RobotMap.GShiftSolUp);
+        display = DriverStationLCD.getInstance();
     }
 
     public void initDefaultCommand() {
@@ -104,8 +107,10 @@ public class DriveTrain extends Subsystem {
     public void shiftLowGear() {
         GShiftSolDown.set(RobotMap.shifterLowGear);
         GShiftSolUp.set(!RobotMap.shifterLowGear);
+        GShiftSolDown.set(true);
+        GShiftSolUp.set(false);
         //System.out.println("Shifting to Low gear");
-        display.println(Line.kUser1, 1, "Into Low Gear");
+        display.println(Line.kUser1, 1, "Into Low Gear ");
         display.updateLCD();
     }
 
@@ -115,9 +120,11 @@ public class DriveTrain extends Subsystem {
     public void shiftHighGear() {
         GShiftSolUp.set(!RobotMap.shifterLowGear);
         GShiftSolDown.set(RobotMap.shifterLowGear);
+        GShiftSolUp.set(true);
+        GShiftSolDown.set(false);
 
         //System.out.println("Shifting to High gear");
-        display.println(Line.kUser1, 1, "Into High Gear");
+        display.println(Line.kUser1, 1, "Into High Gear ");
         display.updateLCD();
     }
 
