@@ -33,8 +33,8 @@ public class Launcher extends Subsystem {
      *
      */
     public Launcher() {
-        launcherL = new Solenoid(RobotMap.LFLaunchSol);
-        launcherR = new Solenoid(RobotMap.RFLaunchSol);
+        launcherL = new Solenoid(RobotMap.LaunchLeftSolenoid);
+        launcherR = new Solenoid(RobotMap.LaunchRightSolenoid);
         launcherSafetySwitch = new DigitalInput(RobotMap.LauncherSafetyDigitalInput);
     }
 
@@ -51,11 +51,11 @@ public class Launcher extends Subsystem {
     public void launch() {
         if (launcherSafetySwitch.get() == RobotMap.SafetoFire) {
 
-            launcherL.set(RobotMap.launchSolenoidValue);
-            launcherR.set(RobotMap.launchSolenoidValue);
+            launcherL.set(RobotMap.LaunchSolenoidValue);
+            launcherR.set(RobotMap.LaunchSolenoidValue);
         } else if (launcherSafetySwitch.get() != RobotMap.SafetoFire) {
-            launcherL.set(!RobotMap.launchValve1);
-            launcherR.set(!RobotMap.launchValve2);
+            launcherL.set(!RobotMap.LaunchSolenoidValue);
+            launcherR.set(!RobotMap.LaunchSolenoidValue);
 
         }
     }
@@ -63,17 +63,17 @@ public class Launcher extends Subsystem {
     public void pass() {
         if (launcherSafetySwitch.get() == RobotMap.SafetoFire) {
 
-            launcherL.set(RobotMap.passValve1);
-            launcherR.set(!RobotMap.passValve2);
+            launcherL.set(RobotMap.LaunchSolenoidValue);
+            launcherR.set(!RobotMap.LaunchSolenoidValue);
         } else if (launcherSafetySwitch.get() != RobotMap.SafetoFire) {
-            launcherL.set(!RobotMap.passValve1);
-            launcherR.set(!RobotMap.passValve2);
+            launcherL.set(!RobotMap.LaunchSolenoidValue);
+            launcherR.set(!RobotMap.LaunchSolenoidValue);
         }
     }
 
     public void retract() {
-        launcherL.set(!RobotMap.launchSolenoidValue);
-        launcherR.set(!RobotMap.launchSolenoidValue);
+        launcherL.set(!RobotMap.LaunchSolenoidValue);
+        launcherR.set(!RobotMap.LaunchSolenoidValue);
 
     }
 
