@@ -17,9 +17,9 @@ import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
  */
 public class StandardDrive extends CommandBase {
 
-    private Joystick joystick;
-    private RobotDrive drive;
-    private DriveTrain theDriveTrain;
+    private final Joystick joystick;
+    private final RobotDrive drive;
+    private final DriveTrain theDriveTrain;
 
     /**
      *
