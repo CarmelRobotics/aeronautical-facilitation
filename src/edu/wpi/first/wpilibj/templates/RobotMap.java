@@ -44,13 +44,13 @@ public class RobotMap {
     /*
      * SOLENOID RELAY CARTRIDGE NUMBERING
      */
-    public static final int RFLaunchSol = 2;
-    public static final int GShiftSolUp = 3;
-    public static final int GShiftSolDown = 4;
+    public static final int LaunchRightSolenoid = 2;
+    public static final int DriveTrainHighGearSolenoid = 3;
+    public static final int DriveTrainLowGearSolenoid = 4;
 
-    public static final int LFLaunchSol = 6;
-    public static final int ExtSol = 7;
-    public static final int RetSol = 8;
+    public static final int LaunchLeftSolenoid = 6;
+    public static final int RollerExtensionSolenoid = 7;
+    public static final int RollerRetractSolenoid = 8;
 
     /*
      * BLOCKER SUBSYSTEM CONSTANTS

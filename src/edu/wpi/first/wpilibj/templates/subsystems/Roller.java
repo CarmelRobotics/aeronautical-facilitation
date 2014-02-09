@@ -33,8 +33,8 @@ public class Roller extends Subsystem {
      */
     public Roller() {
         rollermotor = new Victor (RobotMap.RollerMotorPWM);
-        extendPiston = new Solenoid(RobotMap.ExtSol);
-        retractPiston = new Solenoid(RobotMap.RetSol);
+        extendPiston = new Solenoid(RobotMap.RollerExtensionSolenoid);
+        retractPiston = new Solenoid(RobotMap.RollerRetractSolenoid);
     }
 
     public void initDefaultCommand() {

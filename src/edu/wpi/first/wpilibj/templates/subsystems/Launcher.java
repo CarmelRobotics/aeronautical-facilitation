@@ -33,8 +33,8 @@ public class Launcher extends Subsystem {
      *
      */
     public Launcher() {
-        launcherL = new Solenoid(RobotMap.LFLaunchSol);
-        launcherR = new Solenoid(RobotMap.RFLaunchSol);
+        launcherL = new Solenoid(RobotMap.LaunchLeftSolenoid);
+        launcherR = new Solenoid(RobotMap.LaunchRightSolenoid);
         launcherSafetySwitch = new DigitalInput(RobotMap.LauncherSafetyDigitalInput);
     }
 

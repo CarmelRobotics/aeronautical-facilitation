@@ -51,8 +51,8 @@ public class DriveTrain extends Subsystem {
         //drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         //drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 
-        GShiftSolDown = new Solenoid(RobotMap.GShiftSolDown);
-        GShiftSolUp = new Solenoid(RobotMap.GShiftSolUp);
+        GShiftSolDown = new Solenoid(RobotMap.DriveTrainLowGearSolenoid);
+        GShiftSolUp = new Solenoid(RobotMap.DriveTrainHighGearSolenoid);
         display = DriverStationLCD.getInstance();
     }
 
