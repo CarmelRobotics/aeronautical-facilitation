@@ -7,9 +7,6 @@
 package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.templates.commands.BlockerDown;
-import edu.wpi.first.wpilibj.templates.commands.BlockerUp;
 import edu.wpi.first.wpilibj.templates.commands.DriveShiftLow;
 import edu.wpi.first.wpilibj.templates.commands.Launch;
 import edu.wpi.first.wpilibj.templates.commands.LowerRoller;
