@@ -54,8 +54,8 @@ public class Launcher extends Subsystem {
             launcherL.set(RobotMap.launchSolenoidValue);
             launcherR.set(RobotMap.launchSolenoidValue);
         } else if (launcherSafetySwitch.get() != RobotMap.SafetoFire) {
-            launcherL.set(!RobotMap.launchValve1);
-            launcherR.set(!RobotMap.launchValve2);
+            launcherL.set(!RobotMap.launchSolenoidValue);
+            launcherR.set(!RobotMap.launchSolenoidValue);
 
         }
     }
@@ -63,11 +63,11 @@ public class Launcher extends Subsystem {
     public void pass() {
         if (launcherSafetySwitch.get() == RobotMap.SafetoFire) {
 
-            launcherL.set(RobotMap.passValve1);
-            launcherR.set(!RobotMap.passValve2);
+            launcherL.set(RobotMap.launchSolenoidValue);
+            launcherR.set(!RobotMap.launchSolenoidValue);
         } else if (launcherSafetySwitch.get() != RobotMap.SafetoFire) {
-            launcherL.set(!RobotMap.passValve1);
-            launcherR.set(!RobotMap.passValve2);
+            launcherL.set(!RobotMap.launchSolenoidValue);
+            launcherR.set(!RobotMap.launchSolenoidValue);
         }
     }
 
