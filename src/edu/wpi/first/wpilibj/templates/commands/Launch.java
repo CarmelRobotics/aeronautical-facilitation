@@ -17,10 +17,10 @@ import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
  */
 public class Launch extends CommandBase {
 
-    private Launcher launcher;
+    private final Launcher launcher;
     //TODO: add Roller subsystem here.
-    private Timer t;
-    private static DriverStationLCD display;
+    private Timer delayTimer;
+    private final DriverStationLCD display;
 
     /**
      *
@@ -39,22 +39,22 @@ public class Launch extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        t = new Timer();
-        t.start();
+        delayTimer = new Timer();
+        delayTimer.start();
         //TODO: use roller subsystem to lower the roller.
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         launcher.launch();
-        display.println(DriverStationLCD.Line.kUser3, 1, "Lauch timer: " + t.get());
+        display.println(DriverStationLCD.Line.kUser3, 1, "Lauch timer: " + delayTimer.get());
         display.updateLCD();
 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (t.get() > 2.0) {
+        if (delayTimer.get() > 2.0) {
             return true;
         }
         return false;
