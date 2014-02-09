@@ -7,16 +7,13 @@
 package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.buttons.Button;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.templates.commands.BlockerDown;
-import edu.wpi.first.wpilibj.templates.commands.BlockerUp;
 import edu.wpi.first.wpilibj.templates.commands.DriveShiftLow;
 import edu.wpi.first.wpilibj.templates.commands.Launch;
-import edu.wpi.first.wpilibj.templates.commands.LowerRoller;
+import edu.wpi.first.wpilibj.templates.commands.RollerExtend;
 import edu.wpi.first.wpilibj.templates.commands.Pass;
-import edu.wpi.first.wpilibj.templates.commands.RaiseRoller;
-import edu.wpi.first.wpilibj.templates.commands.RetrievalRoller;
-import edu.wpi.first.wpilibj.templates.commands.SpitoutRoller;
+import edu.wpi.first.wpilibj.templates.commands.RollerRetract;
+import edu.wpi.first.wpilibj.templates.commands.RollerRetrieval;
+import edu.wpi.first.wpilibj.templates.commands.RollerRelease;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -60,6 +57,7 @@ public class OI {
     private static Button Pass;
     private static Button retrieve;
     private static Button spitout;
+
     /**
      *
      */
@@ -72,33 +70,22 @@ public class OI {
         Pass = RobotMap.ButtonPassBall;
         launch.whenPressed(new Launch());
         Pass.whenPressed(new Pass());
-        
+
         //raiseBlocker = RobotMap.dButtonBlkU;
         //lowerBlocker = RobotMap.dButtonBlkD;
         //raiseBlocker.whileHeld(new BlockerUp());
         //lowerBlocker.whileHeld(new BlockerDown());
-        
-             
         raiseRoller = RobotMap.ButtonRollerRetract;
         lowerRoller = RobotMap.ButtonRollerExtend;
-        raiseRoller.whenPressed(new RaiseRoller());
-        lowerRoller.whenPressed(new LowerRoller());
-        
-         retrieve = RobotMap.ButtonRollerRetrieveBall;
-         retrieve.whileHeld(new RetrievalRoller());
-         
-         spitout = RobotMap.ButtonRollerReleaseBall;
-         spitout.whileHeld(new SpitoutRoller());
-         
-       
-        
+        raiseRoller.whenPressed(new RollerRetract());
+        lowerRoller.whenPressed(new RollerExtend());
+
+        retrieve = RobotMap.ButtonRollerRetrieveBall;
+        retrieve.whileHeld(new RollerRetrieval());
+
+        spitout = RobotMap.ButtonRollerReleaseBall;
+        spitout.whileHeld(new RollerRelease());
+
     }
-   
-    /**
-     *
-     * @return
-     */
-    public static Joystick getDriveStick() {
-        return RobotMap.DriverJoystick;
-    }
+
 }

@@ -13,50 +13,40 @@ import edu.wpi.first.wpilibj.templates.subsystems.Roller;
  *
  * @author Team 2035
  */
-public class RetrievalRoller extends CommandBase {
+public class RollerRetract extends CommandBase {
 
-    private Roller r;
-    //private double speed = 1.0;
-    //private Roller rollermotor;
-    
+    private final Roller roller;
 
     /**
      *
      */
-    public RetrievalRoller() {
-
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        super("roll forward");
-        r = AeronauticalFacilitation.getRoller();
-        requires(r);
+    public RollerRetract() {
+        super("rollerretract");
+        roller = AeronauticalFacilitation.getRoller();
+        requires(roller);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        roller.raiseRoller();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        r.setretrievalRoller();
 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-
-        r.setRolleroff();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        r.setRolleroff();
     }
 }

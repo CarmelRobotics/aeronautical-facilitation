@@ -16,23 +16,16 @@ import edu.wpi.first.wpilibj.templates.RobotMap;
  * @author Team 2035
  */
 public class Roller extends Subsystem {
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
 
-    /**
-     *
-     */
-    public final Solenoid extendPiston;
-    public final Solenoid retractPiston;
-    //TODO: add another Solenoid DONE
-
-    public final Victor rollermotor;
+    private final Solenoid extendPiston;
+    private final Solenoid retractPiston;
+    private final Victor rollermotor;
 
     /**
      *
      */
     public Roller() {
-        rollermotor = new Victor (RobotMap.RollerMotorPWM);
+        rollermotor = new Victor(RobotMap.RollerMotorPWM);
         extendPiston = new Solenoid(RobotMap.RollerExtensionSolenoid);
         retractPiston = new Solenoid(RobotMap.RollerRetractSolenoid);
     }
@@ -51,14 +44,17 @@ public class Roller extends Subsystem {
         extendPiston.set(false);
         retractPiston.set(true);
     }
-     public void setretrievalRoller() {
+
+    public void setretrievalRoller() {
         rollermotor.set(RobotMap.RollerRetrievalMotorSpeed);
-        
+
     }
+
     public void setRolleroff() {
         rollermotor.set(RobotMap.RollerOffMotorSpeed);
     }
-      public void setRelease() {
+
+    public void setRelease() {
         rollermotor.set(RobotMap.RollerReleaseMotorSpeed);
     }
 

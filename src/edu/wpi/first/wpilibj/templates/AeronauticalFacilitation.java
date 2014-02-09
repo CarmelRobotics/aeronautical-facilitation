@@ -7,7 +7,6 @@
 package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -32,15 +31,14 @@ public class AeronauticalFacilitation extends IterativeRobot {
     private static Launcher launchercontroller;
     private static BlockerArm blockercontroller;
     private static Roller rollerSubsystem;
-    Timer t;
     private static DriverStationLCD display;
     private static Compressor compressor;
 
     /**
      * This function is run when the robot is first started up and should be
-     * used for any initialization code. 
-     * This declares all of the hardware on the robot that will be used in the
-     * javadoc.
+     * used for any initialization code. This declares all of the hardware on
+     * the robot that will be used in the javadoc.
+     *
      * @return
      */
     public static DriveTrain getDriveTrain() {
@@ -58,7 +56,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
     public static BlockerArm getBlockerArm() {
         return blockercontroller;
     }
-     
+
     /**
      *
      */
@@ -69,15 +67,15 @@ public class AeronauticalFacilitation extends IterativeRobot {
         rollerSubsystem = new Roller();
         blockercontroller = new BlockerArm();
         display = DriverStationLCD.getInstance();
-        compressor = new Compressor (RobotMap.PressureSwitchDigitalInput, RobotMap.CompressorRelay);
+        compressor = new Compressor(RobotMap.PressureSwitchDigitalInput, RobotMap.CompressorRelay);
         compressor.start();
-        
+
         DriveTrain.shiftHighGear();
-        
+
         OI.initialize();
 
         autonomousCommand = new Autonomous();
-        
+
         // Initialize all subsystems.
         // Subsystems: a self-contained system within a larger system. 
         CommandBase.init();
@@ -97,7 +95,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
     }
 
     /**
-     * This function is called periodically (at regular intervals of time) 
+     * This function is called periodically (at regular intervals of time)
      * during autonomous period.
      */
     public void autonomousPeriodic() {
@@ -127,10 +125,10 @@ public class AeronauticalFacilitation extends IterativeRobot {
      */
     public void testPeriodic() {
         LiveWindow.run();
-    } 
-    
+    }
+
     public void disabledPeriodic() {
-        display.println(Line.kUser1,1, "Lauch: " + launchercontroller.launcherswitch());
+        display.println(Line.kUser1, 1, "Lauch: " + launchercontroller.launcherswitch());
         display.updateLCD();
     }
 }

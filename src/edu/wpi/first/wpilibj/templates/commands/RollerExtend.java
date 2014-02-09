@@ -13,24 +13,22 @@ import edu.wpi.first.wpilibj.templates.subsystems.Roller;
  *
  * @author Team 2035
  */
-public class RaiseRoller extends CommandBase {
+public class RollerExtend extends CommandBase {
 
-    Roller r;
+    private final Roller roller;
 
     /**
      *
      */
-    public RaiseRoller() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        super("raise roller");
-        r = AeronauticalFacilitation.getRoller();
-        requires(r);
+    public RollerExtend() {
+        super("rollerextend");
+        roller = AeronauticalFacilitation.getRoller();
+        requires(roller);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        r.raiseRoller();
+        roller.lowerRoller();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -40,7 +38,7 @@ public class RaiseRoller extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

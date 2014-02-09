@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.templates.RobotMap;
-import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
 
 /**
  *
@@ -18,10 +17,8 @@ import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
  */
 public class Launcher extends Subsystem {
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-    Solenoid launcherL;
-    Solenoid launcherR;
+    private final Solenoid launcherLeft;
+    private final Solenoid launcherRight;
     DigitalInput launcherSafetySwitch;
 
     public void initDefaultCommand() {
@@ -33,8 +30,8 @@ public class Launcher extends Subsystem {
      *
      */
     public Launcher() {
-        launcherL = new Solenoid(RobotMap.LaunchLeftSolenoid);
-        launcherR = new Solenoid(RobotMap.LaunchRightSolenoid);
+        launcherLeft = new Solenoid(RobotMap.LaunchLeftSolenoid);
+        launcherRight = new Solenoid(RobotMap.LaunchRightSolenoid);
         launcherSafetySwitch = new DigitalInput(RobotMap.LauncherSafetyDigitalInput);
     }
 
@@ -43,37 +40,34 @@ public class Launcher extends Subsystem {
      * @param value
      */
     public void setLauncherSolenoid(boolean value) {
-        launcherL.set(value);
-        launcherR.set(value);
+        launcherLeft.set(value);
+        launcherRight.set(value);
 
     }
 
     public void launch() {
         if (launcherSafetySwitch.get() == RobotMap.SafetoFire) {
-
-            launcherL.set(RobotMap.LaunchSolenoidValue);
-            launcherR.set(RobotMap.LaunchSolenoidValue);
+            launcherLeft.set(RobotMap.LaunchSolenoidValue);
+            launcherRight.set(RobotMap.LaunchSolenoidValue);
         } else if (launcherSafetySwitch.get() != RobotMap.SafetoFire) {
-            launcherL.set(!RobotMap.LaunchSolenoidValue);
-            launcherR.set(!RobotMap.LaunchSolenoidValue);
-
+            launcherLeft.set(!RobotMap.LaunchSolenoidValue);
+            launcherRight.set(!RobotMap.LaunchSolenoidValue);
         }
     }
 
     public void pass() {
         if (launcherSafetySwitch.get() == RobotMap.SafetoFire) {
-
-            launcherL.set(RobotMap.LaunchSolenoidValue);
-            launcherR.set(!RobotMap.LaunchSolenoidValue);
+            launcherLeft.set(RobotMap.LaunchSolenoidValue);
+            launcherRight.set(!RobotMap.LaunchSolenoidValue);
         } else if (launcherSafetySwitch.get() != RobotMap.SafetoFire) {
-            launcherL.set(!RobotMap.LaunchSolenoidValue);
-            launcherR.set(!RobotMap.LaunchSolenoidValue);
+            launcherLeft.set(!RobotMap.LaunchSolenoidValue);
+            launcherRight.set(!RobotMap.LaunchSolenoidValue);
         }
     }
 
     public void retract() {
-        launcherL.set(!RobotMap.LaunchSolenoidValue);
-        launcherR.set(!RobotMap.LaunchSolenoidValue);
+        launcherLeft.set(!RobotMap.LaunchSolenoidValue);
+        launcherRight.set(!RobotMap.LaunchSolenoidValue);
 
     }
 
@@ -83,4 +77,3 @@ public class Launcher extends Subsystem {
     }
 
 }
-

@@ -62,8 +62,8 @@ public class RobotMap {
     /*
      * ROLLER SUBSYSTEM CONSTANTS
      */
-    public static final double RollerRetrievalMotorSpeed = -1.0; 
-    public static final double RollerReleaseMotorSpeed = 1.0; 
+    public static final double RollerRetrievalMotorSpeed = -1.0;
+    public static final double RollerReleaseMotorSpeed = 1.0;
     public static final double RollerOffMotorSpeed = 0.0;
 
     /*
@@ -76,6 +76,7 @@ public class RobotMap {
      * DRIVETRAIN SUBSYSTEM CONSTANTS
      */
     public static final boolean DriveTrainLowGearSolenoidValue = false;
+    public static final double AutonomousSpeed = 0.40;
 
     /*
      * The Joystick USB number (can be 1-4)
