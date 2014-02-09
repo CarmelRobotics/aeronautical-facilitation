@@ -69,7 +69,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
         rollerSubsystem = new Roller();
         blockercontroller = new BlockerArm();
         display = DriverStationLCD.getInstance();
-        compressor = new Compressor (RobotMap.pressureSwitch, RobotMap.compressorRelay);
+        compressor = new Compressor (RobotMap.pressureSwitchDigitalInput, RobotMap.compressorRelay);
         compressor.start();
         
         DriveTrain.shiftHighGear();

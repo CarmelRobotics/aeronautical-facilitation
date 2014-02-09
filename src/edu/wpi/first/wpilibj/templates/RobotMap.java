@@ -34,7 +34,7 @@ public class RobotMap {
      * DIGITAL SIDECAR DIGITAL INPUTS NUMBERING
      */
     public static final int LauncherSafetyDigitalInput = 2;
-    public static final int pressureSwitch = 14;
+    public static final int pressureSwitchDigitalInput = 14;
 
     /*
      * DIGITAL SIDECAR RELAYS NUMBERING
