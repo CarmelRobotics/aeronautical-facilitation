@@ -106,7 +106,7 @@ public class DriveTrain extends Subsystem {
      */
     public void shiftLowGear() {
         GShiftSolDown.set(RobotMap.DriveTrainLowGearSolenoidValue);
-        GShiftSolUDriveTrainLowGearSolenoidValuep.shifterLowGear);
+        GShiftSolUp.set(!RobotMap.DriveTrainLowGearSolenoidValue);
         GShiftSolDown.set(true);
         GShiftSolUp.set(false);
         //System.out.println("Shifting to Low gear");
@@ -118,7 +118,8 @@ public class DriveTrain extends Subsystem {
      *
      */
     public void shiftHighGear() {
-  DriveTrainLowGearSolenoidValuelUp.set(!RobotMap.shifDriveTrainLowGearSolenoidValue       GShiftSolDown.set(RobotMap.shifterLowGear);
+        GShiftSolUp.set(!RobotMap.DriveTrainLowGearSolenoidValue);
+        GShiftSolDown.set(RobotMap.DriveTrainLowGearSolenoidValue);
         GShiftSolUp.set(true);
         GShiftSolDown.set(false);
 
