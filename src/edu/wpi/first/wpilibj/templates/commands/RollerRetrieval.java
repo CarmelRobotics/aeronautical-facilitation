@@ -15,20 +15,15 @@ import edu.wpi.first.wpilibj.templates.subsystems.Roller;
  */
 public class RollerRetrieval extends CommandBase {
 
-    private Roller r;
-    //private double speed = 1.0;
-    //private Roller rollermotor;
+    private final Roller roller;
 
     /**
      *
      */
     public RollerRetrieval() {
-
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        super("roll forward");
-        r = AeronauticalFacilitation.getRoller();
-        requires(r);
+        super("rollertrieval");
+        roller = AeronauticalFacilitation.getRoller();
+        requires(roller);
     }
 
     // Called just before this Command runs the first time
@@ -37,7 +32,7 @@ public class RollerRetrieval extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        r.setretrievalRoller();
+        roller.setretrievalRoller();
 
     }
 
@@ -50,12 +45,12 @@ public class RollerRetrieval extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
 
-        r.setRolleroff();
+        roller.setRolleroff();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        r.setRolleroff();
+        roller.setRolleroff();
     }
 }

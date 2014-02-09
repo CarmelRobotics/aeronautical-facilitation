@@ -15,22 +15,20 @@ import edu.wpi.first.wpilibj.templates.subsystems.Roller;
  */
 public class RollerExtend extends CommandBase {
 
-    Roller r;
+    private final Roller roller;
 
     /**
      *
      */
     public RollerExtend() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        super("lower roller");
-        r = AeronauticalFacilitation.getRoller();
-        requires(r);
+        super("rollerextend");
+        roller = AeronauticalFacilitation.getRoller();
+        requires(roller);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        r.lowerRoller();
+        roller.lowerRoller();
     }
 
     // Called repeatedly when this Command is scheduled to run
