@@ -9,6 +9,7 @@ package edu.wpi.first.wpilibj.templates.commands;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
+import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
 
 /**
@@ -17,14 +18,12 @@ import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
  */
 public class Autonomous extends CommandBase {
 
-    private DriveTrain drive;
-    private Launcher launcher;
-    private Timer t;
-    private Timer r;
-    private double SpeedL = 0.25;
-    private double SpeedR = 0.25;
-    private double MotorSpeed = 0.0;
-    private double t2;
+    private final DriveTrain drive;
+    private final Launcher launcher;
+    private Timer autonomousTimer;
+    private final double MotorsOnSpeed = RobotMap.AutonomousSpeed;
+    private final double MotorsOffSpeed = 0.0;
+    private double storedTime;
 
     /**
      *
@@ -34,44 +33,34 @@ public class Autonomous extends CommandBase {
         drive = AeronauticalFacilitation.getDriveTrain();
         launcher = AeronauticalFacilitation.getLauncher();
         requires(drive);
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        t = new Timer();
-        //r = new Timer();
-        t.start();
+        autonomousTimer = new Timer();
+        autonomousTimer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        double tv = t.get();
-        //double tc = r.get();
-        if (tv > 0.0 && tv < 1.5) {
-            drive.drivetank(SpeedL, SpeedR);
-            // put stuff that the robot is going to do here TODO
-            // THIS IS A BLANK LINE PLACEHOLDER!
-        } else if (tv > 1.5 && tv < 6.0) {
+        double currentTime = autonomousTimer.get();
+        if (currentTime > 0.0 && currentTime < 1.5) {
+            drive.drivetank(MotorsOnSpeed, MotorsOnSpeed);
+        } else if (currentTime > 1.5 && currentTime < 6.0) {
             launcher.launch();
-            t2 = t.get();
+            storedTime = autonomousTimer.get();
             //r.start();
-            drive.drivetank(MotorSpeed, MotorSpeed);
+            drive.drivetank(MotorsOffSpeed, MotorsOffSpeed);
         }
-        if (tv > t2 + 5.0) {
+        if (currentTime > storedTime + 5.0) {
             launcher.retract();
         }
 
-           //
-        // THIS IS A BLANK LINE PLACEHOLDER!
-//        drive.getDrive();
-//        drive.drivetank(SpeedL, SpeedR);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (t.get() > 10.0) {
+        if (autonomousTimer.get() > 10.0) {
             return true;
         }
         return false;
