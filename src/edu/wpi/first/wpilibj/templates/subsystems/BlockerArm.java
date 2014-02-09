@@ -15,10 +15,7 @@ import edu.wpi.first.wpilibj.templates.RobotMap;
  * @author Team 2035
  */
 public class BlockerArm extends Subsystem {
-
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-    Relay blocker;
+    private final Relay blocker;
 
     public BlockerArm() {
         blocker = new Relay(RobotMap.BlockerMotorPWM);
