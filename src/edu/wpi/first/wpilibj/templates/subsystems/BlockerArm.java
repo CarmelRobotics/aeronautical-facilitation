@@ -19,7 +19,7 @@ public class BlockerArm extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     Relay blocker;
-    
+
     public BlockerArm() {
         blocker = new Relay(RobotMap.BlockerMotorPWM);
     }
@@ -38,7 +38,7 @@ public class BlockerArm extends Subsystem {
         blocker.set(Relay.Value.kReverse);
 
     }
-    
+
     public void setBlockeroff() {
         blocker.set(Relay.Value.kOff);
     }
