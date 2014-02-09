@@ -6,7 +6,6 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
-import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
 import edu.wpi.first.wpilibj.templates.subsystems.BlockerArm;
 
@@ -16,10 +15,7 @@ import edu.wpi.first.wpilibj.templates.subsystems.BlockerArm;
  */
 public class BlockerUp extends CommandBase {
 
-    private BlockerArm blocker;
-    private double speed = 1.0;
-
-    private BlockerArm block;
+    private final BlockerArm blocker;
 
     /**
      *
