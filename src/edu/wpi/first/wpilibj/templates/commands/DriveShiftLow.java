@@ -6,68 +6,50 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
-import edu.wpi.first.wpilibj.DriverStationLCD;
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
+import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
 
 /**
  *
  * @author Team 2035
  */
-public class Launch extends CommandBase {
+public class DriveShiftLow extends CommandBase {
 
-    private Launcher launcher;
-    //TODO: add Roller subsystem here.
-    private Timer t;
-    private static DriverStationLCD display;
+    private DriveTrain theDriveTrain;
 
-    /**
-     *
-     */
-    public Launch() {
-        super("Launch");
-        launcher = AeronauticalFacilitation.getLauncher();
-        requires(launcher);
-        
-        display = DriverStationLCD.getInstance();
-        //TODO: add roller = here
-        //TODO: add requires(roller) here
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+    public DriveShiftLow() {
+        super("StandardDrive");
+        theDriveTrain = AeronauticalFacilitation.getDriveTrain();
+        //requires(theDriveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        t = new Timer();
-        t.start();
-        //TODO: use roller subsystem to lower the roller.
+        theDriveTrain.shiftLowGear();
+        //DriveTrain.getCommandLog().setCommand(this.getName());
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        launcher.launch();
-        display.println(DriverStationLCD.Line.kUser3,1, "Lauch timer: " + t.get());
-        display.updateLCD();
+        //DriveTrain.getCommandLog().setInputs("" + gyroball.getAngle());
+        //DriveTrain.setMetaCommandOutputs();
+        theDriveTrain.shiftLowGear();
 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (t.get() > 2.0) {
-            return true;
-        }
         return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        launcher.retract();
+        theDriveTrain.shiftHighGear();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        launcher.retract();
+        theDriveTrain.shiftHighGear();
     }
 }
