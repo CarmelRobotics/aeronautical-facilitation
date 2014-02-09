@@ -13,16 +13,14 @@ import edu.wpi.first.wpilibj.templates.subsystems.Roller;
  *
  * @author Team 2035
  */
-public class RetrievalRoller extends CommandBase {
+public class RollerRelease extends CommandBase {
 
     private Roller r;
-    //private double speed = 1.0;
-    //private Roller rollermotor;
 
     /**
      *
      */
-    public RetrievalRoller() {
+    public RollerRelease() {
 
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -37,7 +35,7 @@ public class RetrievalRoller extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        r.setretrievalRoller();
+        r.setRelease();
 
     }
 

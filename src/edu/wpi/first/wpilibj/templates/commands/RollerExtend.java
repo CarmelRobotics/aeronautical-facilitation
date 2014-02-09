@@ -13,14 +13,14 @@ import edu.wpi.first.wpilibj.templates.subsystems.Roller;
  *
  * @author Team 2035
  */
-public class LowerRoller extends CommandBase {
+public class RollerExtend extends CommandBase {
 
     Roller r;
 
     /**
      *
      */
-    public LowerRoller() {
+    public RollerExtend() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         super("lower roller");

@@ -9,11 +9,11 @@ package edu.wpi.first.wpilibj.templates;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.templates.commands.DriveShiftLow;
 import edu.wpi.first.wpilibj.templates.commands.Launch;
-import edu.wpi.first.wpilibj.templates.commands.LowerRoller;
+import edu.wpi.first.wpilibj.templates.commands.RollerExtend;
 import edu.wpi.first.wpilibj.templates.commands.Pass;
-import edu.wpi.first.wpilibj.templates.commands.RaiseRoller;
-import edu.wpi.first.wpilibj.templates.commands.RetrievalRoller;
-import edu.wpi.first.wpilibj.templates.commands.SpitoutRoller;
+import edu.wpi.first.wpilibj.templates.commands.RollerRetract;
+import edu.wpi.first.wpilibj.templates.commands.RollerRetrieval;
+import edu.wpi.first.wpilibj.templates.commands.RollerRelease;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -77,14 +77,14 @@ public class OI {
         //lowerBlocker.whileHeld(new BlockerDown());
         raiseRoller = RobotMap.ButtonRollerRetract;
         lowerRoller = RobotMap.ButtonRollerExtend;
-        raiseRoller.whenPressed(new RaiseRoller());
-        lowerRoller.whenPressed(new LowerRoller());
+        raiseRoller.whenPressed(new RollerRetract());
+        lowerRoller.whenPressed(new RollerExtend());
 
         retrieve = RobotMap.ButtonRollerRetrieveBall;
-        retrieve.whileHeld(new RetrievalRoller());
+        retrieve.whileHeld(new RollerRetrieval());
 
         spitout = RobotMap.ButtonRollerReleaseBall;
-        spitout.whileHeld(new SpitoutRoller());
+        spitout.whileHeld(new RollerRelease());
 
     }
 
