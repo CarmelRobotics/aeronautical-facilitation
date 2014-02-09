@@ -65,11 +65,11 @@ public class OI {
      */
     public static void initialize() {
 
-        shiftLowGear = RobotMap.dButtonGearShiftLowGear;
+        shiftLowGear = RobotMap.ButtonDriveTrainShiftToLowGear;
         shiftLowGear.whileHeld(new DriveShiftLow());
 
-        launch = RobotMap.dButtonShoot;
-        Pass = RobotMap.dButtonPass;
+        launch = RobotMap.ButtonLaunchBall;
+        Pass = RobotMap.ButtonPassBall;
         launch.whenPressed(new Launch());
         Pass.whenPressed(new Pass());
         
@@ -79,15 +79,15 @@ public class OI {
         //lowerBlocker.whileHeld(new BlockerDown());
         
              
-        raiseRoller = RobotMap.dButtonRollerIn;
-        lowerRoller = RobotMap.dButtonRollerOut;
+        raiseRoller = RobotMap.ButtonRollerRetract;
+        lowerRoller = RobotMap.ButtonRollerExtend;
         raiseRoller.whenPressed(new RaiseRoller());
         lowerRoller.whenPressed(new LowerRoller());
         
-         retrieve = RobotMap.dButtonFeedIn;
+         retrieve = RobotMap.ButtonRollerRetrieveBall;
          retrieve.whileHeld(new RetrievalRoller());
          
-         spitout = RobotMap.dButtonFeedOut;
+         spitout = RobotMap.ButtonRollerReleaseBall;
          spitout.whileHeld(new SpitoutRoller());
          
        
@@ -99,6 +99,6 @@ public class OI {
      * @return
      */
     public static Joystick getDriveStick() {
-        return RobotMap.dStick;
+        return RobotMap.DriverJoystick;
     }
 }

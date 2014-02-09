@@ -51,11 +51,11 @@ public class Launcher extends Subsystem {
     public void launch() {
         if (launcherSafetySwitch.get() == RobotMap.SafetoFire) {
 
-            launcherL.set(RobotMap.launchSolenoidValue);
-            launcherR.set(RobotMap.launchSolenoidValue);
+            launcherL.set(RobotMap.LaunchSolenoidValue);
+            launcherR.set(RobotMap.LaunchSolenoidValue);
         } else if (launcherSafetySwitch.get() != RobotMap.SafetoFire) {
-            launcherL.set(!RobotMap.launchSolenoidValue);
-            launcherR.set(!RobotMap.launchSolenoidValue);
+            launcherL.set(!RobotMap.LaunchSolenoidValue);
+            launcherR.set(!RobotMap.LaunchSolenoidValue);
 
         }
     }
@@ -63,17 +63,17 @@ public class Launcher extends Subsystem {
     public void pass() {
         if (launcherSafetySwitch.get() == RobotMap.SafetoFire) {
 
-            launcherL.set(RobotMap.launchSolenoidValue);
-            launcherR.set(!RobotMap.launchSolenoidValue);
+            launcherL.set(RobotMap.LaunchSolenoidValue);
+            launcherR.set(!RobotMap.LaunchSolenoidValue);
         } else if (launcherSafetySwitch.get() != RobotMap.SafetoFire) {
-            launcherL.set(!RobotMap.launchSolenoidValue);
-            launcherR.set(!RobotMap.launchSolenoidValue);
+            launcherL.set(!RobotMap.LaunchSolenoidValue);
+            launcherR.set(!RobotMap.LaunchSolenoidValue);
         }
     }
 
     public void retract() {
-        launcherL.set(!RobotMap.launchSolenoidValue);
-        launcherR.set(!RobotMap.launchSolenoidValue);
+        launcherL.set(!RobotMap.LaunchSolenoidValue);
+        launcherR.set(!RobotMap.LaunchSolenoidValue);
 
     }
 

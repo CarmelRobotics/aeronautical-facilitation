@@ -34,12 +34,12 @@ public class RobotMap {
      * DIGITAL SIDECAR DIGITAL INPUTS NUMBERING (can be 1-14)
      */
     public static final int LauncherSafetyDigitalInput = 2;
-    public static final int pressureSwitchDigitalInput = 14;
+    public static final int PressureSwitchDigitalInput = 14;
 
     /*
      * DIGITAL SIDECAR RELAYS NUMBERING (can be 1-8)
      */
-    public static final int compressorRelay = 3;
+    public static final int CompressorRelay = 3;
 
     /*
      * SOLENOID RELAY CARTRIDGE NUMBERING (can be 1-8)
@@ -69,32 +69,32 @@ public class RobotMap {
     /*
      * LAUNCHER SUBSYSTEM CONSTANTS
      */
-    public static final boolean launchSolenoidValue = true;
+    public static final boolean LaunchSolenoidValue = true;
     public static final boolean SafetoFire = false;
 
     /*
      * DRIVETRAIN SUBSYSTEM CONSTANTS
      */
-    public static final boolean shifterLowGear = false;
+    public static final boolean DriveTrainLowGearSolenoidValue = false;
 
     /*
      * The Joystick USB number (can be 1-4)
      */
-    public static final int DriverJoystickNumber = 1;
+    public static final int DriverJoystickUSBNumber = 1;
 
     /*
      * JOYSTICK BUTTONS
      */
-    public static final Joystick dStick = new Joystick(DriverJoystickNumber);
-    public static final Joystick dStickII = new Joystick(2);
+    public static final Joystick DriverJoystick = new Joystick(DriverJoystickUSBNumber);
+    public static final Joystick AlternateJoystick = new Joystick(2);
 
-    public static final JoystickButton dButtonGearShiftLowGear = new JoystickButton(dStick, 1);
-    public static final JoystickButton dButtonFeedIn = new JoystickButton(dStick, 2);
-    public static final JoystickButton dButtonFeedOut = new JoystickButton(dStick, 3);
-    public static final JoystickButton dButtonRollerOut = new JoystickButton(dStick, 4);
-    public static final JoystickButton dButtonRollerIn = new JoystickButton(dStick, 5);
-    public static final JoystickButton dButtonShoot = new JoystickButton(dStick, 6);
-    public static final JoystickButton dButtonPass = new JoystickButton(dStick, 7);
+    public static final JoystickButton ButtonDriveTrainShiftToLowGear = new JoystickButton(DriverJoystick, 1);
+    public static final JoystickButton ButtonRollerRetrieveBall = new JoystickButton(DriverJoystick, 2);
+    public static final JoystickButton ButtonRollerReleaseBall = new JoystickButton(DriverJoystick, 3);
+    public static final JoystickButton ButtonRollerExtend = new JoystickButton(DriverJoystick, 4);
+    public static final JoystickButton ButtonRollerRetract = new JoystickButton(DriverJoystick, 5);
+    public static final JoystickButton ButtonLaunchBall = new JoystickButton(DriverJoystick, 6);
+    public static final JoystickButton ButtonPassBall = new JoystickButton(DriverJoystick, 7);
 
     //public static final JoystickButton dButtonBlkD = new JoystickButton(dStick, 2);
     //public static final JoystickButton dButtonBlkU = new JoystickButton(dStick, 3);
