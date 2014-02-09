@@ -17,157 +17,95 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * floating around
  */
 public class RobotMap {
-    // For example to map the left and right motors, you could define the
-    // following variables to use with your drivetrain subsystem.
-    // public static final int leftMotor = 1;
-    // public static final int rightMotor = 2;
 
-    // If you are using multiple modules, make sure to define both the port
-    // number and the module. For example you with a rangefinder:
-    // public static final int rangefinderPort = 1;
-    // public static final int rangefinderModule = 1;
     /*
-     * DIGITAL SIDECAR
-     */
-    /**
-     *
+     * DIGITAL SIDECAR PWMS NUMBERING
      */
     public static final int FLeftMotor = 1;
-
     public static final int BLeftMotor = 2;
-
     public static final int FRightMotor = 3;
-
     public static final int BRightMotor = 4;
-    
-    public static final int MLeftMotor = 7;
-    
-    public static final int MRightMotor = 6;
-    
     public static final int RollerMotor = 5;
-
+    public static final int MRightMotor = 6;
+    public static final int MLeftMotor = 7;
     public static final int BlockerMotor = 8;
-    
-    /** The pressure switch that provides feedback to the compressor to turn off when the system reaches 60 PSI. */
+
+    /*
+     * DIGITAL SIDECAR DIGITAL INPUTS NUMBERING
+     */
+    public static final int LauncherSafetyDigitalInput = 2;
     public static final int pressureSwitch = 14;
 
+    /*
+     * DIGITAL SIDECAR RELAYS NUMBERING
+     */
     public static final int compressorRelay = 3;
 
+    /*
+     * SOLENOID RELAY CARTRIDGE NUMBERING
+     */
+    public static final int RFLaunchSol = 2;
+    public static final int GShiftSolUp = 3;
+    public static final int GShiftSolDown = 4;
+
+    public static final int LFLaunchSol = 6;
+    public static final int ExtSol = 7;
+    public static final int RetSol = 8;
+
+    /*
+     * BLOCKER SUBSYSTEM CONSTANTS
+     */
     public static final Relay.Value RaiseBlockerMotor = Relay.Value.kForward;
-
     public static final Relay.Value LowerBlockerMotor = Relay.Value.kReverse;
-
     public static final Relay.Value blocker = Relay.Value.kOff;
 
+    /*
+     * ROLLER SUBSYSTEM CONSTANTS
+     */
     public static final double RollerRetrieval = 1.0; // this one really releases
-
     public static final double RollerRelease = -1.00; // this one really retrieves
-
     public static final double Rolleroff = 0;
-    
+
+    /*
+     * LAUNCHER SUBSYSTEM CONSTANTS
+     */
     public static final boolean launchSolenoidValue = true;
-    
-    public static final int LauncherSafetyDigitalInput = 2;
-    
     public static final boolean SafetoFire = false;
-    
+    public static final boolean launchValve1 = true;
+    public static final boolean launchValve2 = true;
+    public static final boolean passValve1 = true;
+    public static final boolean passValve2 = false;
+    public static final boolean retractValve1 = false;
+    public static final boolean retractValve2 = false;
 
-    /*public static final Relay.Value retrieveMotor = Relay.Value.kForward;
-    
-     public static final Relay.Value spinOut = Relay.Value.kReverse;
+    /*
+     * DRIVETRAIN SUBSYSTEM CONSTANTS
+     */
+    public static final boolean shifterLowGear = false;
 
-     public static final Relay.Value rollerOff = Relay.Value.kOff;
-    
-     public static final Relay.Value rollerOn = Relay.Value.kOn;*/
-    //public static final int AnalogSidecar = 1; // Analog sidecar p
-    //public static final int AnalogSidecar = 1; // Analog sidecar possibly connected to cRIO Slot 1, check later
-    //public static final int DigitalSidecar = 2; // Digital possibly connected to Slot 2, check later
-    //public static final int DriveTrainGyroInput = 1; // Gyro Analog input is on channel 1
-    //private static boolean JoystickEnabled = true;
-    /**
+    /*
      * Joystick objects for driver joystick
      */
     public static final int DriverJoystickNumber = 1;
 
-    /**
-     *
+    /*
+     * JOYSTICK BUTTONS
      */
     public static final Joystick dStick = new Joystick(DriverJoystickNumber);
     public static final Joystick dStickII = new Joystick(2);
 
-    /**
-     *
-     */
-    public static final JoystickButton dButtonShoot = new JoystickButton(dStick, 6);
-
-    /**
-     *
-     */
-    //public static final JoystickButton dButtonBlkD = new JoystickButton(dStick, 2);
-
-    /**
-     *
-     */
-    //public static final JoystickButton dButtonBlkU = new JoystickButton(dStick, 3);
-
-    /**
-     *
-     */
-    //public static final JoystickButton dButtonRollerFwd = new JoystickButton(dStick, 4);
-    //public static final JoystickButton dButtonRollerLoad = new JoystickButton(dStick, 5);
-    /**
-     *
-     */
-    //public static final JoystickButton dButtonRollerRelease = new JoystickButton(dStick, 6);
-    /**
-     *
-     */
-    //public static final JoystickButton dButtonGearShftU = new JoystickButton(dStick, 7);
-
-    /**
-     *
-     */
     public static final JoystickButton dButtonGearShiftLowGear = new JoystickButton(dStick, 1);
-
+    public static final JoystickButton dButtonFeedIn = new JoystickButton(dStick, 2);
+    public static final JoystickButton dButtonFeedOut = new JoystickButton(dStick, 3);
+    public static final JoystickButton dButtonRollerOut = new JoystickButton(dStick, 4);
+    public static final JoystickButton dButtonRollerIn = new JoystickButton(dStick, 5);
+    public static final JoystickButton dButtonShoot = new JoystickButton(dStick, 6);
     public static final JoystickButton dButtonPass = new JoystickButton(dStick, 7);
 
-    public static final JoystickButton dButtonRollerOut = new JoystickButton(dStick, 4);
-
-    public static final JoystickButton dButtonRollerIn = new JoystickButton(dStick, 5);
-
-    public static final JoystickButton dButtonFeedIn = new JoystickButton(dStick, 2);
-
-    public static final JoystickButton dButtonFeedOut = new JoystickButton(dStick, 3);
-    //public static final boolean shifterDriveTrainDirection = false;
-    /* 
-     * SOLENOIDS
-     */
-    /**
-     *
-     */
-    public static final boolean shifterLowGear = false;
-
-    
-    
-    public static final int RFLaunchSol = 2;
-    public static final int GShiftSolUp = 3;
-    public static final int GShiftSolDown = 4;
-    
-    public static final int LFLaunchSol = 6;
-    public static final int ExtSol = 7; 
-    public static final int RetSol = 8;
-    
-
-    public static final boolean launchValve1 = true;
-
-    public static final boolean launchValve2 = true;
-
-    public static final boolean passValve1 = true;
-
-    public static final boolean passValve2 = false;
-
-    public static final boolean retractValve1 = false;
-
-    public static final boolean retractValve2 = false;
-
+    //public static final JoystickButton dButtonBlkD = new JoystickButton(dStick, 2);
+    //public static final JoystickButton dButtonBlkU = new JoystickButton(dStick, 3);
+    //public static final JoystickButton dButtonRollerFwd = new JoystickButton(dStick, 4);
+    //public static final JoystickButton dButtonRollerLoad = new JoystickButton(dStick, 5);
+    //public static final JoystickButton dButtonRollerRelease = new JoystickButton(dStick, 6);
+    //public static final JoystickButton dButtonGearShftU = new JoystickButton(dStick, 7);
 }
