@@ -52,14 +52,14 @@ public class Roller extends Subsystem {
         retractPiston.set(true);
     }
      public void setretrievalRoller() {
-        rollermotor.set(RobotMap.RollerRetrieval);
+        rollermotor.set(RobotMap.RollerRetrievalMotorSpeed);
         
     }
     public void setRolleroff() {
-        rollermotor.set(RobotMap.Rolleroff);
+        rollermotor.set(RobotMap.RollerOffMotorSpeed);
     }
       public void setRelease() {
-        rollermotor.set(RobotMap.RollerRelease);
+        rollermotor.set(RobotMap.RollerReleaseMotorSpeed);
     }
 
 }

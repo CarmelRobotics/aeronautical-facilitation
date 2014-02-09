@@ -62,9 +62,9 @@ public class RobotMap {
     /*
      * ROLLER SUBSYSTEM CONSTANTS
      */
-    public static final double RollerRetrieval = -1.0; 
-    public static final double RollerRelease = 1.0; 
-    public static final double Rolleroff = 0.0;
+    public static final double RollerRetrievalMotorSpeed = -1.0; 
+    public static final double RollerReleaseMotorSpeed = 1.0; 
+    public static final double RollerOffMotorSpeed = 0.0;
 
     /*
      * LAUNCHER SUBSYSTEM CONSTANTS
