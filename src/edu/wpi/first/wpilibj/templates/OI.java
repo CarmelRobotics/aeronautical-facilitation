@@ -74,9 +74,9 @@ public class OI {
         Pass.whenPressed(new Pass());
         
         //raiseBlocker = RobotMap.dButtonBlkU;
-       // lowerBlocker = RobotMap.dButtonBlkD;
-        raiseBlocker.whileHeld(new BlockerUp());
-        lowerBlocker.whileHeld(new BlockerDown());
+        //lowerBlocker = RobotMap.dButtonBlkD;
+        //raiseBlocker.whileHeld(new BlockerUp());
+        //lowerBlocker.whileHeld(new BlockerDown());
         
              
         raiseRoller = RobotMap.dButtonRollerIn;
