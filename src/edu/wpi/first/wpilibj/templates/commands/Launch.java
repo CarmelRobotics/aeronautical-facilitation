@@ -29,7 +29,7 @@ public class Launch extends CommandBase {
         super("Launch");
         launcher = AeronauticalFacilitation.getLauncher();
         requires(launcher);
-        
+
         display = DriverStationLCD.getInstance();
         //TODO: add roller = here
         //TODO: add requires(roller) here
@@ -47,7 +47,7 @@ public class Launch extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         launcher.launch();
-        display.println(DriverStationLCD.Line.kUser3,1, "Lauch timer: " + t.get());
+        display.println(DriverStationLCD.Line.kUser3, 1, "Lauch timer: " + t.get());
         display.updateLCD();
 
     }

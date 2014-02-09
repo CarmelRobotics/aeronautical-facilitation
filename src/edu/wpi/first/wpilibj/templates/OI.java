@@ -57,6 +57,7 @@ public class OI {
     private static Button Pass;
     private static Button retrieve;
     private static Button spitout;
+
     /**
      *
      */
@@ -69,26 +70,22 @@ public class OI {
         Pass = RobotMap.ButtonPassBall;
         launch.whenPressed(new Launch());
         Pass.whenPressed(new Pass());
-        
+
         //raiseBlocker = RobotMap.dButtonBlkU;
         //lowerBlocker = RobotMap.dButtonBlkD;
         //raiseBlocker.whileHeld(new BlockerUp());
         //lowerBlocker.whileHeld(new BlockerDown());
-        
-             
         raiseRoller = RobotMap.ButtonRollerRetract;
         lowerRoller = RobotMap.ButtonRollerExtend;
         raiseRoller.whenPressed(new RaiseRoller());
         lowerRoller.whenPressed(new LowerRoller());
-        
-         retrieve = RobotMap.ButtonRollerRetrieveBall;
-         retrieve.whileHeld(new RetrievalRoller());
-         
-         spitout = RobotMap.ButtonRollerReleaseBall;
-         spitout.whileHeld(new SpitoutRoller());
-         
-       
-        
+
+        retrieve = RobotMap.ButtonRollerRetrieveBall;
+        retrieve.whileHeld(new RetrievalRoller());
+
+        spitout = RobotMap.ButtonRollerReleaseBall;
+        spitout.whileHeld(new SpitoutRoller());
+
     }
 
 }

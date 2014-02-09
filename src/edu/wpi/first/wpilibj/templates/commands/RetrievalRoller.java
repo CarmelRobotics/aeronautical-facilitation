@@ -18,7 +18,6 @@ public class RetrievalRoller extends CommandBase {
     private Roller r;
     //private double speed = 1.0;
     //private Roller rollermotor;
-    
 
     /**
      *

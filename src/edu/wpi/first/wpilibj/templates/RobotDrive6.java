@@ -98,7 +98,6 @@ public class RobotDrive6 implements MotorSafety, IUtility {
     protected static boolean kMecanumCartesian_Reported = false;
     protected static boolean kMecanumPolar_Reported = false;
 
-    
     /**
      * Constructor for RobotDrive with 4 motors specified with channel numbers.
      * Set up parameters for a four wheel drive system where all four motor pwm
@@ -135,7 +134,6 @@ public class RobotDrive6 implements MotorSafety, IUtility {
         drive(0, 0);
     }
 
-    
     /**
      * Constructor for RobotDrive with 6 motors specified as SpeedController
      * objects. Speed controller input version of RobotDrive (see previous

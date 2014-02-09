@@ -23,7 +23,7 @@ public class BlockerUp extends CommandBase {
 
     /**
      *
-     * 
+     *
      */
     public BlockerUp() {
         // Use requires() here to declare subsystem dependencies

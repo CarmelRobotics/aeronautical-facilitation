@@ -32,7 +32,7 @@ public class Roller extends Subsystem {
      *
      */
     public Roller() {
-        rollermotor = new Victor (RobotMap.RollerMotorPWM);
+        rollermotor = new Victor(RobotMap.RollerMotorPWM);
         extendPiston = new Solenoid(RobotMap.RollerExtensionSolenoid);
         retractPiston = new Solenoid(RobotMap.RollerRetractSolenoid);
     }
@@ -51,14 +51,17 @@ public class Roller extends Subsystem {
         extendPiston.set(false);
         retractPiston.set(true);
     }
-     public void setretrievalRoller() {
+
+    public void setretrievalRoller() {
         rollermotor.set(RobotMap.RollerRetrievalMotorSpeed);
-        
+
     }
+
     public void setRolleroff() {
         rollermotor.set(RobotMap.RollerOffMotorSpeed);
     }
-      public void setRelease() {
+
+    public void setRelease() {
         rollermotor.set(RobotMap.RollerReleaseMotorSpeed);
     }
 

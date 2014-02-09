@@ -47,7 +47,7 @@ public class DriveTrain extends Subsystem {
         BRightMotor = new Victor(RobotMap.BRightMotorPWM);
         MLeftMotor = new Victor(RobotMap.MLeftMotorPWM);
         MRightMotor = new Victor(RobotMap.MRightMotorPWM);
-        drive = new RobotDrive(FLeftMotor, BLeftMotor,  FRightMotor, BRightMotor);
+        drive = new RobotDrive(FLeftMotor, BLeftMotor, FRightMotor, BRightMotor);
         //drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         //drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 
