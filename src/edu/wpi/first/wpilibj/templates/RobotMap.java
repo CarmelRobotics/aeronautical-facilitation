@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class RobotMap {
 
     /*
-     * DIGITAL SIDECAR PWMS NUMBERING
+     * DIGITAL SIDECAR PWMS NUMBERING (can be 1-10)
      */
     public static final int FLeftMotorPWM = 1;
     public static final int BLeftMotorPWM = 2;
@@ -31,18 +31,18 @@ public class RobotMap {
     public static final int BlockerMotorPWM = 8;
 
     /*
-     * DIGITAL SIDECAR DIGITAL INPUTS NUMBERING
+     * DIGITAL SIDECAR DIGITAL INPUTS NUMBERING (can be 1-14)
      */
     public static final int LauncherSafetyDigitalInput = 2;
     public static final int pressureSwitchDigitalInput = 14;
 
     /*
-     * DIGITAL SIDECAR RELAYS NUMBERING
+     * DIGITAL SIDECAR RELAYS NUMBERING (can be 1-8)
      */
     public static final int compressorRelay = 3;
 
     /*
-     * SOLENOID RELAY CARTRIDGE NUMBERING
+     * SOLENOID RELAY CARTRIDGE NUMBERING (can be 1-8)
      */
     public static final int LaunchRightSolenoid = 2;
     public static final int DriveTrainHighGearSolenoid = 3;
@@ -78,7 +78,7 @@ public class RobotMap {
     public static final boolean shifterLowGear = false;
 
     /*
-     * Joystick objects for driver joystick
+     * The Joystick USB number (can be 1-4)
      */
     public static final int DriverJoystickNumber = 1;
 
