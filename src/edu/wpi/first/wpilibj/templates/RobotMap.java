@@ -69,7 +69,7 @@ public class RobotMap {
     
     public static final int LauncherSafetyDigitalInput = 2;
     
-    public static final boolean SafetoFire = false;
+    public static final boolean SafetoFire = true;
     
 
     /*public static final Relay.Value retrieveMotor = Relay.Value.kForward;
