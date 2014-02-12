@@ -39,7 +39,7 @@ public class RobotMap {
     /*
      * DIGITAL SIDECAR RELAYS NUMBERING (can be 1-8)
      */
-    public static final int CompressorRelay = 3;
+    public static final int CompressorRelay = 5;
 
     /*
      * SOLENOID RELAY CARTRIDGE NUMBERING (can be 1-8)
