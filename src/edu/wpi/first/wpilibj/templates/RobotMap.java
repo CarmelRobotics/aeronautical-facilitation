@@ -8,6 +8,7 @@ package edu.wpi.first.wpilibj.templates;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
@@ -103,4 +104,6 @@ public class RobotMap {
     //public static final JoystickButton dButtonRollerLoad = new JoystickButton(dStick, 5);
     //public static final JoystickButton dButtonRollerRelease = new JoystickButton(dStick, 6);
     //public static final JoystickButton dButtonGearShftU = new JoystickButton(dStick, 7);
+    
+    public static Timer ShooterDelayTimer = new Timer();
 }

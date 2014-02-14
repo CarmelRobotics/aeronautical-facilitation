@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
+import edu.wpi.first.wpilibj.templates.RobotMap;
 
 /**
  *
@@ -21,6 +22,7 @@ public class Launch extends CommandBase {
     //TODO: add Roller subsystem here.
     private Timer delayTimer;
     private final DriverStationLCD display;
+    private static int counter = 0;
 
     /**
      *
@@ -39,15 +41,18 @@ public class Launch extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        delayTimer = new Timer();
+        counter++;
+        delayTimer = RobotMap.ShooterDelayTimer;
         delayTimer.start();
         //TODO: use roller subsystem to lower the roller.
+        display.println(DriverStationLCD.Line.kUser2, 1, "lauch command " + counter + "                  ");
+        display.updateLCD();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         launcher.launch();
-        display.println(DriverStationLCD.Line.kUser3, 1, "Lauch timer: " + delayTimer.get());
+        display.println(DriverStationLCD.Line.kUser3, 1, "Lauch timer: " + delayTimer.get() + "        ");
         display.updateLCD();
 
     }
@@ -63,6 +68,8 @@ public class Launch extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
         launcher.retract();
+        display.println(DriverStationLCD.Line.kUser2, 1, "Launch command ended " + counter + "         ");
+        display.updateLCD();
     }
 
     // Called when another command which requires one or more of the same

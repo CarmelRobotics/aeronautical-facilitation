@@ -6,9 +6,11 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
+import edu.wpi.first.wpilibj.templates.RobotMap;
 
 /**
  *
@@ -17,28 +19,37 @@ import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
 public class Pass extends CommandBase {
 
     private final Launcher launcher;
+    
+    private final DriverStationLCD display;
+    private static int counter = 0;
     private Timer delayTimer;
-
     /**
      *
      */
     public Pass() {
-        super("Launch");
+        super("Pass");
         launcher = AeronauticalFacilitation.getLauncher();
         requires(launcher);
+        display = DriverStationLCD.getInstance();
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        delayTimer = new Timer();
+        counter++;
+        delayTimer = RobotMap.ShooterDelayTimer;
         delayTimer.start();
+        display.println(DriverStationLCD.Line.kUser2, 1, "Pass command " + counter + "                    ");
+        display.updateLCD();
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         launcher.pass();
+        display.println(DriverStationLCD.Line.kUser3, 1, "Pass timer: " + delayTimer.get() + "      ");
+        display.updateLCD();
 
     }
 
@@ -53,6 +64,8 @@ public class Pass extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
         launcher.retract();
+        display.println(DriverStationLCD.Line.kUser2, 1, "Pass command ended  " + counter + "     ");
+        display.updateLCD();
     }
 
     // Called when another command which requires one or more of the same

@@ -117,6 +117,8 @@ public class AeronauticalFacilitation extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+        display.println(Line.kUser1, 1, "Lauch: " + launchercontroller.launcherswitch() + "      ");
+        display.updateLCD();
         Scheduler.getInstance().run();
     }
 
@@ -128,7 +130,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
     }
 
     public void disabledPeriodic() {
-        display.println(Line.kUser1, 1, "Lauch: " + launchercontroller.launcherswitch());
+        display.println(Line.kUser1, 1, "Lauch: " + launchercontroller.launcherswitch() + "      ");
         display.updateLCD();
     }
 }
