@@ -15,13 +15,10 @@ import edu.wpi.first.wpilibj.templates.RobotMap;
  * @author Team 2035
  */
 public class BlockerArm extends Subsystem {
+    private final Relay blocker;
 
-    // Put methods for controlling this subsystem
-    // here. Call these from Commands.
-    Relay blocker;
-    
     public BlockerArm() {
-        blocker = new Relay(RobotMap.BlockerMotor);
+        blocker = new Relay(RobotMap.BlockerMotorPWM);
     }
 
     public void initDefaultCommand() {
@@ -38,7 +35,7 @@ public class BlockerArm extends Subsystem {
         blocker.set(Relay.Value.kReverse);
 
     }
-    
+
     public void setBlockeroff() {
         blocker.set(Relay.Value.kOff);
     }

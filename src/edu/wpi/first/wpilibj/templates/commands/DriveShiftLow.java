@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
  */
 public class DriveShiftLow extends CommandBase {
 
-    private DriveTrain theDriveTrain;
+    private final DriveTrain theDriveTrain;
 
     public DriveShiftLow() {
         super("StandardDrive");

@@ -6,9 +6,6 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
-//import edu.wpi.first.wpilibj.templates.OI;
-//import edu.wpi.first.wpilibj.Joystick;
-//import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.templates.subsystems.Launcher;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
@@ -19,8 +16,8 @@ import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
  */
 public class Pass extends CommandBase {
 
-    private Launcher launcher;
-    private Timer t;
+    private final Launcher launcher;
+    private Timer delayTimer;
 
     /**
      *
@@ -35,8 +32,8 @@ public class Pass extends CommandBase {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        t = new Timer();
-        t.start();
+        delayTimer = new Timer();
+        delayTimer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -47,7 +44,7 @@ public class Pass extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (t.get() > 2.0) {
+        if (delayTimer.get() > 2.0) {
             return true;
         }
         return false;

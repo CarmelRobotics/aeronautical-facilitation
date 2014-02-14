@@ -61,10 +61,3 @@ Daily activities
 1. Commit in Smartgit
 1. Push in Smartgit
 
-TODO 
-====
-
-  
-1. There are unused objects in `OI.java` that need to be added!
-1. We could make our own screen captures website of our daily workflow.
-

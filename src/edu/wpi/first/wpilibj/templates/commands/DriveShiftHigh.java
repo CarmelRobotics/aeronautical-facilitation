@@ -6,8 +6,6 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
 
@@ -17,7 +15,7 @@ import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
  */
 public class DriveShiftHigh extends CommandBase {
 
-    private DriveTrain theDriveTrain;
+    private final DriveTrain theDriveTrain;
 
     public DriveShiftHigh() {
         super("StandardDrive");

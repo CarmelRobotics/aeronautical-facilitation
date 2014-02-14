@@ -12,7 +12,6 @@ import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
-import edu.wpi.first.wpilibj.templates.OI;
 import edu.wpi.first.wpilibj.templates.commands.StandardDrive;
 import edu.wpi.first.wpilibj.DriverStationLCD.Line;
 import edu.wpi.first.wpilibj.DriverStationLCD;
@@ -23,17 +22,17 @@ import edu.wpi.first.wpilibj.DriverStationLCD;
  */
 public class DriveTrain extends Subsystem {
 
-    private static RobotDrive drive;
-    private static RobotDrive drive6;
-    public final Victor FLeftMotor;
-    public final Victor BLeftMotor;
-    public final Victor FRightMotor;
-    public final Victor BRightMotor;
-    public final Victor MLeftMotor;
-    public final Victor MRightMotor;
+    private final RobotDrive drive;
+    //private final RobotDrive drive6;
+    private final Victor FLeftMotor;
+    private final Victor BLeftMotor;
+    private final Victor FRightMotor;
+    private final Victor BRightMotor;
+    //private final Victor MLeftMotor;
+    //private final Victor MRightMotor;
     private final Solenoid GShiftSolDown;
     private final Solenoid GShiftSolUp;
-    private static DriverStationLCD display;
+    private final DriverStationLCD display;
 
     /**
      *
@@ -41,24 +40,24 @@ public class DriveTrain extends Subsystem {
     public DriveTrain() {
         super("DriveTrain");
 
-        FLeftMotor = new Victor(RobotMap.FLeftMotor);
-        FRightMotor = new Victor(RobotMap.FRightMotor);
-        BLeftMotor = new Victor(RobotMap.BLeftMotor);
-        BRightMotor = new Victor(RobotMap.BRightMotor);
-        MLeftMotor = new Victor(RobotMap.MLeftMotor);
-        MRightMotor = new Victor(RobotMap.MRightMotor);
-        drive = new RobotDrive(FLeftMotor, BLeftMotor,  FRightMotor, BRightMotor);
+        FLeftMotor = new Victor(RobotMap.FLeftMotorPWM);
+        FRightMotor = new Victor(RobotMap.FRightMotorPWM);
+        BLeftMotor = new Victor(RobotMap.BLeftMotorPWM);
+        BRightMotor = new Victor(RobotMap.BRightMotorPWM);
+        //MLeftMotor = new Victor(RobotMap.MLeftMotorPWM);
+        //MRightMotor = new Victor(RobotMap.MRightMotorPWM);
+        drive = new RobotDrive(FLeftMotor, BLeftMotor, FRightMotor, BRightMotor);
         //drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         //drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 
-        GShiftSolDown = new Solenoid(RobotMap.GShiftSolDown);
-        GShiftSolUp = new Solenoid(RobotMap.GShiftSolUp);
+        GShiftSolDown = new Solenoid(RobotMap.DriveTrainLowGearSolenoid);
+        GShiftSolUp = new Solenoid(RobotMap.DriveTrainHighGearSolenoid);
         display = DriverStationLCD.getInstance();
     }
 
     public void initDefaultCommand() {
-        super.setDefaultCommand(new StandardDrive(drive, OI.getDriveStick()));
-        //super.setDefaultCommand(new StandardDrive(drive6, OI.getDriveStick()));
+        super.setDefaultCommand(new StandardDrive(drive, RobotMap.DriverJoystick));
+        
     }
 
     /**
@@ -77,9 +76,9 @@ public class DriveTrain extends Subsystem {
         drive.drive(speed, 0.0);
     }
 
-    public void drive6(double speed) {
-        drive6.drive(speed, 0.0);
-    }
+    //public void drive6(double speed) {
+    //    drive6.drive(speed, 0.0);
+    //}
 
     public void drivetank(double speedL, double speedR) {
         drive.tankDrive(speedL, speedR);
@@ -105,11 +104,10 @@ public class DriveTrain extends Subsystem {
      *
      */
     public void shiftLowGear() {
-        GShiftSolDown.set(RobotMap.shifterLowGear);
-        GShiftSolUp.set(!RobotMap.shifterLowGear);
-        GShiftSolDown.set(true);
+        GShiftSolUp.set(!RobotMap.DriveTrainLowGearSolenoidValue);
+        GShiftSolDown.set(RobotMap.DriveTrainLowGearSolenoidValue);
         GShiftSolUp.set(false);
-        //System.out.println("Shifting to Low gear");
+        GShiftSolDown.set(true);
         display.println(Line.kUser1, 1, "Into Low Gear ");
         display.updateLCD();
     }
@@ -118,31 +116,12 @@ public class DriveTrain extends Subsystem {
      *
      */
     public void shiftHighGear() {
-        GShiftSolUp.set(!RobotMap.shifterLowGear);
-        GShiftSolDown.set(RobotMap.shifterLowGear);
+        GShiftSolUp.set(!RobotMap.DriveTrainLowGearSolenoidValue);
+        GShiftSolDown.set(RobotMap.DriveTrainLowGearSolenoidValue);
         GShiftSolUp.set(true);
         GShiftSolDown.set(false);
 
-        //System.out.println("Shifting to High gear");
         display.println(Line.kUser1, 1, "Into High Gear ");
-        display.updateLCD();
-    }
-
-    /**
-     *
-     */
-    public void disbleSafety() {
-        drive.setSafetyEnabled(false);
-        display.println(Line.kUser1, 1, "Safety Disabled");
-        display.updateLCD();
-    }
-
-    /**
-     *
-     */
-    public void enableSafety() {
-        drive.setSafetyEnabled(true);
-        display.println(Line.kUser1, 1, "Safety Enabled");
         display.updateLCD();
     }
 

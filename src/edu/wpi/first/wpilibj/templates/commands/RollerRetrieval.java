@@ -13,42 +13,44 @@ import edu.wpi.first.wpilibj.templates.subsystems.Roller;
  *
  * @author Team 2035
  */
-public class LowerRoller extends CommandBase {
+public class RollerRetrieval extends CommandBase {
 
-    Roller r;
+    private final Roller roller;
 
     /**
      *
      */
-    public LowerRoller() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        super("lower roller");
-        r = AeronauticalFacilitation.getRoller();
-        requires(r);
+    public RollerRetrieval() {
+        super("rollertrieval");
+        roller = AeronauticalFacilitation.getRoller();
+        requires(roller);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        r.lowerRoller();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        roller.setretrievalRoller();
 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+
         return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+
+        roller.setRolleroff();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        roller.setRolleroff();
     }
 }
