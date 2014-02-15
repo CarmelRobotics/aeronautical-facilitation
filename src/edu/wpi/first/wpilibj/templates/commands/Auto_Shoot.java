@@ -37,7 +37,7 @@ public class Auto_Shoot extends CommandGroup {
         addSequential(new RollerExtend());
         addSequential(new Pause(.35));
         addSequential(new Launch());
-        addSequential(new Pause(.35));
+        //addSequential(new Pause(.35));
         addSequential(new RollerRetract());
     }
 

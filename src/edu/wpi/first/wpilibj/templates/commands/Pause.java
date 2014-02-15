@@ -6,16 +6,26 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.templates.RobotMap;
+
 /**
  *
  * @author Team 2035
  */
-public class ExampleCommand extends CommandBase {
+public class Pause extends CommandBase {
 
+    private Timer time;
+    private double delay;
     /**
      *
      */
-    public ExampleCommand() {
+    public Pause(double amount) {
+        super("Pause");
+        delay = amount * 1000000;
+        time = new Timer();
+        time.start();
+        
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -30,11 +40,12 @@ public class ExampleCommand extends CommandBase {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return (time.get() > delay);
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        time.stop();
     }
 
     // Called when another command which requires one or more of the same

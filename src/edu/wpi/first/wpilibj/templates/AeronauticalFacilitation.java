@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.templates.commands.Autonomous;
+import edu.wpi.first.wpilibj.templates.commands.Autonomous2;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.subsystems.*;
 import edu.wpi.first.wpilibj.DriverStationLCD.Line;
@@ -81,7 +81,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
 
         OI.initialize();
 
-        autonomousCommand = new Autonomous();
+        autonomousCommand = new Autonomous2();
 
         // Initialize all subsystems.
         // Subsystems: a self-contained system within a larger system. 

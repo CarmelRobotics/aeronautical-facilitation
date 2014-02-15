@@ -6,18 +6,28 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.command.CommandGroup;
+
+
 /**
  *
  * @author Team 2035
  */
-public class ExampleCommand extends CommandBase {
+public class Auto_Prepare extends CommandGroup {
 
-    /**
-     *
+    /** Steps:
+     * 1: drive forward 1 sec
+     * 2: stop driving
+     * 3: check to see if target is in aligned properly
+     * 3.5: if target is aligned properly #GOTO BRANCH 1
+     * 4: if target is in range and not aligned, align properly #goto BRANCH 1
+     * 5: if target is no longer in range #GOTO BRANCH 2
      */
-    public ExampleCommand() {
+    public Auto_Prepare() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+        addSequential(new AutoDriveForward()); // Drive forward for 1 sec, then stop
+        //possible added code for target calibration
     }
 
     // Called just before this Command runs the first time

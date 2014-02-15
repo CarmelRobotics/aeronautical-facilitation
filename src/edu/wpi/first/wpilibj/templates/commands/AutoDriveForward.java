@@ -6,50 +6,57 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
+import edu.wpi.first.wpilibj.templates.RobotMap;
 import edu.wpi.first.wpilibj.templates.subsystems.DriveTrain;
 
 /**
  *
  * @author Team 2035
  */
-public class DriveShiftLow extends CommandBase {
+public class AutoDriveForward extends CommandBase {
 
     private final DriveTrain theDriveTrain;
+    private Timer time;
+    private boolean timesup;
 
-    public DriveShiftLow() {
-        super("StandardDrive");
+    public AutoDriveForward() {
+        super("AutoDriveForward");
         theDriveTrain = AeronauticalFacilitation.getDriveTrain();
-        //requires(theDriveTrain);
+        time = new Timer();
+        time.start();
+        timesup = false;
+//requires(theDriveTrain);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-        theDriveTrain.shiftLowGear();
-        //DriveTrain.getCommandLog().setCommand(this.getName());
+
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        //DriveTrain.getCommandLog().setInputs("" + gyroball.getAngle());
-        //DriveTrain.setMetaCommandOutputs();
-        theDriveTrain.shiftLowGear();
+        theDriveTrain.drive(RobotMap.AutonomousSpeed);
+        if (time.get() > 1.00) {
+            timesup = true;
+        }
 
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return timesup;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        theDriveTrain.shiftHighGear();
+        theDriveTrain.drive(0);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        theDriveTrain.shiftHighGear();
+        //theDriveTrain.shiftHighGear();
     }
 }
