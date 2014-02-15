@@ -22,32 +22,39 @@ import javax.microedition.io.SocketConnection;
  * @author Team 2035
  */
 public class ArduinoConnection extends Subsystem {
-    
-    SocketConnection server;
-    InputStream inputStream;
-    InputStreamReader reader;
-    BufferedReader buffRead;
-    OutputStream outputStream;
-    
-    Thread connect;
-    
-    String arduinoIP = "10.20.35.12";
-    String arduinoPort = "1140";
-    
-    boolean updaterunning = false;
-    Timer periodicTimer;
-    String pattern;
-    
+
+    private SocketConnection server;
+    private InputStream inputStream;
+    private InputStreamReader reader;
+    private BufferedReader buffRead;
+    private OutputStream outputStream;
+
+    private Thread connect;
+
+    private String arduinoIP = "10.20.35.12";
+    private String arduinoPort = "1140";
+
+    private boolean updaterunning = false;
+    private Timer periodicTimer;
+    private static String pattern;
+    private boolean shouldRunUpdate = true;
+    public static boolean resetNeeded = false;
+
     public ArduinoConnection() {
         pattern = null;
+        resetNeeded = false;
+        periodicTimer = new Timer();
         connect = new Thread() {
             public void run() {
-                arduinoConnection();
+                //while (true) {
+                    arduinoConnection();
+                //}
             }
         };
         connect.start();
     }
     
+
     private synchronized void arduinoConnection() {
         System.out.println("acceptConnections");
         // Open the server
@@ -55,20 +62,20 @@ public class ArduinoConnection extends Subsystem {
             try {
                 server = (SocketConnection) Connector.open("socket://" + arduinoIP + ":" + arduinoPort);
                 server.setSocketOption(SocketConnection.LINGER, 5);
-                
+
                 System.out.println("Socket open");
                 break;
             } catch (IOException ex) {
                 //ex.printStackTrace();
                 try {
-                    
+
                     Thread.sleep(2000);
                 } catch (InterruptedException ex1) {
                     ex1.printStackTrace();
                 }
             }
         }
-        
+
         try {
             inputStream = server.openInputStream();
             outputStream = server.openOutputStream();
@@ -84,19 +91,22 @@ public class ArduinoConnection extends Subsystem {
             ex.printStackTrace();
         }
         DriverStationLCD.getInstance().updateLCD();
-        
+
         reader = new InputStreamReader(inputStream);
         buffRead = new BufferedReader(reader);
-        
+
         System.out.println("buffRead created");
+
+        shouldRunUpdate = true;
+
         if (updaterunning == false) {
             updaterunning = true;
             new Thread() {
                 public void run() {
-                    periodicTimer = new Timer();
-                    periodicTimer.start();
                     
-                    while (true) {
+                    periodicTimer.start();
+
+                    while (shouldRunUpdate) {
                         updateLEDs();
                         // try {
                         // Thread.sleep(2);
@@ -109,37 +119,47 @@ public class ArduinoConnection extends Subsystem {
                 }
             }.start();
         }
-        
+
     }
-    
+
     private void updateLEDs() {
-        
-        if (periodicTimer.get() > 0.5) {
+
+        if (periodicTimer.get() > 1.0) {
             periodicTimer.reset();
-            try {
-                outputStream.write("0".getBytes());
-            } catch (IOException z) {
-                System.out.println("Arudino write fail");
-                z.printStackTrace();
+            if (outputStream != null) {
+                if (pattern != null) {
+                    try {
+                        outputStream.write(pattern.getBytes());
+                        System.out.println("Sending packet");
+                        //pattern = null;
+                    } catch (IOException z) {
+                        System.out.println("Arduino pattern write fail");
+                        z.printStackTrace();
+                        shouldRunUpdate = false;
+                        updaterunning = false;
+                        resetNeeded = true;
+                    }
+                } else {
+                    try {
+                        outputStream.write("0".getBytes());
+                        //outputStream.write(pattern.getBytes());
+                    } catch (IOException z) {
+                        System.out.println("Arudino write fail");
+                        z.printStackTrace();
+                        shouldRunUpdate = false;
+                        updaterunning = false;
+                        outputStream = null;
+                        resetNeeded = true;
+                    }
+                }
             }
-            
         }
-        
-        if (pattern != null) {
-            try {
-                outputStream.write(pattern.getBytes());
-                pattern = null;
-            } catch (IOException z) {
-                System.out.println("Arduino pattern write fail");
-                z.printStackTrace();
-            }
-        }
-        
+
         if (buffRead != null) {
             try {
                 while (buffRead.ready()) {
-                //System.out.println("buffRead != null");
-                    
+                    //System.out.println("buffRead != null");
+
                     String message;
                     //String message = readString();
                     //System.out.println("readLine");
@@ -166,11 +186,12 @@ public class ArduinoConnection extends Subsystem {
             }
         }
     }
-    
-    public void setPattern(String s) {
+
+    public synchronized void setPattern(String s) {
         pattern = s;
+        System.out.println("setPattern called");
     }
-    
+
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());

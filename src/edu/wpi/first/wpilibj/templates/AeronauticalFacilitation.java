@@ -33,6 +33,8 @@ public class AeronauticalFacilitation extends IterativeRobot {
     private static Roller rollerSubsystem;
     private static DriverStationLCD display;
     private static Compressor compressor;
+    public static ArduinoConnection arduino;
+    private int pattern;
 
     /**
      * This function is run when the robot is first started up and should be
@@ -56,6 +58,10 @@ public class AeronauticalFacilitation extends IterativeRobot {
     public static BlockerArm getBlockerArm() {
         return blockercontroller;
     }
+    
+    public static ArduinoConnection getArduino() {
+        return arduino;
+    }
 
     /**
      *
@@ -75,6 +81,10 @@ public class AeronauticalFacilitation extends IterativeRobot {
         OI.initialize();
 
         autonomousCommand = new Autonomous();
+        
+        arduino = new ArduinoConnection();
+        arduino.setPattern("3");
+        pattern = 0;
 
         // Initialize all subsystems.
         // Subsystems: a self-contained system within a larger system. 
@@ -130,5 +140,14 @@ public class AeronauticalFacilitation extends IterativeRobot {
     public void disabledPeriodic() {
         display.println(Line.kUser1, 1, "Lauch: " + launchercontroller.launcherswitch());
         display.updateLCD();
+        
+        if (pattern == 0) {
+            arduino.setPattern("1");
+            pattern = 1;
+        } else {
+            //arduino.setPattern("2");
+            pattern = 0;
+        }
+        
     }
 }
