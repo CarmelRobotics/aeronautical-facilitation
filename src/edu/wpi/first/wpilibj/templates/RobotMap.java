@@ -29,7 +29,6 @@ public class RobotMap {
     public static final int RollerMotorPWM = 5; // Roller motor is wired to PWM out 5
     public static final int MRightMotorPWM = 6; // Middle Right drive motor is set to PWM out 6
     public static final int MLeftMotorPWM = 7; // Middle Left drive motor is set to PWM out 7
-    public static final int BlockerMotorPWM = 8; 
 
     /*
      * DIGITAL SIDECAR DIGITAL INPUTS NUMBERING (can be 1-14)
@@ -52,13 +51,6 @@ public class RobotMap {
     public static final int LaunchLeftSolenoid = 6; // Left Launcher solenoid is set to relay cartridge 6
     public static final int RollerExtensionSolenoid = 7; // Roller extension solenoid relay cartridge 7
     public static final int RollerRetractSolenoid = 8; // Roller retraction solenoid is set to 8
-
-    /*
-     * BLOCKER SUBSYSTEM CONSTANTS
-     */
-    public static final Relay.Value RaiseBlockerMotor = Relay.Value.kForward; 
-    public static final Relay.Value LowerBlockerMotor = Relay.Value.kReverse;
-    public static final Relay.Value blocker = Relay.Value.kOff;
 
     /*
      * ROLLER SUBSYSTEM CONSTANTS
