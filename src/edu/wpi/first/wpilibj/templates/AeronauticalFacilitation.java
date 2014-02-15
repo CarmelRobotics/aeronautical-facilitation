@@ -29,7 +29,6 @@ public class AeronauticalFacilitation extends IterativeRobot {
     Command autonomousCommand;
     private static DriveTrain DriveTrain;
     private static Launcher launchercontroller;
-    private static BlockerArm blockercontroller;
     private static Roller rollerSubsystem;
     private static DriverStationLCD display;
     private static Compressor compressor;
@@ -53,10 +52,6 @@ public class AeronauticalFacilitation extends IterativeRobot {
         return launchercontroller;
     }
 
-    public static BlockerArm getBlockerArm() {
-        return blockercontroller;
-    }
-
     /**
      *
      */
@@ -65,7 +60,6 @@ public class AeronauticalFacilitation extends IterativeRobot {
         DriveTrain = new DriveTrain();
         launchercontroller = new Launcher();
         rollerSubsystem = new Roller();
-        blockercontroller = new BlockerArm();
         display = DriverStationLCD.getInstance();
         compressor = new Compressor(RobotMap.PressureSwitchDigitalInput, RobotMap.CompressorRelay);
         compressor.start();
