@@ -40,14 +40,27 @@ public class AeronauticalFacilitation extends IterativeRobot {
      *
      * @return
      */
+    
+    /** Method to return a subsystem used in commands
+     * 
+     * @return the DriveTrain Subsystem
+     */
     public static DriveTrain getDriveTrain() {
         return DriveTrain;
     }
 
+    /** Method to return a subsystem used in commands
+     * 
+     * @return the Roller Subsystem
+     */
     public static Roller getRoller() {
         return rollerSubsystem;
     }
 
+    /** Method to return a subsystem  used in commands
+     * 
+     * @return the Launcher subsystem
+     */
     public static Launcher getLauncher() {
         return launchercontroller;
     }
