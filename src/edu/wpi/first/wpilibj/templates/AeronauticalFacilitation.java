@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.templates.commands.Autonomous;
+import edu.wpi.first.wpilibj.templates.commands.Autonomous2;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.subsystems.*;
 import edu.wpi.first.wpilibj.DriverStationLCD.Line;
@@ -29,7 +29,6 @@ public class AeronauticalFacilitation extends IterativeRobot {
     Command autonomousCommand;
     private static DriveTrain DriveTrain;
     private static Launcher launchercontroller;
-    private static BlockerArm blockercontroller;
     private static Roller rollerSubsystem;
     private static DriverStationLCD display;
     private static Compressor compressor;
@@ -41,20 +40,29 @@ public class AeronauticalFacilitation extends IterativeRobot {
      *
      * @return
      */
+    
+    /** Method to return a subsystem used in commands
+     * 
+     * @return the DriveTrain Subsystem
+     */
     public static DriveTrain getDriveTrain() {
         return DriveTrain;
     }
 
+    /** Method to return a subsystem used in commands
+     * 
+     * @return the Roller Subsystem
+     */
     public static Roller getRoller() {
         return rollerSubsystem;
     }
 
+    /** Method to return a subsystem  used in commands
+     * 
+     * @return the Launcher subsystem
+     */
     public static Launcher getLauncher() {
         return launchercontroller;
-    }
-
-    public static BlockerArm getBlockerArm() {
-        return blockercontroller;
     }
 
     /**
@@ -65,7 +73,6 @@ public class AeronauticalFacilitation extends IterativeRobot {
         DriveTrain = new DriveTrain();
         launchercontroller = new Launcher();
         rollerSubsystem = new Roller();
-        blockercontroller = new BlockerArm();
         display = DriverStationLCD.getInstance();
         compressor = new Compressor(RobotMap.PressureSwitchDigitalInput, RobotMap.CompressorRelay);
         compressor.start();
@@ -74,7 +81,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
 
         OI.initialize();
 
-        autonomousCommand = new Autonomous();
+        autonomousCommand = new Autonomous2();
 
         // Initialize all subsystems.
         // Subsystems: a self-contained system within a larger system. 

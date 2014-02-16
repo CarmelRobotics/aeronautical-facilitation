@@ -6,28 +6,28 @@
 /*----------------------------------------------------------------------------*/
 package edu.wpi.first.wpilibj.templates.commands;
 
-import edu.wpi.first.wpilibj.templates.AeronauticalFacilitation;
-import edu.wpi.first.wpilibj.templates.subsystems.BlockerArm;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.templates.RobotMap;
 
 /**
  *
  * @author Team 2035
  */
-public class BlockerUp extends CommandBase {
+public class Pause extends CommandBase {
 
-    private final BlockerArm blocker;
-
+    private Timer time;
+    private double delay;
     /**
      *
-     *
      */
-    public BlockerUp() {
+    public Pause(double amount) {
+        super("Pause");
+        delay = amount;
+        time = new Timer();
+        time.start();
+        
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        super("Block");
-        blocker = AeronauticalFacilitation.getBlockerArm();
-        requires(blocker);
-
     }
 
     // Called just before this Command runs the first time
@@ -36,23 +36,20 @@ public class BlockerUp extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        blocker.setBlockerRaise();
     }
 
-    // Make this return true when this Command nol onger needs to run execute()
+    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
-
+        return (time.get() > delay);
     }
 
     // Called once after isFinished returns true
     protected void end() {
-        blocker.setBlockeroff();
+        time.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-        blocker.setBlockeroff();
     }
 }
