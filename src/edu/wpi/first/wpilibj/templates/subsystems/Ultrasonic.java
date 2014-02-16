@@ -7,12 +7,13 @@
 package edu.wpi.first.wpilibj.templates.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+//inport edu.wpi.first.wpilibj.
 
 /**
  *
  * @author Team 2035
  */
-public class ExampleSubsystem extends Subsystem {
+public class Ultrasonic extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 

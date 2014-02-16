@@ -86,7 +86,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
         autonomousCommand = new Autonomous();
         
         arduino = new ArduinoConnection();
-        arduino.setPattern("0");
+        arduino.setPattern("4");
         pattern = 0;
         driverStation = DriverStation.getInstance();
         alliance = driverStation.getAlliance().value;
