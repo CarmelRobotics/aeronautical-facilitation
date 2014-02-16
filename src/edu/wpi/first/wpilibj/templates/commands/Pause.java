@@ -22,7 +22,7 @@ public class Pause extends CommandBase {
      */
     public Pause(double amount) {
         super("Pause");
-        delay = amount * 1000000;
+        delay = amount;
         time = new Timer();
         time.start();
         
