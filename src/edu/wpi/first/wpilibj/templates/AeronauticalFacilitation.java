@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.DriverStationLCD.Line;
 import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Ultrasonic;
 
 public class AeronauticalFacilitation extends IterativeRobot {
 
@@ -34,6 +35,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
     private boolean digital2;
     private boolean digital3;
     private int alliance;
+    private Ultrasonic us;
     
 
     /**
@@ -75,7 +77,8 @@ public class AeronauticalFacilitation extends IterativeRobot {
         display = DriverStationLCD.getInstance();
         compressor = new Compressor(RobotMap.PressureSwitchDigitalInput, RobotMap.CompressorRelay);
         compressor.start();
-        
+        us = new Ultrasonic(12, 10);
+        us.setAutomaticMode(true);
         DriveTrain.shiftHighGear();
 
         OI.initialize();
@@ -154,6 +157,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
 
     public void disabledPeriodic() {
         display.println(Line.kUser1, 1, "Lauch: " + launchercontroller.launcherswitch());
+        display.println(Line.kUser2, 1, "us" + us.getRangeInches()) ;
         display.updateLCD();
         digital1 = driverStation.getDigitalIn(1);
         digital2 = driverStation.getDigitalIn(2);
@@ -172,6 +176,7 @@ public class AeronauticalFacilitation extends IterativeRobot {
             arduino.setPattern("0");
             pattern = 0;
         }
+        
         
     }
 }
