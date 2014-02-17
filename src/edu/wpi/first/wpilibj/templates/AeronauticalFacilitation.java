@@ -11,19 +11,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.templates.commands.Autonomous2;
+import edu.wpi.first.wpilibj.templates.commands.Autonomous;
 import edu.wpi.first.wpilibj.templates.commands.CommandBase;
 import edu.wpi.first.wpilibj.templates.subsystems.*;
 import edu.wpi.first.wpilibj.DriverStationLCD.Line;
 import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DriverStation;
 
-/**
- * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the IterativeRobot
- * documentation. If you change the name of this class or the package after
- * creating this project, you must also update the manifest file in the resource
- * directory.
- */
 public class AeronauticalFacilitation extends IterativeRobot {
 
     Command autonomousCommand;
@@ -32,6 +27,14 @@ public class AeronauticalFacilitation extends IterativeRobot {
     private static Roller rollerSubsystem;
     private static DriverStationLCD display;
     private static Compressor compressor;
+    public static ArduinoConnection arduino;
+    private int pattern;
+    public static DriverStation driverStation;
+    private boolean digital1;
+    private boolean digital2;
+    private boolean digital3;
+    private int alliance;
+    
 
     /**
      * This function is run when the robot is first started up and should be
@@ -65,6 +68,11 @@ public class AeronauticalFacilitation extends IterativeRobot {
         return launchercontroller;
     }
 
+    
+    public static ArduinoConnection getArduino() {
+        return arduino;
+    }
+
     /**
      *
      */
@@ -76,13 +84,22 @@ public class AeronauticalFacilitation extends IterativeRobot {
         display = DriverStationLCD.getInstance();
         compressor = new Compressor(RobotMap.PressureSwitchDigitalInput, RobotMap.CompressorRelay);
         compressor.start();
-
+        
         DriveTrain.shiftHighGear();
 
         OI.initialize();
 
-        autonomousCommand = new Autonomous2();
 
+        autonomousCommand = new Autonomous();
+        
+        arduino = new ArduinoConnection();
+        arduino.setPattern("4");
+        pattern = 0;
+        driverStation = DriverStation.getInstance();
+        alliance = driverStation.getAlliance().value;
+        digital1 = driverStation.getDigitalIn(1);
+        digital2 = driverStation.getDigitalIn(2);
+        digital3 = driverStation.getDigitalIn(3);
         // Initialize all subsystems.
         // Subsystems: a self-contained system within a larger system. 
         CommandBase.init();
@@ -127,6 +144,16 @@ public class AeronauticalFacilitation extends IterativeRobot {
         display.println(Line.kUser1, 1, "Lauch: " + launchercontroller.launcherswitch() + "      ");
         display.updateLCD();
         Scheduler.getInstance().run();
+        if (alliance == 0) {
+            arduino.setPattern("1");
+            pattern = 1;
+        } else if (alliance == 1){
+            arduino.setPattern("2");
+            pattern = 2;
+        } else {
+            arduino.setPattern("0");
+            pattern = 0;
+        }
     }
 
     /**
@@ -139,5 +166,23 @@ public class AeronauticalFacilitation extends IterativeRobot {
     public void disabledPeriodic() {
         display.println(Line.kUser1, 1, "Lauch: " + launchercontroller.launcherswitch() + "      ");
         display.updateLCD();
+        digital1 = driverStation.getDigitalIn(1);
+        digital2 = driverStation.getDigitalIn(2);
+        digital3 = driverStation.getDigitalIn(3);
+        alliance = driverStation.getAlliance().value;
+        if (digital1 == true && digital2 == false && digital3 == false) {
+            arduino.setPattern("4");
+            pattern = 1;
+        } else if (digital2 == true && digital1 == false && digital3 == false) {
+            arduino.setPattern("5");
+            pattern = 5;
+        } else if (digital3 == true && digital1 == false && digital2 == false) {
+            arduino.setPattern("6");
+            pattern = 6;
+        } else {
+            arduino.setPattern("0");
+            pattern = 0;
+        }
+        
     }
 }
