@@ -23,13 +23,13 @@ import edu.wpi.first.wpilibj.DriverStationLCD;
 public class DriveTrain extends Subsystem {
 
     private final RobotDrive drive;
-    //private final RobotDrive drive6;
+    private final RobotDrive drive6;
     private final Victor FLeftMotor;
     private final Victor BLeftMotor;
     private final Victor FRightMotor;
     private final Victor BRightMotor;
-    //private final Victor MLeftMotor;
-    //private final Victor MRightMotor;
+    private final Victor MLeftMotor;
+    private final Victor MRightMotor;
     private final Solenoid GShiftSolDown;
     private final Solenoid GShiftSolUp;
     private final DriverStationLCD display;
@@ -44,9 +44,12 @@ public class DriveTrain extends Subsystem {
         FRightMotor = new Victor(RobotMap.FRightMotorPWM);
         BLeftMotor = new Victor(RobotMap.BLeftMotorPWM);
         BRightMotor = new Victor(RobotMap.BRightMotorPWM);
-        //MLeftMotor = new Victor(RobotMap.MLeftMotorPWM);
-        //MRightMotor = new Victor(RobotMap.MRightMotorPWM);
+        MLeftMotor = new Victor(RobotMap.MLeftMotorPWM);
+        MRightMotor = new Victor(RobotMap.MRightMotorPWM);
         drive = new RobotDrive(FLeftMotor, BLeftMotor, FRightMotor, BRightMotor);
+        //drive6 = new RobotDrive(FLeftMotor, BLeftMotor, FRightMotor, BRightMotor, MLeftMotor, MRightMotor);
+        drive6 = new RobotDrive(MLeftMotor, MRightMotor);
+        //^Won't take 6 paramaters?
         //drive.setInvertedMotor(RobotDrive.MotorType.kFrontRight, true);
         //drive.setInvertedMotor(RobotDrive.MotorType.kRearLeft, true);
 
@@ -66,6 +69,7 @@ public class DriveTrain extends Subsystem {
      */
     public void arcadeDrive(Joystick j) {
         drive.arcadeDrive(j.getY(), j.getX());
+        drive6.arcadeDrive(j.getY(), j.getX());
     }
 
     /**
@@ -74,14 +78,18 @@ public class DriveTrain extends Subsystem {
      */
     public void drive(double speed) {
         drive.drive(speed, 0.0);
+        drive6.drive(speed, 0.0);
     }
 
-    //public void drive6(double speed) {
-    //    drive6.drive(speed, 0.0);
-    //}
+    /*public void drive6(double speed) {
+        drive6.drive(speed, 0.0);
+        drive.drive(speed, 0.0);
+    
+    }*/
 
     public void drivetank(double speedL, double speedR) {
         drive.tankDrive(speedL, speedR);
+        drive6.tankDrive(speedL, speedR);
     }
 
     /**
@@ -98,6 +106,7 @@ public class DriveTrain extends Subsystem {
      */
     public void rotate(double rot) {
         drive.drive(0, rot);
+        drive6.drive(0, rot);
     }
 
     /**
